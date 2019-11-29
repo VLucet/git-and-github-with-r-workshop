@@ -67,12 +67,23 @@ Git will print a message summarising the changes you've made. Well done! You now
 
 ### Exercise 2: All roads lead to GitHub 🚦🛣️
 
-This is nice and all, but git really becomes really useful when you use a "remote". After having created a repo on your local machine (and provided that you have set up git right on your computer), you should be able to "send" your repo to GitHub, an online hub for remote repository. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". The fisrt thing to do is to tell git on your machine that you want to push to a remote.
+This is nice and all, but git becomes even more useful when you pair it with GitHub. After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to "send" your repo to GitHub, an online hub for remote repositories. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". 
+- The fisrt thing to do is to create the remote on github.com (log in, click on the green folder thingy, gite it a name). You should give it the same name than your local git repo (it's easier to remember that way!).
+- The next thing is to tell your local git that you have created a new remote. You will name this the "origin" remote. 
 ```bash
-
+git remote add origin *URL* 	# Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
 ```
+- Finally, it is time to push your repo. The first time you push, you have to tell git that the remote is an upstream branch (more on that later).
+```bash 
+ git push --set-upstream origin master	# This pushes and sets the remote as "upstream"
+ git push origin master			# If you try to push again, it will tell you that everything is up to date!
+```
+There you go! you now have a copy of your repo on GitHub. Well done!
 
 ### Exercise 3: The client is king: GitHub Desktop 👑
+
+What if you don't want to type in commands all the time? You can use a GitHub client. It's a program that will provide an more user-friendly interface with git and GitHub. 
+***\[Demonstrastion of GitHub Desktop\]***
 
 ### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
 
