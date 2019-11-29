@@ -1,6 +1,6 @@
 # Git and github with R Workshop - November 2019 👩‍💻 👨‍💻
 
-This workshop makes use of differents source of online learning materials. 
+This workshop makes use of different sources of online learning materials. 
 
 ## O sensei, Linus Torvalds
 The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
@@ -20,3 +20,7 @@ Linus Torvalds created git because he was frustrated with existing version contr
 *For people with more  experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.*
 
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you not to have to put in your password all the time every time you push or pull.  
+
+## What is git? "Git for humans" by Alice Bartlett
+Alice Bartlett from the Financial times has made a great set of introductory slides to explain **5 key things** about git. 
+https://speakerdeck.com/alicebartlett/git-for-humans
