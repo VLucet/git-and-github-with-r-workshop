@@ -1,4 +1,7 @@
-## git_and_github_with_r_workshop_nov2019
+# Git and github with r Workshop - November 2019
 
-# Linus Torvalds
+This workshop makes use of differents source of online learning materials. 
+
+## Linus Torvalds
+The mind behind linux
 https://youtu.be/o8NPllzkFhE?t=433
