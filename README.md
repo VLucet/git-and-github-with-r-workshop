@@ -16,7 +16,7 @@ Linus Torvalds created git because he was frustrated with existing version contr
 3. Install git https://happygitwithr.com/install-git.html
 4. Configure git https://happygitwithr.com/hello-git.html
 5. Install a git client: I will not cover all the git clients. 
-	- I will show you how to use GitHub desktop (for Mac and Windows users), download here. 
+	- I will show you how to use GitHub desktop (for Mac and Windows users), download here: https://desktop.github.com/. 
 	- If you are a linux user I recommend gitkraken instead (and will be happy to show you that too). 
 
 *For people with more  experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.*
