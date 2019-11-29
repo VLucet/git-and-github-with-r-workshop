@@ -86,25 +86,64 @@ What if you don't want to type in commands all the time? You can use a GitHub cl
 ***\[Demonstrastion of GitHub Desktop\]***
 - Open GitHub Desktop. 
 - You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created 
-- Go to File ➡️ Add local repository ➡️ navigate to the path. Your repo is now added! 
+- Go to File => Add local repository => navigate to the path. Your repo is now added! 
 - You can open your text file again and change it. You can use the interface to ignore, remove or add changes and fpr commiting. Even better, pushing (and pulling) is only one click away!
 
 ### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
 
-Form teams of 3. The youngest of the team will be the repo owner for this exercise. Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file. In this read me file, type in the name of the best movie of all time. You heard me, write it down and commit it to your repo.
-Next team is for you to make a team. Navigate to your 
+Form teams of 3. The youngest of the team will be the repo owner for this exercise. 
+- Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file.
+- In this read me file, type in the name of the best movie of all time. You heard me, write it down and commit it to your repo.
+- Next step is for you to make a team. Navigate to your repo settings and add the member of your team (see demo)
+- You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line: 
+```bash
+cd ~ 			# Navigae to your home folder again 
+git clone *URL* 	# The URL of the repo created by the repo owner
+```
+Well done, you have no set up a team and you are now technically working on the same repo.
 
 ### Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
 🎶 https://www.youtube.com/watch?v=jngwoLvW8UY 🎶
 
+You are now ready to experience the true git experience: pushing and pulling. 
+To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of  the repo that is on GitHub. To do so, we use the `fetch` command. 
+```bash 
+git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)
+```
+The next step is for one of the team member (othr than the repo owner) to make a change. Make a change to teh Readme file for instance (maybe you think the best movie of all time is *not* Sharknados 3. You'd be wrong, but still, you're welcome to change that...
+``` 
+nano README.md	# Reminder: nano is the console editor
+```
+Then, add, commit and push thsoe changes
+```bash
+git add -A 				# Once again, add all the changes
+git commit -m "modified the README"	# Always add a useful message (unless it's 2:32am and then you can just say "gazoub."
+git push origin master			# Push it!
+```
+Now, two of the team member are not in sync with the changes. You can see it with a `fetch`
+```bash
+git fetch	# This will download the changes pushed by your team member
+git status	# Always good to run status once in a while. Here it will tell you that you are 1 commit behind! 
+```
+To remedy to this, it is as simple as "pulling" the changes in your local repo. 
+```bash
+git pull origin master	# Nice! Git will print a nice summary with green + and red -. How cute. 
+```
+Well done! You now know how to `push` and `pull`, `fetch` and `status` your way around a shared repo. You're the best. Now, let's do it a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit. 
+
+```bash
+git fetch
+git status #different
+```
+
 ### Exercise 6: Git of war 💣💥🤯
 
-Conflicts.
+Are you proud of yourself? You've created a conflict. A conflict typically happens when 1) you've made a local change and are pulling has already been made and therefore, git doesn't
 
 ### Exercise 7: The tree of git 🌳
 
-Branching
+A great way to avoid conflics is to use the magic of branching. Branches are like alternate timelines. TBC...
 
 ### Exercise 8: What R your new skills? ✨
 
-Rstudio
+Rstudio.
