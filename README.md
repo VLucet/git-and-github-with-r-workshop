@@ -4,7 +4,7 @@ This workshop makes use of different sources of online learning materials.
 
 ## Part 1: Introduction
 
-### O sensei, Linus Torvalds
+### Linus Torvalds, the hero we don't deserve 🦸‍♂️ 🦇
 The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
 Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
 
@@ -31,12 +31,59 @@ https://speakerdeck.com/alicebartlett/git-for-humans
 
 ### Exercise 1: Once upon a commit... 📖
 
-### Exercise 2: Team Work makes the Dream Work 👩‍💻 👨‍💻
+Let's start by creating a new repo (i.e. a directory that is tracked by git) in your home directory.
+```bash
+cd ~ 			# Go to your home directory
+mkdir gitWorkshop 	# Creates a new directory called gitWorkshop in your home directory
+cd gitWorkshop 		# Moves to inside the new directory
+```
+To make git work you need to initialize it. It's simple: 
+```bash
+git init		# This initialize git in your directory
+```
+Let's create a file that is important to us. We want to track all the changes to this file. 
+```bash
+touch topsecretfile.txt	# Creates the file
+nano topsecretfile.txt	# This opens the nano Text editor. 
+```
+Type in your ***top secret 🙊*** message. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
+Let me introduce you to your fisrt git tool, the `status` command.
+```bash
+ls			# This lists the files in the directory. You should see your file listed!
+git status		# Shows the current status of your repo with regards to git
+```
+Git status shows you multiple thing: the branch you are on (the master branch). It lists the latest commit (none yet) and more importantly, the changes you've made since the last commit. Here the `topsecretfile.txt` is shown as untracked. Let's remedy to that. To do so, here is a second command: `add`.
+```bash
+git add -A		# This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered 
+git status 		# Status now shows, in green, which changes have to be committed
+```
+It's now time to commit! Note that you could do more changes, you could then choose or not to `add` them to the index, before committing, or you could add them after committing. This would later be part of a different commit. To commit your changes, simply use the `commit` command, along with a (useful) message 
+```bash
+git commit -m "First commit"	# the -m flag adds a message to a commit
+```
+Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹
 
-### Exercise 3: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
+***On your own***: make another change to your file, then add and commit. Then use `git log` to print the commit history!
+
+### Exercise 2: All roads lead to GitHub 🚦🛣️
+
+This is nice and all, but git really becomes really useful when you use a "remote". After having created a repo on your local machine (and provided that you have set up git right on your computer), you should be able to "send" your repo to GitHub, an online hub for remote repository. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". The fisrt thing to do is to tell git on your machine that you want to push to a remote.
+```bash
+
+```
+
+### Exercise 3: The client is king: GitHub Desktop 👑
+
+### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
+
+Pair in teams of 3. Introduce yourself to each other. The youngest of the team will be the repo owner. Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file. In this read me file.  
+
+### Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
 🎶 https://www.youtube.com/watch?v=jngwoLvW8UY 🎶
 
-### Exercise 4: 💣💥🤯
+### Exercise 6: Git of war 💣💥🤯
 
-### Exercise : What R you doing? 🇷
+### Exercise 7:  
+
+### Exercise 8: What R your new skills? ✨
 
