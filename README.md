@@ -24,7 +24,19 @@ Linus Torvalds created git because he was frustrated with existing version contr
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you not to have to put in your password all the time every time you push or pull.  
 
 ### What is git? "Git for humans" by Alice Bartlett
-Alice Bartlett from the Financial times has made a great set of introductory slides to explain **5 key things** about git. 
+Alice Bartlett (https://github.com/alicebartlett) from the Financial times has made a great set of introductory slides to explain **5 key things** about git: 
 https://speakerdeck.com/alicebartlett/git-for-humans
 
-## Part 2: Group exercises
+## Part 2: Hands-on
+
+### Exercise 1: Once upon a commit... 📖
+
+### Exercise 2: Team Work makes the Dream Work 👩‍💻 👨‍💻
+
+### Exercise 3: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
+🎶 https://www.youtube.com/watch?v=jngwoLvW8UY 🎶
+
+### Exercise 4: 💣💥🤯
+
+### Exercise : What R you doing? 🇷
+
