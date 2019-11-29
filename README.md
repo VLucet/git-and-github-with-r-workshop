@@ -129,16 +129,22 @@ To remedy to this, it is as simple as "pulling" the changes in your local repo.
 ```bash
 git pull origin master	# Nice! Git will print a nice summary with green + and red -. How cute. 
 ```
-Well done! You now know how to `push` and `pull`, `fetch` and `status` your way around a shared repo. You're the best. Now, let's do it a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit. 
-
-```bash
-git fetch
-git status #different
-```
+Well done! You now know how to `push` and `pull`, `fetch` and `status` your way around a shared repo. You're the best.
 
 ### Exercise 6: Git of war 💣💥🤯
 
+Now, let's do it a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH
+Now, repo owner will go on github and change the file (teach how to edit in github)
+Now last to edit:
+```bash
+git fetch
+git status #different
+git pull # conflict
+```
 Are you proud of yourself? You've created a conflict. A conflict typically happens when 1) you've made a local change and are pulling has already been made and therefore, git doesn't
+```bash
+nano file 
+```
 
 ### Exercise 7: The tree of git 🌳
 
