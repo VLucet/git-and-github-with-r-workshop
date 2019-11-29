@@ -4,7 +4,7 @@ This workshop makes use of differents source of online learning materials.
 
 ## O sensei, Linus Torvalds
 The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
-Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. Today you are going to become one of those people!
+Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
 
 ## Preparation (before the workshop)
 **(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
