@@ -46,7 +46,7 @@ Let's create a file that is important to us. We want to track all the changes to
 touch topsecretfile.txt	# Creates the file
 nano topsecretfile.txt	# This opens the nano Text editor. 
 ```
-Type in your ***top secret 🙊*** message. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
+Type in your **top secret 🙊** message. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
 Let me introduce you to your fisrt git tool, the `status` command.
 ```bash
 ls			# This lists the files in the directory. You should see your file listed!
@@ -63,7 +63,7 @@ git commit -m "First commit"	# the -m flag adds a message to a commit
 ```
 Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹
 
-***On your own***: make another change to your file, then add and commit. Then use `git log` to print the commit history!
+**On your own**: make another change to your file, then add and commit. Then use `git log` to print the commit history!
 
 ### Exercise 2: All roads lead to GitHub 🚦🛣️
 
@@ -84,17 +84,27 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 What if you don't want to type in commands all the time? You can use a GitHub client. It's a program that will provide an more user-friendly interface with git and GitHub. 
 ***\[Demonstrastion of GitHub Desktop\]***
+- Open GitHub Desktop. 
+- You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created 
+- Go to File ➡️ Add local repository ➡️ navigate to the path. Your repo is now added! 
+- You can open your text file again and change it. You can use the interface to ignore, remove or add changes and fpr commiting. Even better, pushing (and pulling) is only one click away!
 
 ### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
 
-Pair in teams of 3. Introduce yourself to each other. The youngest of the team will be the repo owner. Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file. In this read me file.  
+Form teams of 3. The youngest of the team will be the repo owner for this exercise. Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file. In this read me file, type in the name of the best movie of all time. You heard me, write it down and commit it to your repo.
+Next team is for you to make a team. Navigate to your 
 
 ### Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
 🎶 https://www.youtube.com/watch?v=jngwoLvW8UY 🎶
 
 ### Exercise 6: Git of war 💣💥🤯
 
-### Exercise 7:  
+Conflicts.
+
+### Exercise 7: The tree of git 🌳
+
+Branching
 
 ### Exercise 8: What R your new skills? ✨
 
+Rstudio
