@@ -159,7 +159,7 @@ Well done! You've learned how to deal with conflicts! 💪
 
 ### Exercise 7: The tree of git 🌳
 
-A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines. TBC...
+A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allos you to make changes on a separate timeline.
 
 ### Exercise 8: What R your new skills? ✨
 
