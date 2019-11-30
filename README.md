@@ -133,22 +133,25 @@ Well done! You now know how to `push` and `pull`, `fetch` and `status` your way 
 
 ### Exercise 6: Git of war 💣💥🤯
 
-Now, let's do it a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH
-Now, repo owner will go on github and change the file (teach how to edit in github)
-Now last to edit:
+Now, let's do it again but a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH.
+Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.
+Now, the person to have just changed the file on their machine will do the pulling procedure:
 ```bash
-git fetch
-git status #different
-git pull # conflict
+git fetch 	# This fetches the changes
+git status 	# WOW! Status says that the commits are different... this might cause a problem
+git pull 	# There is now a "conflict" and you need to resolve it
 ```
-Are you proud of yourself? You've created a conflict. A conflict typically happens when 1) you've made a local change and are pulling has already been made and therefore, git doesn't
+Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. Git doesn'i know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
+You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
 ```bash
-nano file 
+nano *file*	# Opens file in nano 
 ```
+When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. You can choose to keep eitehr of the changes or 
 
+The next thing is to 
 ### Exercise 7: The tree of git 🌳
 
-A great way to avoid conflics is to use the magic of branching. Branches are like alternate timelines. TBC...
+A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines. TBC...
 
 ### Exercise 8: What R your new skills? ✨
 
