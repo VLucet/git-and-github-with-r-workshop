@@ -28,6 +28,7 @@ Alice Bartlett (https://github.com/alicebartlett) from the Financial times has m
 https://speakerdeck.com/alicebartlett/git-for-humans
 
 ## Part 2: Hands-on
+*The following is inspired from the excellent tutorial https://happygitwithr.com/ Thanks to them!*
 
 ### Exercise 1: Once upon a commit... 📖
 
