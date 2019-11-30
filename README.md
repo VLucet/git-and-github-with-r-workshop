@@ -147,8 +147,15 @@ You have 2 options: you can use the nano editor: or you can use a combination of
 nano *file*	# Opens file in nano 
 ```
 When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. You can choose to keep eitehr of the changes or 
+Once you have made your changes, it is time to commit your change, and merge it with the remote repo. 
+```bash
+git add -A 				# Once again, add all the changes
+git commit -m "fixed the conflict"	# You fixed the conflict, better put a messgae indicating it!
+git push origin master			# Push it!
+git status				# All is good!
+```
+Well done! You've learned how to deal with conflicts! 💪
 
-The next thing is to 
 ### Exercise 7: The tree of git 🌳
 
 A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines. TBC...
