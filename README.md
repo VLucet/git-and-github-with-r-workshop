@@ -97,7 +97,7 @@ Form teams of 3. The youngest of the team will be the repo owner for this exerci
 - Next step is for you to make a team. Navigate to your repo settings and add the member of your team (see demo)
 - You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line: 
 ```bash
-cd ~ 			# Navigae to your home folder again 
+cd ~ 			# Navigate to your home folder again 
 git clone *URL* 	# The URL of the repo created by the repo owner
 ```
 Well done, you have no set up a team and you are now technically working on the same repo.
