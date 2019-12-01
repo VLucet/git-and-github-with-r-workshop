@@ -2,12 +2,6 @@
 
 This workshop makes use of different sources of online learning materials. 
 
-## Part 1: Introduction
-
-### Linus Torvalds, the git hero 🦸‍♂️
-The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
-Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
-
 ### Preparation (before the workshop)
 **(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
 
@@ -22,6 +16,11 @@ Linus Torvalds created git because he was frustrated with existing version contr
 *For people with more  experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.*
 
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you not to have to put in your password all the time every time you push or pull.  
+
+## Part 1: Introduction
+### Linus Torvalds, the git hero 🦸‍♂️
+The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
+Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
 
 ### What is git? "Git for humans" by Alice Bartlett
 Alice Bartlett (https://github.com/alicebartlett) from the Financial times has made a great set of introductory slides to explain **5 key things** about git: 
@@ -48,12 +47,12 @@ touch topsecretfile.txt	# Creates the file
 nano topsecretfile.txt	# This opens the nano Text editor. 
 ```
 Type in your **top secret 🙊** message. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
-Let me introduce you to your fisrt git tool, the `status` command.
+Let me introduce you to your first git tool, the `status` command.
 ```bash
 ls			# This lists the files in the directory. You should see your file listed!
 git status		# Shows the current status of your repo with regards to git
 ```
-Git status shows you multiple thing: the branch you are on (the master branch). It lists the latest commit (none yet) and more importantly, the changes you've made since the last commit. Here the `topsecretfile.txt` is shown as untracked. Let's remedy to that. To do so, here is a second command: `add`.
+Git status shows you multiple things: the branch you are on (the master branch). It lists the latest commit (none yet) and more importantly, the changes you've made since the last commit. Here the `topsecretfile.txt` is shown as untracked. Let's remedy to that. To do so, here is a second command: `add`.
 ```bash
 git add -A		# This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered 
 git status 		# Status now shows, in green, which changes have to be committed
@@ -88,7 +87,7 @@ What if you don't want to type in commands all the time? You can use a GitHub cl
 - Open GitHub Desktop. 
 - You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created 
 - Go to File => Add local repository => navigate to the path. Your repo is now added! 
-- You can open your text file again and change it. You can use the interface to ignore, remove or add changes and fpr commiting. Even better, pushing (and pulling) is only one click away!
+- You can open your text file again and change it. You can use the interface to ignore, remove or add changes and for commiting. Even better, pushing (and pulling) is only one click away!
 
 ### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
 
@@ -111,11 +110,11 @@ To do so, we are going to use the repo you cloned at the previous exercise. The 
 ```bash 
 git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)
 ```
-The next step is for one of the team member (othr than the repo owner) to make a change. Make a change to teh Readme file for instance (maybe you think the best movie of all time is *not* Sharknados 3. You'd be wrong, but still, you're welcome to change that...
+The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you think the best movie of all time is *not* Sharknados 3. You'd be wrong, but still, you're welcome to change that...)
 ``` 
 nano README.md	# Reminder: nano is the console editor
 ```
-Then, add, commit and push thsoe changes
+Then, add, commit and push those changes
 ```bash
 git add -A 				# Once again, add all the changes
 git commit -m "modified the README"	# Always add a useful message (unless it's 2:32am and then you can just say "gazoub."
@@ -135,6 +134,10 @@ Well done! You now know how to `push` and `pull`, `fetch` and `status` your way 
 ### Exercise 6: Git of war 💣💥🤯
 
 Now, let's do it again but a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH.
+```bash
+git add -A 				# Once again, add all the changes
+git commit -m "modified the README"	# Do not push!
+```
 Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.
 Now, the person to have just changed the file on their machine will do the pulling procedure:
 ```bash
@@ -142,12 +145,12 @@ git fetch 	# This fetches the changes
 git status 	# WOW! Status says that the commits are different... this might cause a problem
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
-Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. Git doesn'i know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
+Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
 You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
 ```bash
 nano *file*	# Opens file in nano 
 ```
-When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. You can choose to keep eitehr of the changes or 
+When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. You can choose to keep either of the changes or both. 
 Once you have made your changes, it is time to commit your change, and merge it with the remote repo. 
 ```bash
 git add -A 				# Once again, add all the changes
@@ -160,7 +163,7 @@ Well done! You've learned how to deal with conflicts! 💪
 ### Exercise 7: The tree of git 🌳
 
 A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
-One of the team member should do the folloing. The first thing is to create the branch:
+One of the team members should do the following. The first thing is to create the branch:
 ```bash
 git branch mynewbranch		# This simply creates the new branch
 ```
@@ -177,7 +180,7 @@ git commit -a -m 'added some changes to the new branch'  # Another shorcut to ad
 git push origin mynewbranch 				 # Pushing to the new branch - you can also just type in "git push"
 ```
 Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch. 
-To do so, there are two ways to do it. i will show you how to do it by the command line and then on github desktop. Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
+To do so, there are two ways to do it. I will show you how to do it by the command line and then on github desktop. Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
 ```bash
 git checkout master	# You've switched to the master branch
 git merge mynewbranch	# this merges (opens a pull request and checks it against the master)
