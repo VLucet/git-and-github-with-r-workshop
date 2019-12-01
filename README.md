@@ -69,7 +69,7 @@ Git will print a message summarising the changes you've made. Well done! You now
 ### Exercise 2: All roads lead to GitHub 🚦🛣️
 
 This is nice and all, but git becomes even more useful when you pair it with GitHub. After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to "send" your repo to GitHub, an online hub for remote repositories. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". 
-- The fisrt thing to do is to create the remote on github.com (log in, click on the green folder thingy, gite it a name). You should give it the same name than your local git repo (it's easier to remember that way!).
+- The first thing to do is to create the remote on github.com (log in, click on the green folder thingy, give it a name). You should give it the same name than your local git repo (it's easier to remember that way!).
 - The next thing is to tell your local git that you have created a new remote. You will name this the "origin" remote. 
 ```bash
 git remote add origin *URL* 	# Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
