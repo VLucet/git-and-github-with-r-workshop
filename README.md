@@ -159,8 +159,32 @@ Well done! You've learned how to deal with conflicts! 💪
 
 ### Exercise 7: The tree of git 🌳
 
-A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allos you to make changes on a separate timeline.
+A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
+One of the team member should do the folloing. The first thing is to create the branch:
+```bash
+git branch mynewbranch		# This simply creates the new branch
+```
+The branch is created, but you are still on the master branch. To be able to switch to the new branch, we need to "checkout' the branch:
+```bash 
+git checkout mynewbranch	# This makes you switch to the new branch
+git status 			# You are now on the new branch
+``` 
+***note***: *there is a shortchut to do those 2 commands in one line: `git checkout -b mynewbranch`*
+You are now on the new branch! This branch is only on your local machine for now. Let's add some changes and then commit and push so that you branch is saved on the remote!
+```bash
+# Do some changes in your repo! They will only be part of the commit hostory of your branch
+git commit -a -m 'added some changes to the new branch'  # Another shorcut to add and commit at the same time!
+git push origin mynewbranch 				 # Pushing to the new branch - you can also just type in "git push"
+```
+Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch. 
+To do so, there are two ways to do it. i will show you how to do it by the command line and then on github desktop. Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
+```bash
+git checkout master	# You've switched to the master branch
+git merge mynewbranch	# this merges (opens a pull request and checks it against the master)
+git push 		# this pushes the merging of the two branches 
+```
+Additionnaly, you can do all this by creating a pull request on github \[DEMO]. 
 
 ### Exercise 8: What R your new skills? ✨
 
-Rstudio.
+Now I will show you how to integrate R and Rstudio \[DEMO].
