@@ -1,5 +1,7 @@
 # Git and github with R Workshop 👩‍💻 👨‍💻
 
+<img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png">
+
 This workshop makes use of different sources of online learning materials. 
 List of websites/resources: 
 - https://happygitwithr.com/
