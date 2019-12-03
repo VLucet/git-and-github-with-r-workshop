@@ -43,35 +43,38 @@ git init		# This initialize git in your directory
 ```
 Let's create a file that is important to us. We want to track all the changes to this file. 
 ```bash
-touch topsecretfile.txt	# Creates the file
-nano topsecretfile.txt	# This opens the nano Text editor. 
+touch script_1.R	# Creates the file
+nano script_1.R		# This opens the nano Text editor. 
 ```
-Type in your **top secret 🙊** message. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
+You could of course have edited this in a separate. You can then close the editor with `ctrl+X` type `y` for yes and press `enter`. We can now start to use git to track the changes we made to this file. 
 Let me introduce you to your first git tool, the `status` command.
 ```bash
 ls			# This lists the files in the directory. You should see your file listed!
 git status		# Shows the current status of your repo with regards to git
 ```
-Git status shows you multiple things: the branch you are on (the master branch). It lists the latest commit (none yet) and more importantly, the changes you've made since the last commit. Here the `topsecretfile.txt` is shown as untracked. Let's remedy to that. To do so, here is a second command: `add`.
+Here `status` shows you multiple things: the branch you are on (the master branch, more on that later). It lists the latest commit (none yet) and the changes you've made since the last commit. Here the `script_1.R` is shown as untracked. Let's change that. To do so, here is a second command: `add`.
 ```bash
 git add -A		# This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered 
 git status 		# Status now shows, in green, which changes have to be committed
 ```
 It's now time to commit! Note that you could do more changes, you could then choose or not to `add` them to the index, before committing, or you could add them after committing. This would later be part of a different commit. To commit your changes, simply use the `commit` command, along with a (useful) message 
 ```bash
-git commit -m "First commit"	# the -m flag adds a message to a commit
+git commit -m "First commit - adding script1"	# the -m flag adds a message to a commit
+git log						# Git log shows you the history
 ```
-Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹
-
-**On your own**: make another change to your file, then add and commit. Then use `git log` to print the commit history!
+Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git `log` command shows you the recent commit history. 
 
 ### Exercise 2: All roads lead to GitHub 🚦🛣️
 
-This is nice and all, but git becomes even more useful when you pair it with GitHub. After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to "send" your repo to GitHub, an online hub for remote repositories. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". 
-- The first thing to do is to create the remote on github.com (log in, click on the green folder thingy, give it a name). You should give it the same name than your local git repo (it's easier to remember that way!).
+After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". 
+- The first thing to do is to create the remote on github.com 
+	- log in at github.com 
+	- click on the green folder
+	- Give a name to your repo. It's good practice to the use the same name than your local git repo (it's also easier to remember that way!).
+	- DO NOT add a `README.md` or `.gitignore`. The repo needs to be empty.
 - The next thing is to tell your local git that you have created a new remote. You will name this the "origin" remote. 
 ```bash
-git remote add origin *URL* 	# Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
+git remote add origin https:...	   # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
 ```
 - Finally, it is time to push your repo. The first time you push, you have to tell git that the remote is an upstream branch (more on that later).
 ```bash 
@@ -79,6 +82,7 @@ git remote add origin *URL* 	# Add here the URL of your git repo, for instance h
  git push origin master			# If you try to push again, it will tell you that everything is up to date!
 ```
 There you go! you now have a copy of your repo on GitHub. Well done!
+**NOTE:** it is also possible to start the repo on GitHub and download a clone (see next exercise)
 
 ### Exercise 3: The client is king: GitHub Desktop 👑
 
@@ -92,7 +96,8 @@ What if you don't want to type in commands all the time? You can use a GitHub cl
 ### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
 
 Form teams of 3. The youngest of the team will be the repo owner for this exercise. 
-- Repo Owner, head over to github to create a new online repository. Make sure to initiate this repository with a ReadMe file.
+- Repo Owner, head over to github to create a new online repository. 
+	- This time, make sure to initiate this repository with a ReadMe file.
 - In this read me file, type in the name of the best movie of all time. You heard me, write it down and commit it to your repo.
 - Next step is for you to make a team. Navigate to your repo settings and add the member of your team (see demo)
 - You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line: 
@@ -103,7 +108,6 @@ git clone *URL* 	# The URL of the repo created by the repo owner
 Well done, you have no set up a team and you are now technically working on the same repo.
 
 ### Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
-🎶 https://www.youtube.com/watch?v=jngwoLvW8UY 🎶
 
 You are now ready to experience the true git experience: pushing and pulling. 
 To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of  the repo that is on GitHub. To do so, we use the `fetch` command. 
@@ -145,7 +149,9 @@ git fetch 	# This fetches the changes
 git status 	# WOW! Status says that the commits are different... this might cause a problem
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
-Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
+Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
+![Git conflict illustrated (https://blog.developer.atlassian.com/a-better-pull-request/)](figures/merge-conflict.png)
+Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
 You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
 ```bash
 nano *file*	# Opens file in nano 
