@@ -1,4 +1,4 @@
-# Git and github with R Workshop - November 2019 👩‍💻 👨‍💻
+# Git and github with R Workshop 👩‍💻 👨‍💻
 
 This workshop makes use of different sources of online learning materials. 
 
