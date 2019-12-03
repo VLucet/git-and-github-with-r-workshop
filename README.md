@@ -1,6 +1,11 @@
 # Git and github with R Workshop 👩‍💻 👨‍💻
 
 This workshop makes use of different sources of online learning materials. 
+List of websites/resources: 
+- https://happygitwithr.com/
+- https://blog.developer.atlassian.com/a-better-pull-request/
+- https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it
+- [TBC]
 
 ### Preparation (before the workshop)
 **(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
@@ -25,6 +30,9 @@ Linus Torvalds created git because he was frustrated with existing version contr
 ### What is git? "Git for humans" by Alice Bartlett
 Alice Bartlett (https://github.com/alicebartlett) from the Financial times has made a great set of introductory slides to explain **5 key things** about git: 
 https://speakerdeck.com/alicebartlett/git-for-humans
+
+Git in one illustration: 
+![Git](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
 
 ## Part 2: Hands-on
 *The following is inspired from the excellent tutorial https://happygitwithr.com/ Thanks to them!*
