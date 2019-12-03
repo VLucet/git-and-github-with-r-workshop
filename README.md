@@ -150,8 +150,13 @@ git status 	# WOW! Status says that the commits are different... this might caus
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
 Are you proud of yourself? You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
-![Git conflict illustrated (https://blog.developer.atlassian.com/a-better-pull-request/)](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
-Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge".
+
+![Git conflict illustrated](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
+
+Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge", as illistrated below: 
+
+![Commit merge](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png)
+
 You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
 ```bash
 nano *file*	# Opens file in nano 
