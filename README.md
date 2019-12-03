@@ -153,7 +153,7 @@ Are you proud of yourself? You've created a conflict 😱. A conflict typically 
 
 ![Git conflict illustrated](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
 
-Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge", as illistrated below: 
+Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge". As illistrated below, git will compare the two streams of information:
 
 ![Commit merge](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png)
 
@@ -191,7 +191,7 @@ git commit -a -m 'added some changes to the new branch'  # Another shorcut to ad
 git push origin mynewbranch 				 # Pushing to the new branch - you can also just type in "git push"
 ```
 Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch. 
-To do so, there are two ways to do it. I will show you how to do it by the command line and then on github desktop. Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
+Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
 ```bash
 git checkout master	# You've switched to the master branch
 git merge mynewbranch	# this merges (opens a pull request and checks it against the master)
