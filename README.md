@@ -201,4 +201,4 @@ Additionnaly, you can do all this by creating a pull request on github \[DEMO].
 
 ### Exercise 8: What R your new skills? ✨
 
-Now I will show you how to integrate R and Rstudio \[DEMO].
+This is value in being able to do all of this in the command line, because it allows to build a mentail model of how git work, which is extremely useful if you do not have access to an UI (super computer for instance). That being said, you can do all of the above directly in RStudio. [DEMO]
