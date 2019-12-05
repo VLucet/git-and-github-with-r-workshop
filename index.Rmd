@@ -1,13 +1,33 @@
-# Git and github with R Workshop 👩‍💻 👨‍💻
+---
+title: "Git and github with R Workshop"
+
+output: 
+  html_document:
+    df_print: default
+    css: style.css
+    number_sections: no
+    self_contained: no
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: no
+      smooth_scroll: yes
+---
 
 <img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png">
 
+By Valentin Lucet ([Website](https://vlucet.github.io/), [GitHub](https://github.com/vlucet)).<br />
+Last updated: `r format(Sys.time(), '%d %B, %Y')` (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. 
-List of websites/resources: 
-- https://happygitwithr.com/
-- https://blog.developer.atlassian.com/a-better-pull-request/
+
+------
+
+List of websites/resources:  
+- https://happygitwithr.com/  
+- https://blog.developer.atlassian.com/a-better-pull-request/  
 - https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it
-- [TBC]
+
+------
 
 ### Preparation (before the workshop)
 **(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
@@ -25,7 +45,8 @@ List of websites/resources:
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you not to have to put in your password all the time every time you push or pull.  
 
 ## Part 1: Introduction
-### Linus Torvalds, the git hero 🦸‍♂️
+### Linus Torvalds, the git hero 🦸
+♂️
 The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
 Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
 
@@ -103,7 +124,9 @@ What if you don't want to type in commands all the time? You can use a GitHub cl
 - Go to File => Add local repository => navigate to the path. Your repo is now added! 
 - You can open your text file again and change it. You can use the interface to ignore, remove or add changes and for commiting. Even better, pushing (and pulling) is only one click away!
 
-### Exercise 4: Team Work makes the Dream Work 👩‍💻 👨‍💻
+### Exercise 4: Team Work makes the Dream Work 👩
+💻 👨
+💻
 
 Form teams of 3. The youngest of the team will be the repo owner for this exercise. 
 - Repo Owner, head over to github to create a new online repository. 
