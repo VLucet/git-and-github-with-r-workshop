@@ -95,7 +95,7 @@ git log						# Git log shows you the history
 ```
 Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git `log` command shows you the recent commit history. 
 
-### Exercise 2: All roads lead to GitHub 🚦🛣️
+### Exercise 2: All roads lead to GitHub 🛣️
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this "pushing". After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a "remote". 
 - The first thing to do is to create the remote on github.com 
@@ -140,7 +140,7 @@ git clone *URL* 	# The URL of the repo created by the repo owner
 ```
 Well done, you have no set up a team and you are now technically working on the same repo.
 
-### Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️
+### Exercise 5: (Do The) Push and Pull ⬆️🔄⬇️
 
 You are now ready to experience the true git experience: pushing and pulling. 
 To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of  the repo that is on GitHub. To do so, we use the `fetch` command. 
@@ -168,7 +168,7 @@ git pull origin master	# Nice! Git will print a nice summary with green + and re
 ```
 Well done! You now know how to `push` and `pull`, `fetch` and `status` your way around a shared repo. You're the best.
 
-### Exercise 6: Git of war 💣💥🤯
+### Exercise 6: Git of war 💣💥
 
 Now, let's do it again but a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH.
 ```bash

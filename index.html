@@ -321,7 +321,7 @@ git log                     # Git log shows you the history</code></pre>
 <p>Git will print a message summarising the changes you’ve made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git <code>log</code> command shows you the recent commit history.</p>
 </div>
 <div id="exercise-2-all-roads-lead-to-github" class="section level3">
-<h3>Exercise 2: All roads lead to GitHub 🚦🛣️</h3>
+<h3>Exercise 2: All roads lead to GitHub 🛣️</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this “pushing”. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a “remote”. - The first thing to do is to create the remote on github.com - log in at github.com - click on the green folder - Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). - DO NOT add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be empty. - The next thing is to tell your local git that you have created a new remote. You will name this the “origin” remote.</p>
 <pre class="bash"><code>git remote add origin https:...    # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest</code></pre>
 <ul>
@@ -344,7 +344,7 @@ git clone *URL*     # The URL of the repo created by the repo owner</code></pre>
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
 </div>
 <div id="exercise-5-do-the-push-and-pull" class="section level3">
-<h3>Exercise 5: (Do The) Push and Pull ⬆️➡️🔄➡️⬇️</h3>
+<h3>Exercise 5: (Do The) Push and Pull ⬆️🔄⬇️</h3>
 <p>You are now ready to experience the true git experience: pushing and pulling. To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
 <pre class="bash"><code>git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</code></pre>
 <p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you think the best movie of all time is <em>not</em> Sharknados 3. You’d be wrong, but still, you’re welcome to change that…)</p>
@@ -361,7 +361,7 @@ git status  # Always good to run status once in a while. Here it will tell you t
 <p>Well done! You now know how to <code>push</code> and <code>pull</code>, <code>fetch</code> and <code>status</code> your way around a shared repo. You’re the best.</p>
 </div>
 <div id="exercise-6-git-of-war" class="section level3">
-<h3>Exercise 6: Git of war 💣💥🤯</h3>
+<h3>Exercise 6: Git of war 💣💥</h3>
 <p>Now, let’s do it again but a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH.</p>
 <pre class="bash"><code>git add -A              # Once again, add all the changes
 git commit -m &quot;modified the README&quot; # Do not push!</code></pre>
