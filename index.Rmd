@@ -17,8 +17,8 @@ output:
 <img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png">
 
 By Valentin Lucet ([Website](https://vlucet.github.io/), [GitHub](https://github.com/vlucet)).<br />
-Last updated: `r format(Sys.time(), '%d %B, %Y')` (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
-This workshop makes use of different sources of online learning materials. 
+Last updated: `r format(Sys.time(), '%d %B, %Y')`. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+This workshop makes use of different sources of online learning materials. -->
 
 ------
 
@@ -58,6 +58,7 @@ Git in one illustration:
 
 ## Part 2: Hands-on
 *The following is inspired from the excellent tutorial https://happygitwithr.com/ Thanks to them!*
+*We will also use [this amazing website](https://git-school.github.io/visualizing-git/#free-remote) as a visual aid*
 
 ### Exercise 1: Once upon a commit... 📖
 
@@ -116,12 +117,21 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 ### Exercise 3: The client is king: GitHub Desktop 👑
 
+**Note: Linux users can use GitKraken for this step** 
+
 What if you don't want to type in commands all the time? You can use a GitHub client. It's a program that will provide an more user-friendly interface with git and GitHub. 
-***\[Demonstrastion of GitHub Desktop\]***
+
 - Open GitHub Desktop. 
+
 - You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created 
+
 - Go to File => Add local repository => navigate to the path. Your repo is now added! 
-- You can open your text file again and change it. You can use the interface to ignore, remove or add changes and for commiting. Even better, pushing (and pulling) is only one click away!
+
+- You can open your text file again and change it. 
+
+- You can use the interface to ignore, remove or add changes and for commiting. 
+
+- Pushing (and pulling) is only one click away, on the top right. 
 
 ### Exercise 4: Team Work makes the Dream Work 👩👨
 
@@ -227,8 +237,17 @@ git checkout master	# You've switched to the master branch
 git merge mynewbranch	# this merges (opens a pull request and checks it against the master)
 git push 		# this pushes the merging of the two branches 
 ```
-Additionnaly, you can do all this by creating a pull request on github \[DEMO]. 
+Additionnaly, you can do all this by creating a pull request on github (**DEMO**). 
 
 ### Exercise 8: In Rstudio ✨
 
-This is value in being able to do all of this in the command line, because it allows to build a mentail model of how git work, which is extremely useful if you do not have access to an UI (super computer for instance). That being said, you can do all of the above directly in RStudio. [DEMO]
+There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.
+
+**A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience ([this troubleshooting page is an illustration of my point](https://happygitwithr.com/troubleshooting.html)). My humble opinion is that it is not the best.. and that you should let Rstudio do what it is designed to do: help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project. I do not like to work with .rproj files in general (although there are some nice sides to it, but I will not get into this here). So my advice is the follwing: ***use rstudio to edit and run your R code, use the git command line or a git client to do version control***. Nevertheless, I am going to show you how Rstudio with Git works. 
+
+- Step 1: Set up git in the global options. TOOLS => GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.  
+- Step 2: Create a new Rstudio project. FILE => NEW PROJECT  
+- Step 3: Go in TOOLS => VERSION CONTROL => PROJECT SET UP. You can initialise a new git repo here.   
+
+*Note: you will not be able to push your repo to a remote through rstudio, you will need a git client for that. Another option is to initialize a repo on Github, clone it, and then create a new R project inside it. You will be then be able to push and pull.*
+

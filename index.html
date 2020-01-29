@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
@@ -149,6 +148,7 @@ summary {
   border: none;
   display: inline-block;
   border-radius: 4px;
+  background-color: transparent;
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
@@ -177,6 +177,12 @@ summary {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -259,7 +265,8 @@ div.tocify {
 
 
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 04 December, 2019 (See <a href="https://vlucet.github.io/git-and-github-with-r-workshop/commits/master">changelog</a>).<br /> This workshop makes use of different sources of online learning materials.</p>
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 29 January, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+This workshop makes use of different sources of online learning materials. --></p>
 <hr />
 <p>List of websites/resources:<br />
 - <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
@@ -297,7 +304,7 @@ div.tocify {
 </div>
 <div id="part-2-hands-on" class="section level2">
 <h2>Part 2: Hands-on</h2>
-<p><em>The following is inspired from the excellent tutorial <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a> Thanks to them!</em></p>
+<p><em>The following is inspired from the excellent tutorial <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a> Thanks to them!</em> <em>We will also use <a href="https://git-school.github.io/visualizing-git/#free-remote">this amazing website</a> as a visual aid</em></p>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
 <h3>Exercise 1: Once upon a commit… 📖</h3>
 <p>Let’s start by creating a new repo (i.e. a directory that is tracked by git) in your home directory.</p>
@@ -333,7 +340,16 @@ git log                     # Git log shows you the history</code></pre>
 </div>
 <div id="exercise-3-the-client-is-king-github-desktop" class="section level3">
 <h3>Exercise 3: The client is king: GitHub Desktop 👑</h3>
-<p>What if you don’t want to type in commands all the time? You can use a GitHub client. It’s a program that will provide an more user-friendly interface with git and GitHub. <strong><em><span class="math display">\[Demonstrastion of GitHub Desktop\]</span></em></strong> - Open GitHub Desktop. - You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created - Go to File =&gt; Add local repository =&gt; navigate to the path. Your repo is now added! - You can open your text file again and change it. You can use the interface to ignore, remove or add changes and for commiting. Even better, pushing (and pulling) is only one click away!</p>
+<p><strong>Note: Linux users can use GitKraken for this step</strong></p>
+<p>What if you don’t want to type in commands all the time? You can use a GitHub client. It’s a program that will provide an more user-friendly interface with git and GitHub.</p>
+<ul>
+<li><p>Open GitHub Desktop.</p></li>
+<li><p>You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created</p></li>
+<li><p>Go to File =&gt; Add local repository =&gt; navigate to the path. Your repo is now added!</p></li>
+<li><p>You can open your text file again and change it.</p></li>
+<li><p>You can use the interface to ignore, remove or add changes and for commiting.</p></li>
+<li><p>Pushing (and pulling) is only one click away, on the top right.</p></li>
+</ul>
 </div>
 <div id="exercise-4-team-work-makes-the-dream-work" class="section level3">
 <h3>Exercise 4: Team Work makes the Dream Work 👩👨</h3>
@@ -402,11 +418,20 @@ git push origin mynewbranch                  # Pushing to the new branch - you c
 <pre class="bash"><code>git checkout master # You&#39;ve switched to the master branch
 git merge mynewbranch   # this merges (opens a pull request and checks it against the master)
 git push        # this pushes the merging of the two branches </code></pre>
-<p>Additionnaly, you can do all this by creating a pull request on github [DEMO].</p>
+<p>Additionnaly, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
 </div>
 <div id="exercise-8-in-rstudio" class="section level3">
 <h3>Exercise 8: In Rstudio ✨</h3>
-<p>This is value in being able to do all of this in the command line, because it allows to build a mentail model of how git work, which is extremely useful if you do not have access to an UI (super computer for instance). That being said, you can do all of the above directly in RStudio. [DEMO]</p>
+<p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.</p>
+<p><strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience (<a href="https://happygitwithr.com/troubleshooting.html">this troubleshooting page is an illustration of my point</a>). My humble opinion is that it is not the best.. and that you should let Rstudio do what it is designed to do: help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project. I do not like to work with .rproj files in general (although there are some nice sides to it, but I will not get into this here). So my advice is the follwing: <strong><em>use rstudio to edit and run your R code, use the git command line or a git client to do version control</em></strong>. Nevertheless, I am going to show you how Rstudio with Git works.</p>
+<ul>
+<li>Step 1: Set up git in the global options. TOOLS =&gt; GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.<br />
+</li>
+<li>Step 2: Create a new Rstudio project. FILE =&gt; NEW PROJECT<br />
+</li>
+<li>Step 3: Go in TOOLS =&gt; VERSION CONTROL =&gt; PROJECT SET UP. You can initialise a new git repo here.</li>
+</ul>
+<p><em>Note: you will not be able to push your repo to a remote through rstudio, you will need a git client for that. Another option is to initialize a repo on Github, clone it, and then create a new R project inside it. You will be then be able to push and pull.</em></p>
 </div>
 </div>
 
