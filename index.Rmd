@@ -384,7 +384,7 @@ git commit -a -m 'added some changes to the new branch'  # Another shorcut to ad
 ```
 
 ```{sh eval=FALSE, include=TRUE}
-git push origin mynewbranch 				 # Pushin    he new branch - you can also just type in "git push"
+git push origin mynewbranch    # Pushing to the new branch - you can also just type in "git push"
 ```
 
 ```{}
@@ -444,7 +444,11 @@ Additionnaly, you can do all this by creating a pull request on github (**DEMO**
 
 There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.
 
-**A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience ([this troubleshooting page is an illustration of my point](https://happygitwithr.com/troubleshooting.html)). My humble opinion is that it is not the best.. and that you should let Rstudio do what it is designed to do: help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project. I do not like to work with .rproj files in general (although there are some nice sides to it, but I will not get into this here). So my advice is the follwing: ***use rstudio to edit and run your R code, use the git command line or a git client to do version control***. Nevertheless, I am going to show you how Rstudio with Git works. 
+**A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience ([this troubleshooting page is an illustration of my point](https://happygitwithr.com/troubleshooting.html)). 
+
+Other people hold a diffreent opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a `.Rproj` file which some people want to `gitignore`.
+
+How to set up git inside a project:
 
 - Step 1: Set up git in the global options. TOOLS => GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.  
 - Step 2: Create a new Rstudio project. FILE => NEW PROJECT  
