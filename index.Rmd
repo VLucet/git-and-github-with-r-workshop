@@ -384,7 +384,7 @@ git commit -a -m 'added some changes to the new branch'  # Another shorcut to ad
 ```
 
 ```{sh eval=FALSE, include=TRUE}
-git push origin mynewbranch 				 # Pushing to the new branch - you can also just type in "git push"
+git push origin mynewbranch 				 # Pushin    he new branch - you can also just type in "git push"
 ```
 
 ```{}
