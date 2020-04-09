@@ -265,7 +265,7 @@ div.tocify {
 
 
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 29 January, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 08 April, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. --></p>
 <hr />
 <p>List of websites/resources:<br />
@@ -289,9 +289,11 @@ This workshop makes use of different sources of online learning materials. --></
 </ol>
 <p><em>For people with more experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.</em></p>
 <p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong> <a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you not to have to put in your password all the time every time you push or pull.</p>
+<hr />
 </div>
-<div id="part-1-introduction" class="section level2">
-<h2>Part 1: Introduction</h2>
+<div id="part-1-introduction" class="section level3">
+<h3><strong>Part 1: Introduction</strong></h3>
+</div>
 <div id="linus-torvalds-the-mind-behind-git" class="section level3">
 <h3>Linus Torvalds, the mind behind git</h3>
 <p>The mind behind linux (listen until ~9:20): <a href="https://youtu.be/o8NPllzkFhE?t=433" class="uri">https://youtu.be/o8NPllzkFhE?t=433</a> Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs <a href="https://www.nongnu.org/cvs/" class="uri">https://www.nongnu.org/cvs/</a>). Now, thousands of people use it. <strong>Today you are going to become one of those people! 🎉</strong></p>
@@ -300,91 +302,175 @@ This workshop makes use of different sources of online learning materials. --></
 <h3>What is git? “Git for humans” by Alice Bartlett</h3>
 <p>Alice Bartlett (<a href="https://github.com/alicebartlett" class="uri">https://github.com/alicebartlett</a>) from the Financial times has made a great set of introductory slides to explain <strong>5 key things</strong> about git: <a href="https://speakerdeck.com/alicebartlett/git-for-humans" class="uri">https://speakerdeck.com/alicebartlett/git-for-humans</a></p>
 <p>Git in one illustration: <img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="Git" /></p>
+<hr />
 </div>
-</div>
-<div id="part-2-hands-on" class="section level2">
-<h2>Part 2: Hands-on</h2>
+<div id="part-2-hands-on" class="section level3">
+<h3><strong>Part 2: Hands-on</strong></h3>
 <p><em>The following is inspired from the excellent tutorial <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a> Thanks to them!</em> <em>We will also use <a href="https://git-school.github.io/visualizing-git/#free-remote">this amazing website</a> as a visual aid</em></p>
+</div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
 <h3>Exercise 1: Once upon a commit… 📖</h3>
-<p>Let’s start by creating a new repo (i.e. a directory that is tracked by git) in your home directory.</p>
-<pre class="bash"><code>cd ~            # Go to your home directory
+<p>Let’s start by creating a new directory in your home directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
+<pre class="sh"><code>cd ~            # Go to your home directory
 mkdir gitWorkshop   # Creates a new directory called gitWorkshop in your home directory
 cd gitWorkshop      # Moves to inside the new directory</code></pre>
-<p>To make git work you need to initialize it. It’s simple:</p>
-<pre class="bash"><code>git init        # This initialize git in your directory</code></pre>
-<p>Let’s create a file that is important to us. We want to track all the changes to this file.</p>
-<pre class="bash"><code>touch script_1.R    # Creates the file
+<p>Now that you have a fresh directory, we need to make it a git repository, aka a <strong>repo</strong> (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It’s simple:</p>
+<pre class="sh"><code>git init        # This initialize git in your directory</code></pre>
+<pre><code>Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/</code></pre>
+<p>Now, let’s create a file using the <code>touch</code> command and edit it with <code>nano</code>. We want to track all the changes to this file. The code below opens the nano editor which you might not have on your computer. <code>Nano</code> is a simple command line file editor. Once the file is opened, you will see an empty screen. Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not have nano or do not like it, you can open the file in any text editor, edit and and save it there.</p>
+<pre class="sh"><code>touch script_1.R    # Creates the file
 nano script_1.R     # This opens the nano Text editor. </code></pre>
-<p>You could of course have edited this in a separate. You can then close the editor with <code>ctrl+X</code> type <code>y</code> for yes and press <code>enter</code>. We can now start to use git to track the changes we made to this file. Let me introduce you to your first git tool, the <code>status</code> command.</p>
-<pre class="bash"><code>ls          # This lists the files in the directory. You should see your file listed!
+<p>We can now start to use git to track the changes we made to this file. With the <code>ls</code>, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file. At any time, git lets you know if you have modified a file, thanks to the <code>status</code> command.</p>
+<pre class="sh"><code>ls          # This lists the files in the directory. You should see your file listed!
 git status      # Shows the current status of your repo with regards to git</code></pre>
-<p>Here <code>status</code> shows you multiple things: the branch you are on (the master branch, more on that later). It lists the latest commit (none yet) and the changes you’ve made since the last commit. Here the <code>script_1.R</code> is shown as untracked. Let’s change that. To do so, here is a second command: <code>add</code>.</p>
-<pre class="bash"><code>git add -A      # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered 
-git status      # Status now shows, in green, which changes have to be committed</code></pre>
-<p>It’s now time to commit! Note that you could do more changes, you could then choose or not to <code>add</code> them to the index, before committing, or you could add them after committing. This would later be part of a different commit. To commit your changes, simply use the <code>commit</code> command, along with a (useful) message</p>
-<pre class="bash"><code>git commit -m &quot;First commit - adding script1&quot;   # the -m flag adds a message to a commit
-git log                     # Git log shows you the history</code></pre>
-<p>Git will print a message summarising the changes you’ve made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git <code>log</code> command shows you the recent commit history.</p>
-</div>
-<div id="exercise-2-all-roads-lead-to-github" class="section level3">
-<h3>Exercise 2: All roads lead to GitHub 🛣️</h3>
-<p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this “pushing”. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a “remote”. - The first thing to do is to create the remote on github.com - log in at github.com - click on the green folder - Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). - DO NOT add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be empty. - The next thing is to tell your local git that you have created a new remote. You will name this the “origin” remote.</p>
-<pre class="bash"><code>git remote add origin https:...    # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest</code></pre>
+<pre><code>On branch master
+
+No commits yet
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+        script_1.R
+
+nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
+<p>Here <code>status</code> shows you multiple things:</p>
 <ul>
-<li>Finally, it is time to push your repo. The first time you push, you have to tell git that the remote is an upstream branch (more on that later).</li>
+<li>The branch you are on (the master branch, more on that later).</li>
+<li>It lists the latest commit (none yet) and the changes you’ve made since the last commit.</li>
+<li>It lists if files are <strong>untracked</strong>. New files are untracked by default. Here the <code>script_1.R</code> is shown as untracked. <strong>Let’s change that.</strong> To do so, here is a second command: <code>add</code>.</li>
 </ul>
-<pre class="bash"><code> git push --set-upstream origin master  # This pushes and sets the remote as &quot;upstream&quot;
- git push origin master         # If you try to push again, it will tell you that everything is up to date!</code></pre>
-<p>There you go! you now have a copy of your repo on GitHub. Well done! <strong>NOTE:</strong> it is also possible to start the repo on GitHub and download a clone (see next exercise)</p>
+<pre class="sh"><code>git add -A      # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
+git status      # Status now shows, in green, which changes have to be committed</code></pre>
+<pre><code>On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
+
+        new file:   script_1.R</code></pre>
+<p>The file is now tracked by git. We say the file is <strong>staged</strong>. It has been added to what we call the <strong>index</strong>. Note that you could now do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft. When you want to take a snapshot of a file, it means you are readu to commit that change to the index. To commit your changes, simply use the <code>commit</code> command, along with a (useful) message:</p>
+<pre class="sh"><code>git commit -m &quot;First commit - adding script1&quot;   # the -m flag adds a message to a commit</code></pre>
+<pre><code>[master (root-commit) e07b863] First commit - adding script1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 script_1.R</code></pre>
+<p>Git will print a message summarising the changes you’ve made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git <code>log</code> command shows you the recent commit history.</p>
+<pre class="sh"><code>git log                     # Git log shows you the history</code></pre>
+<pre><code>commit e07b863a1afad32e03ac44b05c2a63eeab523557 (HEAD -&gt; master)
+Author: VLucet &lt;valentin.lucet@gmail.com&gt;
+Date:   Wed Apr 8 18:19:53 2020 -0400
+
+    First commit - adding script1</code></pre>
+<hr />
+</div>
+<div id="exercise-2-all-roads-lead-to-github-️" class="section level3">
+<h3>Exercise 2: All roads lead to GitHub 🛣️</h3>
+<p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
+<ul>
+<li>The first thing to do is to create the remote on github.com:
+<ul>
+<li>log in at github.com.</li>
+<li>click on the green folder.</li>
+<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!).</li>
+<li><strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be an <strong>empty repo</strong>.</li>
+</ul></li>
+<li>The next thing is to tell your local git that you have created a new remote. You will name this the <strong>origin</strong> remote.</li>
+</ul>
+<pre class="sh"><code>git remote add origin https:...    # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest</code></pre>
+<p>Finally, it is time to <strong>push</strong> your repo. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</p>
+<pre class="sh"><code> git push --set-upstream origin master  # This pushes and sets the remote as &quot;upstream&quot;</code></pre>
+<pre><code>Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 263 bytes | 263.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/VLucet/gitWorkshop
+ * [new branch]      master -&gt; master
+Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.</code></pre>
+<pre class="sh"><code> git push origin master         # If you try to push again, it will tell you that everything is up to date!</code></pre>
+<pre><code>Everything up-to-date</code></pre>
+<p>There you go! you now have a copy of your repo on GitHub. Well done!</p>
+<p><strong>Note:</strong> it is also possible to start the repo on GitHub and download a <strong>clone</strong>. It is the opposite operation (see exercise 4).</p>
+<hr />
 </div>
 <div id="exercise-3-the-client-is-king-github-desktop" class="section level3">
 <h3>Exercise 3: The client is king: GitHub Desktop 👑</h3>
-<p><strong>Note: Linux users can use GitKraken for this step</strong></p>
+<p><strong>Note: Linux users can use GitKraken for this step.</strong></p>
 <p>What if you don’t want to type in commands all the time? You can use a GitHub client. It’s a program that will provide an more user-friendly interface with git and GitHub.</p>
 <ul>
-<li><p>Open GitHub Desktop.</p></li>
-<li><p>You have the choice between adding a local repository or cloning one (downloading from GitHub). We will add the local repo we created</p></li>
-<li><p>Go to File =&gt; Add local repository =&gt; navigate to the path. Your repo is now added!</p></li>
-<li><p>You can open your text file again and change it.</p></li>
-<li><p>You can use the interface to ignore, remove or add changes and for commiting.</p></li>
-<li><p>Pushing (and pulling) is only one click away, on the top right.</p></li>
+<li>Open GitHub Desktop.</li>
+<li>You have the choice between <strong>adding</strong> a local repository or <strong>cloning</strong> one (downloading from GitHub). We will add the local repo we just created.
+<ul>
+<li>Navigate to File =&gt; Add local repository =&gt; navigate to the path. Your repo is now added!</li>
+</ul></li>
+<li>You can open your text file again and change it.</li>
+<li>You can use the interface to <strong>ignore</strong>, <strong>remove</strong> or <strong>add</strong> changes and for commiting.</li>
+<li>Pushing (and pulling) is only one click away, on the top right.</li>
 </ul>
+<hr />
 </div>
 <div id="exercise-4-team-work-makes-the-dream-work" class="section level3">
 <h3>Exercise 4: Team Work makes the Dream Work 👩👨</h3>
-<p>Form teams of 3. The youngest of the team will be the repo owner for this exercise. - Repo Owner, head over to github to create a new online repository. - This time, make sure to initiate this repository with a ReadMe file. - In this read me file, type in the name of the best movie of all time. You heard me, write it down and commit it to your repo. - Next step is for you to make a team. Navigate to your repo settings and add the member of your team (see demo) - You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line:</p>
-<pre class="bash"><code>cd ~            # Navigate to your home folder again 
+<p>Form teams of 3. The youngest of the team will be the repo owner for this exercise.</p>
+<ul>
+<li>Repo Owner, head over to github to create a new online repository.
+<ul>
+<li>This time, make sure to initiate this repository with a <strong>ReadMe</strong> file. A <code>ReadMe</code> file is an important file for a repo, as it is there to describe the purpose of the repo and contains important metadata on that repo.</li>
+</ul></li>
+<li>In the <code>ReadMe</code>, type in the name of your favorite movie or TV show.</li>
+<li>Next step is for you to make a team by <strong>inviting collaborators</strong>.
+<ul>
+<li>Navigate to your repo settings.</li>
+<li>Go to <code>Manage Access</code> and click <code>invite a colaborator</code></li>
+<li>Add the members of your team by typing in their <strong>GitHub Username</strong>.<br />
+</li>
+</ul></li>
+<li>You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line:</li>
+</ul>
+<pre class="sh"><code>cd ~            # Navigate to your home folder again 
 git clone *URL*     # The URL of the repo created by the repo owner</code></pre>
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
+<hr />
 </div>
-<div id="exercise-5-do-the-push-and-pull" class="section level3">
+<div id="exercise-5-do-the-push-and-pull-️️" class="section level3">
 <h3>Exercise 5: (Do The) Push and Pull ⬆️🔄⬇️</h3>
-<p>You are now ready to experience the true git experience: pushing and pulling. To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
-<pre class="bash"><code>git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</code></pre>
-<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you think the best movie of all time is <em>not</em> Sharknados 3. You’d be wrong, but still, you’re welcome to change that…)</p>
-<pre><code>nano README.md  # Reminder: nano is the console editor</code></pre>
+<p>You are now ready to do yur first round of <strong>pushing and pulling</strong>.</p>
+<p>To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
+<pre class="sh"><code>git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</code></pre>
+<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you teammate’s favorite movie is <em>not</em> Sharknados 3. They’d be wrong, but still, they’re welcome to change that…).</p>
+<pre class="sh"><code>nano README.md  # Reminder: nano is the console editor</code></pre>
 <p>Then, add, commit and push those changes</p>
-<pre class="bash"><code>git add -A              # Once again, add all the changes
-git commit -m &quot;modified the README&quot; # Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;
-git push origin master          # Push it!</code></pre>
-<p>Now, two of the team member are not in sync with the changes. You can see it with a <code>fetch</code></p>
-<pre class="bash"><code>git fetch   # This will download the changes pushed by your team member
+<pre class="sh"><code>git add -A              # Once again, add all the changes
+git commit -m &quot;modified the README&quot; # Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;</code></pre>
+<pre><code>[master 58c8cb7] modified the README
+ 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+<pre class="sh"><code>git push origin master          # Push it!</code></pre>
+<pre><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 313 bytes | 313.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:VLucet/gitWorkshop.git
+   a992c9a..58c8cb7  master -&gt; master</code></pre>
+<p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should a little familiar with these by now!</p>
+<pre class="sh"><code>git fetch   # This will download the changes pushed by your team member
 git status  # Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </code></pre>
-<p>To remedy to this, it is as simple as “pulling” the changes in your local repo.</p>
-<pre class="bash"><code>git pull origin master  # Nice! Git will print a nice summary with green + and red -. How cute. </code></pre>
-<p>Well done! You now know how to <code>push</code> and <code>pull</code>, <code>fetch</code> and <code>status</code> your way around a shared repo. You’re the best.</p>
+<p>To remedy to this, it is as simple as <strong>pulling</strong> the changes in your local repo.</p>
+<pre class="sh"><code>git pull origin master  # Nice! Git will print a nice summary with green + and red -. How cute. </code></pre>
+<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+<hr />
 </div>
 <div id="exercise-6-git-of-war" class="section level3">
 <h3>Exercise 6: Git of war 💣💥</h3>
-<p>Now, let’s do it again but a little differently. The one person in the group to not have edited the README should do it now on their machine. Please add and commit BUT DO NOT PUSH.</p>
-<pre class="bash"><code>git add -A              # Once again, add all the changes
+<p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
+<pre class="sh"><code>git add -A              # Once again, add all the changes
 git commit -m &quot;modified the README&quot; # Do not push!</code></pre>
-<p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo. Now, the person to have just changed the file on their machine will do the pulling procedure:</p>
-<pre class="bash"><code>git fetch   # This fetches the changes
+<p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.</p>
+<p>Now, the person to have just changed the file on their machine will do the pulling procedure:</p>
+<pre class="sh"><code>git fetch   # This fetches the changes
 git status  # WOW! Status says that the commits are different... this might cause a problem
 git pull    # There is now a &quot;conflict&quot; and you need to resolve it</code></pre>
-<p>Are you proud of yourself? You’ve created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
+<p>You’ve created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
 <div class="figure">
 <img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="Git conflict illustrated" />
 <p class="caption">Git conflict illustrated</p>
@@ -395,30 +481,63 @@ git pull    # There is now a &quot;conflict&quot; and you need to resolve it</co
 <p class="caption">Commit merge</p>
 </div>
 <p>You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using <code>nano</code>:</p>
-<pre class="bash"><code>nano *file* # Opens file in nano </code></pre>
-<p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. You can choose to keep either of the changes or both. Once you have made your changes, it is time to commit your change, and merge it with the remote repo.</p>
-<pre class="bash"><code>git add -A              # Once again, add all the changes
+<pre class="sh"><code>nano *file* # Opens file in nano </code></pre>
+<p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. You can choose to keep either of the changes or both.</p>
+<p>Once you have made your changes, it is time to commit your change, and merge it with the remote repo.</p>
+<pre class="sh"><code>git add -A              # Once again, add all the changes
 git commit -m &quot;fixed the conflict&quot;  # You fixed the conflict, better put a messgae indicating it!
 git push origin master          # Push it!
 git status              # All is good!</code></pre>
 <p>Well done! You’ve learned how to deal with conflicts! 💪</p>
+<p>In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).</p>
+<hr />
 </div>
 <div id="exercise-7-the-tree-of-git" class="section level3">
 <h3>Exercise 7: The tree of git 🌳</h3>
-<p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”. One of the team members should do the following. The first thing is to create the branch:</p>
-<pre class="bash"><code>git branch mynewbranch      # This simply creates the new branch</code></pre>
-<p>The branch is created, but you are still on the master branch. To be able to switch to the new branch, we need to &quot;checkout’ the branch:</p>
-<pre class="bash"><code>git checkout mynewbranch    # This makes you switch to the new branch
-git status          # You are now on the new branch</code></pre>
+<p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
+<p>One of the team members should do the following. The first thing is to create the branch:</p>
+<pre class="sh"><code>git branch mynewbranch      # This simply creates the new branch</code></pre>
+<p>The branch is created, but you are still on the master branch. To be able to switch to the new branch, we need to "checkout’ the branch:</p>
+<pre class="sh"><code>git checkout mynewbranch    # This makes you switch to the new branch</code></pre>
+<pre><code>Switched to branch &#39;mynewbranch&#39;</code></pre>
+<pre class="sh"><code>git status          # You are now on the new branch</code></pre>
+<pre><code>On branch mynewbranch
+nothing to commit, working tree clean</code></pre>
 <p><strong><em>note</em></strong>: <em>there is a shortchut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em> You are now on the new branch! This branch is only on your local machine for now. Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
-<pre class="bash"><code># Do some changes in your repo! They will only be part of the commit hostory of your branch
-git commit -a -m &#39;added some changes to the new branch&#39;  # Another shorcut to add and commit at the same time!
-git push origin mynewbranch                  # Pushing to the new branch - you can also just type in &quot;git push&quot;</code></pre>
-<p>Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch. Merging means doing a “pull request”: you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then <em>pull</em> the new branch into the master.</p>
-<pre class="bash"><code>git checkout master # You&#39;ve switched to the master branch
-git merge mynewbranch   # this merges (opens a pull request and checks it against the master)
-git push        # this pushes the merging of the two branches </code></pre>
+<pre class="sh"><code># Do some changes in your repo! They will only be part of the commit hostory of your branch
+git commit -a -m &#39;added some changes to the new branch&#39;  # Another shorcut to add and commit at the same time!</code></pre>
+<pre><code>[mynewbranch 92b76fb] added some changes to the new branch
+ 1 file changed, 1 insertion(+)</code></pre>
+<pre class="sh"><code>git push origin mynewbranch                  # Pushing to the new branch - you can also just type in &quot;git push&quot;</code></pre>
+<pre><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 338 bytes | 338.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+remote:
+remote: Create a pull request for &#39;mynewbranch&#39; on GitHub by visiting:
+remote:      https://github.com/VLucet/gitWorkshop/pull/new/mynewbranch
+remote:
+To github.com:VLucet/gitWorkshop.git
+ * [new branch]      mynewbranch -&gt; mynewbranch</code></pre>
+<p>Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch.</p>
+<p>Merging means doing a “pull request”: you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then <em>pull</em> the new branch into the master.</p>
+<pre class="sh"><code>git checkout master # You&#39;ve switched to the master branch</code></pre>
+<pre><code>Switched to branch &#39;master&#39;
+Your branch is up to date with &#39;origin/master&#39;.</code></pre>
+<pre class="sh"><code>git merge mynewbranch   # this merges (opens a pull request and checks it against the master)</code></pre>
+<pre><code>Updating 58c8cb7..92b76fb
+Fast-forward
+ script_1.R | 1 +
+ 1 file changed, 1 insertion(+)</code></pre>
+<pre class="sh"><code>git push        # this pushes the merging of the two branches </code></pre>
+<pre><code>Total 0 (delta 0), reused 0 (delta 0)
+To github.com:VLucet/gitWorkshop.git
+   58c8cb7..92b76fb  master -&gt; master
+   </code></pre>
 <p>Additionnaly, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
+<hr />
 </div>
 <div id="exercise-8-in-rstudio" class="section level3">
 <h3>Exercise 8: In Rstudio ✨</h3>
@@ -432,7 +551,6 @@ git push        # this pushes the merging of the two branches </code></pre>
 <li>Step 3: Go in TOOLS =&gt; VERSION CONTROL =&gt; PROJECT SET UP. You can initialise a new git repo here.</li>
 </ul>
 <p><em>Note: you will not be able to push your repo to a remote through rstudio, you will need a git client for that. Another option is to initialize a repo on Github, clone it, and then create a new R project inside it. You will be then be able to push and pull.</em></p>
-</div>
 </div>
 
 
