@@ -468,7 +468,7 @@ git status 	# WOW! Status says that the commits are different... this might caus
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
 
-You've created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
+You've created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
 
 ![Git conflict illustrated](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
 
@@ -493,13 +493,13 @@ git push origin master			# Push it!
 git status				# All is good!
 ```
 
-Well done! You've learned how to deal with conflicts! 💪
+Well done! You've learned how to deal with conflicts!
 
 In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).
 
 ------
 
-### Exercise 7: The tree of git 🌳
+### Exercise 7: The tree of git
 
 A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
 
