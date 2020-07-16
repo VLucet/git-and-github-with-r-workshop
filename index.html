@@ -11,11 +11,11 @@
 
 
 
-<title>Git and github with R Workshop</title>
+<title>Git and GitHub from the Terminal &amp; RStudio: An Introduction</title>
 
 <script src="index_files/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="index_files/bootstrap-3.3.5/css/spacelab.min.css" rel="stylesheet" />
 <script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -71,7 +71,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
 
 
 
@@ -259,68 +258,107 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Git and github with R Workshop</h1>
+<h1 class="title toc-ignore">Git and GitHub from the Terminal &amp; RStudio: An Introduction</h1>
 
 </div>
 
 
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 08 April, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 16 July, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. --></p>
 <hr />
-<p>List of websites/resources:<br />
-- <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
-- <a href="https://blog.developer.atlassian.com/a-better-pull-request/" class="uri">https://blog.developer.atlassian.com/a-better-pull-request/</a><br />
-- <a href="https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it" class="uri">https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it</a></p>
+<p><em>The following workshop is inspired from the following resources:</em></p>
+<ul>
+<li><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
+</li>
+<li><a href="https://blog.developer.atlassian.com/a-better-pull-request/" class="uri">https://blog.developer.atlassian.com/a-better-pull-request/</a><br />
+</li>
+<li><a href="https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it" class="uri">https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it</a></li>
+</ul>
+<p><em>We will also use <a href="https://git-school.github.io/visualizing-git/#free-remote">this amazing website</a> as a visual aid.</em></p>
 <hr />
-<div id="preparation-before-the-workshop" class="section level3">
-<h3>Preparation (before the workshop)</h3>
+<div id="preparation" class="section level3">
+<h3>Preparation</h3>
 <p><strong>(1) Complete section 1 of the happywithgithr workshop (“Installation”)</strong></p>
 <ol style="list-style-type: decimal">
-<li>Register on GitHub. <a href="https://happygitwithr.com/github-acct.html" class="uri">https://happygitwithr.com/github-acct.html</a></li>
-<li>Install or update R and Rstudio <a href="https://happygitwithr.com/install-r-rstudio.html" class="uri">https://happygitwithr.com/install-r-rstudio.html</a></li>
-<li>Install git <a href="https://happygitwithr.com/install-git.html" class="uri">https://happygitwithr.com/install-git.html</a></li>
-<li>Configure git <a href="https://happygitwithr.com/hello-git.html" class="uri">https://happygitwithr.com/hello-git.html</a></li>
-<li>Install a git client: I will not cover all the git clients.
-<ul>
-<li>I will show you how to use GitHub desktop (for Mac and Windows users), download here: <a href="https://desktop.github.com/" class="uri">https://desktop.github.com/</a>.</li>
-<li>If you are a linux user I recommend gitkraken instead (and will be happy to show you that too).</li>
-</ul></li>
+<li><a href="https://happygitwithr.com/github-acct.html">Register on GitHub</a></li>
+<li><a href="https://happygitwithr.com/install-r-rstudio.html">Install or update Rstudio</a></li>
+<li><a href="https://happygitwithr.com/install-git.html">Install &amp; Configure git</a></li>
+<li>(Optionnal) Install a git client: I recommend <a href="https://www.gitkraken.com/"><strong>GitKraken</strong></a></li>
+<li><a href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn <strong>5 key things</strong> about Git is</a> (thanks to Alice Bartlett from the Financial times for this great intro to Git)</li>
 </ol>
-<p><em>For people with more experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.</em></p>
-<p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong> <a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you not to have to put in your password all the time every time you push or pull.</p>
+<p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong> <a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. <strong>If you are having issues with this step, please reach out to me a prior to the training so that I can help you.</strong></p>
+<p><strong>Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio</strong></p>
 <hr />
-</div>
-<div id="part-1-introduction" class="section level3">
-<h3><strong>Part 1: Introduction</strong></h3>
-</div>
-<div id="linus-torvalds-the-mind-behind-git" class="section level3">
-<h3>Linus Torvalds, the mind behind git</h3>
-<p>The mind behind linux (listen until ~9:20): <a href="https://youtu.be/o8NPllzkFhE?t=433" class="uri">https://youtu.be/o8NPllzkFhE?t=433</a> Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs <a href="https://www.nongnu.org/cvs/" class="uri">https://www.nongnu.org/cvs/</a>). Now, thousands of people use it. <strong>Today you are going to become one of those people! 🎉</strong></p>
-</div>
-<div id="what-is-git-git-for-humans-by-alice-bartlett" class="section level3">
-<h3>What is git? “Git for humans” by Alice Bartlett</h3>
-<p>Alice Bartlett (<a href="https://github.com/alicebartlett" class="uri">https://github.com/alicebartlett</a>) from the Financial times has made a great set of introductory slides to explain <strong>5 key things</strong> about git: <a href="https://speakerdeck.com/alicebartlett/git-for-humans" class="uri">https://speakerdeck.com/alicebartlett/git-for-humans</a></p>
-<p>Git in one illustration: <img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="Git" /></p>
-<hr />
-</div>
-<div id="part-2-hands-on" class="section level3">
-<h3><strong>Part 2: Hands-on</strong></h3>
-<p><em>The following is inspired from the excellent tutorial <a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a> Thanks to them!</em> <em>We will also use <a href="https://git-school.github.io/visualizing-git/#free-remote">this amazing website</a> as a visual aid</em></p>
 </div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
-<h3>Exercise 1: Once upon a commit… 📖</h3>
-<p>Let’s start by creating a new directory in your home directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
-<pre class="sh"><code>cd ~            # Go to your home directory
+<h3>Exercise 1: Once upon a commit…</h3>
+<p>Let’s start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
+<div id="at-the-terminal" class="section level4">
+<h4>At the terminal</h4>
+<pre class="sh"><code>cd ~                # Go to your home directory
 mkdir gitWorkshop   # Creates a new directory called gitWorkshop in your home directory
 cd gitWorkshop      # Moves to inside the new directory</code></pre>
 <p>Now that you have a fresh directory, we need to make it a git repository, aka a <strong>repo</strong> (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It’s simple:</p>
 <pre class="sh"><code>git init        # This initialize git in your directory</code></pre>
 <pre><code>Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/</code></pre>
-<p>Now, let’s create a file using the <code>touch</code> command and edit it with <code>nano</code>. We want to track all the changes to this file. The code below opens the nano editor which you might not have on your computer. <code>Nano</code> is a simple command line file editor. Once the file is opened, you will see an empty screen. Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not have nano or do not like it, you can open the file in any text editor, edit and and save it there.</p>
-<pre class="sh"><code>touch script_1.R    # Creates the file
-nano script_1.R     # This opens the nano Text editor. </code></pre>
-<p>We can now start to use git to track the changes we made to this file. With the <code>ls</code>, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file. At any time, git lets you know if you have modified a file, thanks to the <code>status</code> command.</p>
+</div>
+<div id="in-rstudio" class="section level4">
+<h4>In RStudio</h4>
+<p>In order to do the same thing in Rstudio, you need to create a new <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Open RStudio, in the top right corner create a new project</li>
+</ol>
+<center>
+<img src="images/Step_1.png" />
+</center>
+<ol start="2" style="list-style-type: decimal">
+<li>Select <strong>New Directory</strong> Note that <strong>Version Control</strong> is reserved for when you already created a repo on GitHub. We will come back to this later.</li>
+</ol>
+<center>
+<img src="images/Step_2.png" style="width:50.0%" />
+</center>
+<ol start="3" style="list-style-type: decimal">
+<li>Select <strong>New Project</strong></li>
+</ol>
+<center>
+<img src="images/Step_3.png" style="width:50.0%" />
+</center>
+<ol start="4" style="list-style-type: decimal">
+<li>Choose a new for your repo and a location. <strong>Make sure that <em>create a git repository</em> is checked</strong></li>
+</ol>
+<center>
+<img src="images/Step_4.png" style="width:50.0%" />
+</center>
+<ol start="5" style="list-style-type: decimal">
+<li>You can now look under the <em>git tab</em>, you should see this:</li>
+</ol>
+<center>
+<p><img src="images/final.png" /></p>
+</center>
+<p><strong>Note: we will come back to what the <em>.gitignore</em> file is later!</strong></p>
+<hr />
+<blockquote>
+<p><strong>Let’s now create a new file, the first file we want to keep track of in this project</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-1" class="section level4">
+<h4>At the terminal</h4>
+<p>We create a file using the <code>touch</code> command:</p>
+<pre class="sh"><code>touch script_1.R    # Creates the file</code></pre>
+</div>
+<div id="in-rstudio-1" class="section level4">
+<h4>In RStudio</h4>
+<p>Create a new file: go to the menu <em>File =&gt; New file =&gt; R Script</em>. Make sure to save it with the name <em>script_1.R</em>.</p>
+<hr />
+<blockquote>
+<p><strong>The repo is created and you have created a file, can git see the new file?</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-2" class="section level4">
+<h4>At the terminal</h4>
+<p>With the <code>ls</code> command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file.</p>
+<p>At any time, git lets you know if you have a untracked file, thanks to the <code>git status</code> command.</p>
 <pre class="sh"><code>ls          # This lists the files in the directory. You should see your file listed!
 git status      # Shows the current status of your repo with regards to git</code></pre>
 <pre><code>On branch master
@@ -333,13 +371,26 @@ Untracked files:
         script_1.R
 
 nothing added to commit but untracked files present (use &quot;git add&quot; to track)</code></pre>
-<p>Here <code>status</code> shows you multiple things:</p>
+</div>
+<div id="in-rstudio-2" class="section level4">
+<h4>In RStudio</h4>
+<p>No need for the <code>status</code> command in RStudio, the <em>Git</em> tab shows you in real time the status of your files:</p>
 <ul>
-<li>The branch you are on (the master branch, more on that later).</li>
-<li>It lists the latest commit (none yet) and the changes you’ve made since the last commit.</li>
-<li>It lists if files are <strong>untracked</strong>. New files are untracked by default. Here the <code>script_1.R</code> is shown as untracked. <strong>Let’s change that.</strong> To do so, here is a second command: <code>add</code>.</li>
+<li>Files that are <strong>untracked</strong> are represented by a <strong>yellow question mark</strong>.</li>
+<li>Files that have been <strong>added</strong> (see next section) are represented by a <strong>green A</strong></li>
+<li>Files that have been <strong>tracked and modified</strong> are represented by a <strong>blue M</strong>.</li>
+<li>Files that are <em>tracked but not modified</em> do not show.</li>
+<li>Files that have been <strong>deleted</strong> are shown with a <strong>red D</strong>.</li>
 </ul>
-<pre class="sh"><code>git add -A      # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
+<hr />
+<blockquote>
+<p><strong>By default, Git does not track anything. We need to tell it to do so. Let’s do that now!</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-3" class="section level4">
+<h4>At the terminal</h4>
+<p>From the terminal, we can use the <code>git add</code> command. This tells git which file you care about and want to start tracking. This is called <strong>Staging the file</strong>.</p>
+<pre class="sh"><code>git add script_1.R
 git status      # Status now shows, in green, which changes have to be committed</code></pre>
 <pre><code>On branch master
 
@@ -349,22 +400,103 @@ Changes to be committed:
   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)
 
         new file:   script_1.R</code></pre>
-<p>The file is now tracked by git. We say the file is <strong>staged</strong>. It has been added to what we call the <strong>index</strong>. Note that you could now do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft. When you want to take a snapshot of a file, it means you are readu to commit that change to the index. To commit your changes, simply use the <code>commit</code> command, along with a (useful) message:</p>
+</div>
+<div id="in-rstudio-3" class="section level4">
+<h4>In RStudio</h4>
+<p>In RStudio, this is as simple as “checking off” the file in the Git tab. This is called <strong>Staging the file</strong>.</p>
+<center>
+<img src="images/checked.png" />
+</center>
+<p>While you are at it, make sure to also check the <code>.gitignore file.</code> <strong>What is a gitignore?</strong> A gitignore is a file that lists the file you never want git to track. It can match certain file names (for instance, <code>.csv</code> or <code>.tif</code> files). This can be useful in case you need to make sure certain files (like data files or large files), do not get added.</p>
+<hr />
+<blockquote>
+<p><strong>Let’s now make sure this new file is registered by git: this is called a <em>commit</em></strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-4" class="section level4">
+<h4>At the terminal</h4>
+<p>We have staged the file. Let’s now take a snapshot of this file with the <code>git commit</code> command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</p>
 <pre class="sh"><code>git commit -m &quot;First commit - adding script1&quot;   # the -m flag adds a message to a commit</code></pre>
-<pre><code>[master (root-commit) e07b863] First commit - adding script1
- 1 file changed, 1 insertion(+)
+<pre><code>[master (root-commit) 03a1fe9] First commit - adding script1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 script_1.R</code></pre>
-<p>Git will print a message summarising the changes you’ve made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git <code>log</code> command shows you the recent commit history.</p>
+<p>Another useful command: git <code>log</code> shows you the recent commit history.</p>
 <pre class="sh"><code>git log                     # Git log shows you the history</code></pre>
-<pre><code>commit e07b863a1afad32e03ac44b05c2a63eeab523557 (HEAD -&gt; master)
+<pre><code>commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -&gt; master)
 Author: VLucet &lt;valentin.lucet@gmail.com&gt;
 Date:   Wed Apr 8 18:19:53 2020 -0400
 
     First commit - adding script1</code></pre>
+</div>
+<div id="in-rstudio-4" class="section level4">
+<h4>In RStudio</h4>
+<p>In Rstudio, committing is a few clicks away.</p>
+<ol style="list-style-type: decimal">
+<li>Click on <code>commit</code> on the top of the file list.</li>
+<li>This window should appear:</li>
+</ol>
+<center>
+<img src="images/commit.png" style="width:75.0%" />
+</center>
+<ol start="3" style="list-style-type: decimal">
+<li>Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</li>
+</ol>
+<center>
+<img src="images/message.png" style="width:50.0%" />
+</center>
+<ol start="4" style="list-style-type: decimal">
+<li>Click on commit in order to commit the changes!</li>
+</ol>
+<hr />
+<blockquote>
+<p><strong>Let’s now make some changes to this file and commit them</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-5" class="section level4">
+<h4>At the terminal</h4>
+<p>The code below opens the <strong>nano</strong> editor. <a href="https://www.nano-editor.org/"><code>Nano</code></a> is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.</p>
+<pre class="sh"><code>nano script_1.R     # This opens the nano Text editor. </code></pre>
+<p>Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.</p>
+<p>We now need to stage (<code>git add</code>) and commit (<code>git commit</code>)</p>
+<pre class="sh"><code>git add -A  # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
+git status      # Status now shows, in green, which changes have to be committed</code></pre>
+<pre><code>On branch master
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+        modified:   script_1.R</code></pre>
+<p>Now let’s commit:</p>
+<pre class="sh"><code>git commit -m &quot;First commit - adding script1&quot;   # the -m flag adds a message to a commit</code></pre>
+<pre><code>[master (root-commit) e07b863] First commit - adding script1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 script_1.R</code></pre>
+</div>
+<div id="in-rstudio-5" class="section level4">
+<h4>In RStudio</h4>
+<p>Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:</p>
+<center>
+<img src="images/mod_step1.png" />
+</center>
+<p>Now, <em>Stage the file</em> by chekcing it.</p>
+<center>
+<img src="images/mod_step2.png" />
+</center>
+<p>Then, make sure you commit once again.</p>
+<center>
+<img src="images/mod_step3.png" />
+</center>
+<p><strong>Note</strong>: take a look at the <strong>history</strong> tab in the commit window.</p>
+<hr />
+<p>Note that once you have staged a file, you could do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft, not untiil you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.</p>
+<p>This image summarises what we have learned so far. Each change in the repository (adding a file, modifying a file, etc…) needs to be staged before it is commited.</p>
+<center>
+<img src="https://git-scm.com/images/about/index1@2x.png" style="width:65.0%" />
+</center>
 <hr />
 </div>
-<div id="exercise-2-all-roads-lead-to-github-️" class="section level3">
-<h3>Exercise 2: All roads lead to GitHub 🛣️</h3>
+</div>
+<div id="exercise-2-all-roads-lead-to-github" class="section level3">
+<h3>Exercise 2: All roads lead to GitHub</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
 <ul>
 <li>The first thing to do is to create the remote on github.com:
@@ -392,24 +524,18 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <p><strong>Note:</strong> it is also possible to start the repo on GitHub and download a <strong>clone</strong>. It is the opposite operation (see exercise 4).</p>
 <hr />
 </div>
-<div id="exercise-3-the-client-is-king-github-desktop" class="section level3">
-<h3>Exercise 3: The client is king: GitHub Desktop 👑</h3>
-<p><strong>Note: Linux users can use GitKraken for this step.</strong></p>
-<p>What if you don’t want to type in commands all the time? You can use a GitHub client. It’s a program that will provide an more user-friendly interface with git and GitHub.</p>
-<ul>
-<li>Open GitHub Desktop.</li>
-<li>You have the choice between <strong>adding</strong> a local repository or <strong>cloning</strong> one (downloading from GitHub). We will add the local repo we just created.
-<ul>
-<li>Navigate to File =&gt; Add local repository =&gt; navigate to the path. Your repo is now added!</li>
-</ul></li>
-<li>You can open your text file again and change it.</li>
-<li>You can use the interface to <strong>ignore</strong>, <strong>remove</strong> or <strong>add</strong> changes and for commiting.</li>
-<li>Pushing (and pulling) is only one click away, on the top right.</li>
-</ul>
+<div id="demo-gitkraken" class="section level3">
+<h3>DEMO: Gitkraken</h3>
+<p><em>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a></em></p>
 <hr />
 </div>
 <div id="exercise-4-team-work-makes-the-dream-work" class="section level3">
-<h3>Exercise 4: Team Work makes the Dream Work 👩👨</h3>
+<h3>Exercise 4: Team Work makes the Dream Work</h3>
+<p>Git is made for collaboration. In one image, this can be summarised like this:</p>
+<div class="figure">
+<img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="" />
+<p class="caption">Git</p>
+</div>
 <p>Form teams of 3. The youngest of the team will be the repo owner for this exercise.</p>
 <ul>
 <li>Repo Owner, head over to github to create a new online repository.
@@ -431,8 +557,8 @@ git clone *URL*     # The URL of the repo created by the repo owner</code></pre>
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
 <hr />
 </div>
-<div id="exercise-5-do-the-push-and-pull-️️" class="section level3">
-<h3>Exercise 5: (Do The) Push and Pull ⬆️🔄⬇️</h3>
+<div id="exercise-5-do-the-push-and-pull" class="section level3">
+<h3>Exercise 5: (Do The) Push and Pull</h3>
 <p>You are now ready to do yur first round of <strong>pushing and pulling</strong>.</p>
 <p>To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
 <pre class="sh"><code>git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</code></pre>
@@ -461,7 +587,7 @@ git status  # Always good to run status once in a while. Here it will tell you t
 <hr />
 </div>
 <div id="exercise-6-git-of-war" class="section level3">
-<h3>Exercise 6: Git of war 💣💥</h3>
+<h3>Exercise 6: Git of war</h3>
 <p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
 <pre class="sh"><code>git add -A              # Once again, add all the changes
 git commit -m &quot;modified the README&quot; # Do not push!</code></pre>
@@ -472,12 +598,12 @@ git status  # WOW! Status says that the commits are different... this might caus
 git pull    # There is now a &quot;conflict&quot; and you need to resolve it</code></pre>
 <p>You’ve created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
 <div class="figure">
-<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="Git conflict illustrated" />
+<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="" />
 <p class="caption">Git conflict illustrated</p>
 </div>
 <p>Git doesn’t know which changes to keep and which one to throw away. We need to make a choice: we call that doing a “commit merge”. As illistrated below, git will compare the two streams of information:</p>
 <div class="figure">
-<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png" alt="Commit merge" />
+<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png" alt="" />
 <p class="caption">Commit merge</p>
 </div>
 <p>You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using <code>nano</code>:</p>
@@ -536,14 +662,14 @@ Fast-forward
 To github.com:VLucet/gitWorkshop.git
    58c8cb7..92b76fb  master -&gt; master
    </code></pre>
-<p>Additionnaly, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
+<p>Additionally, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
 <hr />
 </div>
 <div id="exercise-8-in-rstudio" class="section level3">
-<h3>Exercise 8: In Rstudio ✨</h3>
+<h3>Exercise 8: In Rstudio</h3>
 <p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.</p>
 <p><strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience (<a href="https://happygitwithr.com/troubleshooting.html">this troubleshooting page is an illustration of my point</a>).</p>
-<p>Other people hold a diffreent opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a <code>.Rproj</code> file which some people want to <code>gitignore</code>.</p>
+<p>Other people hold a different opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a <code>.Rproj</code> file which some people want to <code>gitignore</code>.</p>
 <p>How to set up git inside a project:</p>
 <ul>
 <li>Step 1: Set up git in the global options. TOOLS =&gt; GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.<br />
@@ -605,7 +731,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

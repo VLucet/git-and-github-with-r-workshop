@@ -1,10 +1,10 @@
 ---
-title: "Git and github with R Workshop"
+title: "Git and GitHub from the Terminal & RStudio: An Introduction"
 
 output: 
   html_document:
     df_print: default
-    css: style.css
+    theme: spacelab
     number_sections: no
     self_contained: no
     toc: yes
@@ -20,56 +20,41 @@ By Valentin Lucet ([Website](https://vlucet.github.io/), [GitHub](https://github
 Last updated: `r format(Sys.time(), '%d %B, %Y')`. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. -->
 
-------
+***
 
-List of websites/resources:  
+*The following workshop is inspired from the following resources:*
+
 - https://happygitwithr.com/  
 - https://blog.developer.atlassian.com/a-better-pull-request/  
 - https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it
 
-------
+*We will also use [this amazing website](https://git-school.github.io/visualizing-git/#free-remote) as a visual aid.*
 
-### Preparation (before the workshop)
+***
+
+### Preparation
 **(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
 
-1. Register on GitHub. https://happygitwithr.com/github-acct.html
-2. Install or update R and Rstudio https://happygitwithr.com/install-r-rstudio.html
-3. Install git https://happygitwithr.com/install-git.html
-4. Configure git https://happygitwithr.com/hello-git.html
-5. Install a git client: I will not cover all the git clients. 
-	- I will show you how to use GitHub desktop (for Mac and Windows users), download here: https://desktop.github.com/. 
-	- If you are a linux user I recommend gitkraken instead (and will be happy to show you that too). 
+1. [Register on GitHub](https://happygitwithr.com/github-acct.html)
+2. [Install or update Rstudio](https://happygitwithr.com/install-r-rstudio.html)
+3. [Install & Configure git](https://happygitwithr.com/install-git.html)
+4. (Optionnal) Install a git client: I recommend [**GitKraken**](https://www.gitkraken.com/)
+5. [Learn **5 key things** about Git is](https://speakerdeck.com/alicebartlett/git-for-humans) (thanks to Alice Bartlett from the Financial times for this great intro to Git)
 
-*For people with more  experience in bash/terminal/programming, please consider also doing this next step. If you don’t feel comfortable doing this or are having issues with this, do not worry. Reach out to me a prior to the training so that I can help you.*
+**(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
+**If you are having issues with this step, please reach out to me a prior to the training so that I can help you.**
 
-**(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you not to have to put in your password all the time every time you push or pull. 
+**Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio**
 
-------
+***
 
-### **Part 1: Introduction**
-### Linus Torvalds, the mind behind git 
-The mind behind linux (listen until ~9:20): https://youtu.be/o8NPllzkFhE?t=433
-Linus Torvalds created git because he was frustrated with existing version control softwares (like cvs https://www.nongnu.org/cvs/). Now, thousands of people use it. **Today you are going to become one of those people! 🎉**
+### Exercise 1: Once upon a commit...
+Let's start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the `mkdir` command like below (stands for "make directory"). The `cd` command, for "change directory", allows us to move into this new directory.
 
-### What is git? "Git for humans" by Alice Bartlett
-Alice Bartlett (https://github.com/alicebartlett) from the Financial times has made a great set of introductory slides to explain **5 key things** about git: 
-https://speakerdeck.com/alicebartlett/git-for-humans
-
-Git in one illustration: 
-![Git](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
-
-------
-
-### **Part 2: Hands-on**
-*The following is inspired from the excellent tutorial https://happygitwithr.com/ Thanks to them!*
-*We will also use [this amazing website](https://git-school.github.io/visualizing-git/#free-remote) as a visual aid*
-
-### Exercise 1: Once upon a commit... 📖
-
-Let's start by creating a new directory in your home directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the `mkdir` command like below (stands for "make directory"). The `cd` command, for "change directory", allows us to move into this new directory.
+#### At the terminal
 
 ```{sh eval=FALSE, include=TRUE}
-cd ~ 			# Go to your home directory
+cd ~ 			    # Go to your home directory
 mkdir gitWorkshop 	# Creates a new directory called gitWorkshop in your home directory
 cd gitWorkshop 		# Moves to inside the new directory
 ```
@@ -82,14 +67,69 @@ git init		# This initialize git in your directory
 ```{}
 Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/
 ```
-Now, let's create a file using the `touch` command and edit it with `nano`. We want to track all the changes to this file. The code below opens the nano editor which you might not have on your computer. `Nano` is a simple command line file editor. Once the file is opened, you will see an empty screen. Type in what you want. You can then close the editor with `ctrl+X`. Make sure to type `y` for yes and press `enter` to save the file. If you do not have nano or do not like it, you can open the file in any text editor, edit and and save it there.
+
+#### In RStudio
+
+In order to do the same thing in Rstudio, you need to create a new [Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
+
+  1. Open RStudio, in the top right corner create a new project 
+
+<center>
+  ![](images/Step_1.png)
+</center>
+
+  2. Select **New Directory** Note that **Version Control** is reserved for when you already created a repo on GitHub. We will come back to this later.
+
+<center>
+  ![](images/Step_2.png){width=50%}
+</center>
+
+  3. Select **New Project**
+
+<center>
+  ![](images/Step_3.png){width=50%}
+</center>
+
+  4. Choose a new for your repo and a location. **Make sure that _create a git repository_ is checked**
+
+<center>
+  ![](images/Step_4.png){width=50%}
+</center>
+
+ 5. You can now look under the *git tab*, you should see this: 
+ 
+<center>
+![](images/final.png)
+
+</center>
+
+**Note: we will come back to what the _.gitignore_ file is later!**
+
+***
+
+> **Let's now create a new file, the first file we want to keep track of in this project**
+
+#### At the terminal
+
+We create a file using the `touch` command:
 
 ```{sh eval=FALSE, include=TRUE}
 touch script_1.R	# Creates the file
-nano script_1.R		# This opens the nano Text editor. 
 ```
 
-We can now start to use git to track the changes we made to this file. With the `ls`, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file. At any time, git lets you know if you have modified a file, thanks to the `status` command.
+#### In RStudio
+
+Create a new file: go to the menu *File => New file => R Script*. Make sure to save it with the name *script_1.R*.
+
+***
+
+> **The repo is created and you have created a file, can git see the new file?**
+
+#### At the terminal
+
+With the `ls` command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file. 
+
+At any time, git lets you know if you have a untracked file, thanks to the `git status` command.
 
 ```{sh eval=FALSE, include=TRUE}
 ls			# This lists the files in the directory. You should see your file listed!
@@ -108,14 +148,26 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Here `status` shows you multiple things: 
+#### In RStudio
 
-- The branch you are on (the master branch, more on that later). 
-- It lists the latest commit (none yet) and the changes you've made since the last commit. 
-- It lists if files are **untracked**. New files are untracked by default. Here the `script_1.R` is shown as untracked. **Let's change that.** To do so, here is a second command: `add`.
+No need for the `status` command in RStudio, the *Git* tab shows you in real time the status of your files: 
+
+ - Files that are **untracked** are represented by a **yellow question mark**.
+ - Files that have been **added** (see next section) are represented by a **green A**
+ - Files that have been **tracked and modified** are represented by a **blue M**.
+ - Files that are *tracked but not modified* do not show.
+ - Files that have been **deleted** are shown with a **red D**. 
+
+***
+
+> **By default, Git does not track anything. We need to tell it to do so. Let's do that now!** 
+
+#### At the terminal
+
+From the terminal, we can use the `git add` command. This tells git which file you care about and want to start tracking. This is called **Staging the file**.
 
 ```{sh eval=FALSE, include=TRUE}
-git add -A		# This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
+git add script_1.R
 git status 		# Status now shows, in green, which changes have to be committed
 ```
 ```{}
@@ -129,7 +181,95 @@ Changes to be committed:
         new file:   script_1.R
 ```
 
-The file is now tracked by git. We say the file is **staged**. It has been added to what we call the **index**. Note that you could now do more changes, and you would need to re-run `git add` to add them to the index. Those changes not yet fully registered by git, they are like a draft. When you want to take a snapshot of a file, it means you are readu to commit that change to the index. To commit your changes, simply use the `commit` command, along with a (useful) message:
+#### In RStudio
+
+In RStudio, this is as simple as "checking off" the file in the Git tab. This is called **Staging the file**.
+
+<center>
+  ![](images/checked.png)
+</center>
+
+While you are at it, make sure to also check the `.gitignore file.` **What is a gitignore?** A gitignore is a file that lists the file you never want git to track. It can match certain file names (for instance, `.csv` or `.tif` files). This can be useful in case you need to make sure certain files (like data files or large files), do not get added.
+
+***
+
+> **Let's now make sure this new file is registered by git: this is called a _commit_** 
+
+#### At the terminal
+
+We have staged the file. Let's now take a snapshot of this file with the `git commit` command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
+
+```{sh eval=FALSE, include=TRUE}
+git commit -m "First commit - adding script1"	# the -m flag adds a message to a commit
+```
+```{}
+[master (root-commit) 03a1fe9] First commit - adding script1
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 script_1.R
+```
+
+Another useful command: git `log` shows you the recent commit history. 
+
+```{sh eval=FALSE, include=TRUE}
+git log						# Git log shows you the history
+```
+```{}
+commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -> master)
+Author: VLucet <valentin.lucet@gmail.com>
+Date:   Wed Apr 8 18:19:53 2020 -0400
+
+    First commit - adding script1
+```
+
+#### In RStudio
+
+In Rstudio, committing is a few clicks away.
+
+  1. Click on `commit` on the top of the file list.
+  2. This window should appear:
+  
+<center>
+  ![](images/commit.png){width=75%}
+</center>
+
+  3. Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
+  
+<center>
+  ![](images/message.png){width=50%}
+</center>
+
+  4. Click on commit in order to commit the changes!
+
+***
+
+> **Let's now make some changes to this file and commit them** 
+
+#### At the terminal
+
+The code below opens the **nano** editor. [`Nano`](https://www.nano-editor.org/) is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.
+
+```{sh eval=FALSE, include=TRUE}
+nano script_1.R		# This opens the nano Text editor. 
+```
+
+Type in what you want. You can then close the editor with `ctrl+X`. Make sure to type `y` for yes and press `enter` to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.
+
+We now need to stage (`git add`) and commit (`git commit`)
+
+```{sh eval=FALSE, include=TRUE}
+git add -A  # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
+git status      # Status now shows, in green, which changes have to be committed
+```
+```{}
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   script_1.R
+```
+
+
+Now let's commit:
 
 ```{sh eval=FALSE, include=TRUE}
 git commit -m "First commit - adding script1"	# the -m flag adds a message to a commit
@@ -140,22 +280,42 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
  create mode 100644 script_1.R
 ```
 
-Git will print a message summarising the changes you've made. Well done! You now master the very basics of git. Easy peasy lemon squizzy 🍋🍹. The git `log` command shows you the recent commit history. 
 
-```{sh eval=FALSE, include=TRUE}
-git log						# Git log shows you the history
-```
-```{}
-commit e07b863a1afad32e03ac44b05c2a63eeab523557 (HEAD -> master)
-Author: VLucet <valentin.lucet@gmail.com>
-Date:   Wed Apr 8 18:19:53 2020 -0400
+#### In RStudio
 
-    First commit - adding script1
-```
+Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
+
+<center>
+  ![](images/mod_step1.png)
+</center>
+
+Now, *Stage the file* by chekcing it.
+
+<center>
+  ![](images/mod_step2.png)
+</center>
+
+Then, make sure you commit once again.
+
+<center>
+  ![](images/mod_step3.png)
+</center>
+
+**Note**: take a look at the **history** tab in the commit window.
+
+***
+
+Note that once you have staged a file, you could do more changes, and you would need to re-run `git add` to add them to the index. Those changes not yet fully registered by git, they are like a draft, not untiil you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.
+
+This image summarises what we have learned so far. Each change in the repository (adding a file, modifying a file, etc...) needs to be staged before it is commited. 
+
+<center>
+![](https://git-scm.com/images/about/index1@2x.png){width=65%}
+</center>
 
 ------
 
-### Exercise 2: All roads lead to GitHub 🛣️
+### Exercise 2: All roads lead to GitHub
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this **pushing**. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
 
@@ -196,22 +356,17 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 ------
 
-### Exercise 3: The client is king: GitHub Desktop 👑
+### DEMO: Gitkraken
 
-**Note: Linux users can use GitKraken for this step.** 
-
-What if you don't want to type in commands all the time? You can use a GitHub client. It's a program that will provide an more user-friendly interface with git and GitHub. 
-
-- Open GitHub Desktop. 
-- You have the choice between **adding** a local repository or **cloning** one (downloading from GitHub). We will add the local repo we just created. 
-  - Navigate to File => Add local repository => navigate to the path. Your repo is now added! 
-- You can open your text file again and change it. 
-- You can use the interface to **ignore**, **remove** or **add** changes and for commiting. 
-- Pushing (and pulling) is only one click away, on the top right. 
+_DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU)_
 
 ------
 
-### Exercise 4: Team Work makes the Dream Work 👩👨
+### Exercise 4: Team Work makes the Dream Work
+
+Git is made for collaboration. In one image, this can be summarised like this:
+
+![Git](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
 
 Form teams of 3. The youngest of the team will be the repo owner for this exercise. 
 
@@ -231,7 +386,7 @@ Well done, you have no set up a team and you are now technically working on the 
 
 ------
 
-### Exercise 5: (Do The) Push and Pull ⬆️🔄⬇️
+### Exercise 5: (Do The) Push and Pull
 
 You are now ready to do yur first round of **pushing and pulling**.
 
@@ -291,7 +446,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 ------
 
-### Exercise 6: Git of war 💣💥
+### Exercise 6: Git of war
 
 Now, let's do it again but a little differently. The one person in the group to not have edited the `README` should do it now on their machine. Please add and commit but **do not push yet**.
 
@@ -436,17 +591,17 @@ To github.com:VLucet/gitWorkshop.git
    
 ```
 
-Additionnaly, you can do all this by creating a pull request on github (**DEMO**). 
+Additionally, you can do all this by creating a pull request on github (**DEMO**). 
 
 ------
 
-### Exercise 8: In Rstudio ✨
+### Exercise 8: In Rstudio
 
 There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.
 
 **A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience ([this troubleshooting page is an illustration of my point](https://happygitwithr.com/troubleshooting.html)). 
 
-Other people hold a diffreent opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a `.Rproj` file which some people want to `gitignore`.
+Other people hold a different opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a `.Rproj` file which some people want to `gitignore`.
 
 How to set up git inside a project:
 
