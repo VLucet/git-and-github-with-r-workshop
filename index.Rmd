@@ -44,7 +44,10 @@ This workshop makes use of different sources of online learning materials. -->
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
 **If you are having issues with this step, please reach out to me a prior to the training so that I can help you.**
 
-**Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio**
+**Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.**
+
+There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance).
+**A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface. This can turn out be a lovely thing, but sometimes leads to problems. I advise you to [bookmark this troubleshooting guide for later just in case.](https://happygitwithr.com/troubleshooting.html)). 
 
 ***
 
@@ -70,7 +73,7 @@ Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/
 
 #### In RStudio
 
-In order to do the same thing in Rstudio, you need to create a new [Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects).
+To use git in Rstudio, you need to create a new [Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects). Let's start by creating our project directory. 
 
   1. Open RStudio, in the top right corner create a new project 
 
@@ -358,13 +361,13 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 ### DEMO: Gitkraken
 
-_DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU)_
+_DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU)._
 
 ------
 
 ### Exercise 4: Team Work makes the Dream Work
 
-Git is made for collaboration. In one image, this can be summarised like this:
+Git is made for collaboration. In one image, this can be summarized like this:
 
 ![Git](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
 
@@ -594,19 +597,3 @@ To github.com:VLucet/gitWorkshop.git
 Additionally, you can do all this by creating a pull request on github (**DEMO**). 
 
 ------
-
-### Exercise 8: In Rstudio
-
-There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.
-
-**A note on the Git/Github/Rstudio nexus:** Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience ([this troubleshooting page is an illustration of my point](https://happygitwithr.com/troubleshooting.html)). 
-
-Other people hold a different opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a `.Rproj` file which some people want to `gitignore`.
-
-How to set up git inside a project:
-
-- Step 1: Set up git in the global options. TOOLS => GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.  
-- Step 2: Create a new Rstudio project. FILE => NEW PROJECT  
-- Step 3: Go in TOOLS => VERSION CONTROL => PROJECT SET UP. You can initialise a new git repo here.   
-
-*Note: you will not be able to push your repo to a remote through rstudio, you will need a git client for that. Another option is to initialize a repo on Github, clone it, and then create a new R project inside it. You will be then be able to push and pull.*

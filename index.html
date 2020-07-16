@@ -288,7 +288,8 @@ This workshop makes use of different sources of online learning materials. --></
 <li><a href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn <strong>5 key things</strong> about Git is</a> (thanks to Alice Bartlett from the Financial times for this great intro to Git)</li>
 </ol>
 <p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong> <a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. <strong>If you are having issues with this step, please reach out to me a prior to the training so that I can help you.</strong></p>
-<p><strong>Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio</strong></p>
+<p><strong>Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.</strong></p>
+<p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). <strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface. This can turn out be a lovely thing, but sometimes leads to problems. I advise you to <a href="https://happygitwithr.com/troubleshooting.html">bookmark this troubleshooting guide for later just in case.</a>).</p>
 <hr />
 </div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
@@ -305,7 +306,7 @@ cd gitWorkshop      # Moves to inside the new directory</code></pre>
 </div>
 <div id="in-rstudio" class="section level4">
 <h4>In RStudio</h4>
-<p>In order to do the same thing in Rstudio, you need to create a new <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>.</p>
+<p>To use git in Rstudio, you need to create a new <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>. Let’s start by creating our project directory.</p>
 <ol style="list-style-type: decimal">
 <li>Open RStudio, in the top right corner create a new project</li>
 </ol>
@@ -526,12 +527,12 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 </div>
 <div id="demo-gitkraken" class="section level3">
 <h3>DEMO: Gitkraken</h3>
-<p><em>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a></em></p>
+<p><em>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>.</em></p>
 <hr />
 </div>
 <div id="exercise-4-team-work-makes-the-dream-work" class="section level3">
 <h3>Exercise 4: Team Work makes the Dream Work</h3>
-<p>Git is made for collaboration. In one image, this can be summarised like this:</p>
+<p>Git is made for collaboration. In one image, this can be summarized like this:</p>
 <div class="figure">
 <img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="" />
 <p class="caption">Git</p>
@@ -664,21 +665,6 @@ To github.com:VLucet/gitWorkshop.git
    </code></pre>
 <p>Additionally, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
 <hr />
-</div>
-<div id="exercise-8-in-rstudio" class="section level3">
-<h3>Exercise 8: In Rstudio</h3>
-<p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). That being said, you can do all of the above directly in RStudio.</p>
-<p><strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface, what can be called the Git/Github/Rstudio nexus. This can turn out be a lovely thing, if after using it you find that it is a nice user experience (<a href="https://happygitwithr.com/troubleshooting.html">this troubleshooting page is an illustration of my point</a>).</p>
-<p>Other people hold a different opinion: thinking that you should let Rstudio do what it is designed to do, i.e. help you be productive with R. For example, to be able to use version control in rstudio, you need to create a R studio project, which creates a <code>.Rproj</code> file which some people want to <code>gitignore</code>.</p>
-<p>How to set up git inside a project:</p>
-<ul>
-<li>Step 1: Set up git in the global options. TOOLS =&gt; GLOBAL OPTIONS. This allows you to set the SSH key that Rstudio will use.<br />
-</li>
-<li>Step 2: Create a new Rstudio project. FILE =&gt; NEW PROJECT<br />
-</li>
-<li>Step 3: Go in TOOLS =&gt; VERSION CONTROL =&gt; PROJECT SET UP. You can initialise a new git repo here.</li>
-</ul>
-<p><em>Note: you will not be able to push your repo to a remote through rstudio, you will need a git client for that. Another option is to initialize a repo on Github, clone it, and then create a new R project inside it. You will be then be able to push and pull.</em></p>
 </div>
 
 
