@@ -286,19 +286,19 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
 
 #### In RStudio
 
-Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
+ 1. Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
 
 <center>
   ![](images/mod_step1.png)
 </center>
 
-Now, *Stage the file* by chekcing it.
+  2. Now, *Stage the file* by chekcing it.
 
 <center>
   ![](images/mod_step2.png)
 </center>
 
-Then, make sure you commit once again.
+  3. Then, make sure you commit once again.
 
 <center>
   ![](images/mod_step3.png)
