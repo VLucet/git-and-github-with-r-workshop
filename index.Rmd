@@ -411,6 +411,14 @@ There you go! you now have a copy of your repo on GitHub. Well done!
   ![](images/dialogue_3.png){width=50%}
 </center>
 
+5. You can now push your commits by clicking on the **push** button. You can go to to your repo to see the changes.
+
+<center>
+  ![](images/push.png){width=50%}
+</center>
+
+There you go! you now have a copy of your repo on GitHub. Well done! Fron now on you can continue to **add**, **commit** and **push** your commits.
+
 <!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 
 ------
