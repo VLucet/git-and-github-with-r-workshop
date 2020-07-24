@@ -3,7 +3,7 @@ title: "Git and GitHub from the Terminal & RStudio: An Introduction"
 author: Valentin Lucet
 output:
   rmdformats::readthedown:
-    code_folding: hide
+    code_folding: show
     self_contained: no
     thumbnails: false
     lightbox: true
@@ -56,15 +56,15 @@ Let's start by creating a new directory, this will be our project directory. Ope
 #### At the terminal
 
 ```{sh eval=FALSE, include=TRUE}
-cd ~ 			    # Go to your home directory
-mkdir gitWorkshop 	# Creates a new directory called gitWorkshop in your home directory
-cd gitWorkshop 		# Moves to inside the new directory
+cd ~    # Go to your home directory
+mkdir gitWorkshop   # Creates a new directory called gitWorkshop in your home directory
+cd gitWorkshop 		  # Moves to inside the new directory
 ```
 
 Now that you have a fresh directory, we need to make it a git repository, aka a **repo** (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It's simple: 
 
 ```{sh eval=FALSE, include=TRUE}
-git init		# This initialize git in your directory
+git init    # This initialize git in your directory
 ```
 ```{}
 Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/
@@ -116,7 +116,7 @@ To use git in Rstudio, you need to create a new [Project](https://support.rstudi
 We create a file using the `touch` command:
 
 ```{sh eval=FALSE, include=TRUE}
-touch script_1.R	# Creates the file
+touch script_1.R    # Creates the file
 ```
 
 #### In RStudio
@@ -134,8 +134,8 @@ With the `ls` command, which lists everything in your directory, you can see the
 At any time, git lets you know if you have a untracked file, thanks to the `git status` command.
 
 ```{sh eval=FALSE, include=TRUE}
-ls			# This lists the files in the directory. You should see your file listed!
-git status		# Shows the current status of your repo with regards to git
+ls			   # This lists the files in the directory. You should see your file listed!
+git status # Shows the current status of your repo with regards to git
 ```
 ```{}
 On branch master
@@ -170,7 +170,7 @@ From the terminal, we can use the `git add` command. This tells git which file y
 
 ```{sh eval=FALSE, include=TRUE}
 git add script_1.R
-git status 		# Status now shows, in green, which changes have to be committed
+git status    # Status now shows, in green, which changes have to be committed
 ```
 ```{}
 On branch master
@@ -202,7 +202,7 @@ While you are at it, make sure to also check the `.gitignore file.` **What is a 
 We have staged the file. Let's now take a snapshot of this file with the `git commit` command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
 
 ```{sh eval=FALSE, include=TRUE}
-git commit -m "First commit - adding script1"	# the -m flag adds a message to a commit
+git commit -m "First commit - adding script1"   # the -m flag adds a message to a commit
 ```
 ```{}
 [master (root-commit) 03a1fe9] First commit - adding script1
@@ -213,7 +213,7 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
 Another useful command: git `log` shows you the recent commit history. 
 
 ```{sh eval=FALSE, include=TRUE}
-git log						# Git log shows you the history
+git log   # Git log shows you the history
 ```
 ```{}
 commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -> master)
@@ -251,7 +251,7 @@ In Rstudio, committing is a few clicks away.
 The code below opens the **nano** editor. [`Nano`](https://www.nano-editor.org/) is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.
 
 ```{sh eval=FALSE, include=TRUE}
-nano script_1.R		# This opens the nano Text editor. 
+nano script_1.R   # This opens the nano Text editor. 
 ```
 
 Type in what you want. You can then close the editor with `ctrl+X`. Make sure to type `y` for yes and press `enter` to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.
@@ -259,8 +259,10 @@ Type in what you want. You can then close the editor with `ctrl+X`. Make sure to
 We now need to stage (`git add`) and commit (`git commit`)
 
 ```{sh eval=FALSE, include=TRUE}
-git add -A  # This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to
-git status      # Status now shows, in green, which changes have to be committed
+git add -A    # This adds ALL (hence the -A) the changes you made to the git index. 
+              # Your changes are now registered 
+              # You could also just do git add script_1.R if you wanted to
+git status    # Status now shows, in green, which changes have to be committed
 ```
 ```{}
 On branch master
@@ -356,13 +358,14 @@ The next thing is to tell your local git that you have created a new remote. You
 1. Tell git the address of your remote
 
 ```{sh eval=FALSE, include=TRUE}
-git remote add origin https:...	   # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
+git remote add origin https:...	  # Add here the URL of your git repo, 
+                                  # for instance https://github.com/VLucet/gitWorkshoptest
 ```
 
-After  to **push** your repo. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
+2. You now need to upload your repo to the remote, i.e. to **push** your commits. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
 
 ```{sh eval=FALSE, include=TRUE} 
- git push --set-upstream origin master	# This pushes and sets the remote as "upstream"
+ git push --set-upstream origin master    # This pushes and sets the remote as "upstream"
 ```
 ```{}
 Enumerating objects: 3, done.
@@ -374,7 +377,8 @@ To https://github.com/VLucet/gitWorkshop
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 ```
 ```{sh eval=FALSE, include=TRUE}
- git push origin master			# If you try to push again, it will tell you that everything is up to date!
+ git push   # If you try to push again, 
+            # it will tell you that everything is up to date!
 ```
 ```{}
 Everything up-to-date
@@ -383,10 +387,13 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 #### In RStudio
 
-Need to clone from rstudio
+1. In Rstudio you have to click to the **New Branch** button in the git pane, in the top right corner of the pane: 
 
+<center>
+  ![](images/new_branch_icon.png){width=50%}
+</center>
 
-**Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4).
+<!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 
 ------
 

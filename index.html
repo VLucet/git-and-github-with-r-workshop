@@ -117,7 +117,7 @@ $(document).ready(function () {
 <!-- code folding -->
 <script>
 $(document).ready(function () {
-  window.initializeCodeFolding("hide" === "show");
+  window.initializeCodeFolding("show" === "show");
 });
 </script>
 
@@ -193,11 +193,11 @@ This workshop makes use of different sources of online learning materials. --></
 <p>Let’s start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
 <div id="at-the-terminal" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> ~                <span class="co"># Go to your home directory</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> ~    <span class="co"># Go to your home directory</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">mkdir</span> gitWorkshop   <span class="co"># Creates a new directory called gitWorkshop in your home directory</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">cd</span> gitWorkshop      <span class="co"># Moves to inside the new directory</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">cd</span> gitWorkshop        <span class="co"># Moves to inside the new directory</span></span></code></pre></div>
 <p>Now that you have a fresh directory, we need to make it a git repository, aka a <strong>repo</strong> (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It’s simple:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> init        <span class="co"># This initialize git in your directory</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> init    <span class="co"># This initialize git in your directory</span></span></code></pre></div>
 <pre><code>Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/</code></pre>
 </div>
 <div id="in-rstudio" class="section level4">
@@ -256,8 +256,8 @@ This workshop makes use of different sources of online learning materials. --></
 <h4>At the terminal</h4>
 <p>With the <code>ls</code> command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file.</p>
 <p>At any time, git lets you know if you have a untracked file, thanks to the <code>git status</code> command.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ls</span>          <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> status      <span class="co"># Shows the current status of your repo with regards to git</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ls</span>             <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> status <span class="co"># Shows the current status of your repo with regards to git</span></span></code></pre></div>
 <pre><code>On branch master
 
 No commits yet
@@ -288,7 +288,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 <h4>At the terminal</h4>
 <p>From the terminal, we can use the <code>git add</code> command. This tells git which file you care about and want to start tracking. This is called <strong>Staging the file</strong>.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> add script_1.R</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> status      <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
 <pre><code>On branch master
 
 No commits yet
@@ -318,7 +318,7 @@ Changes to be committed:
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 script_1.R</code></pre>
 <p>Another useful command: git <code>log</code> shows you the recent commit history.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> log                     <span class="co"># Git log shows you the history</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> log   <span class="co"># Git log shows you the history</span></span></code></pre></div>
 <pre><code>commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -&gt; master)
 Author: VLucet &lt;valentin.lucet@gmail.com&gt;
 Date:   Wed Apr 8 18:19:53 2020 -0400
@@ -352,11 +352,13 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 <div id="at-the-terminal-5" class="section level4">
 <h4>At the terminal</h4>
 <p>The code below opens the <strong>nano</strong> editor. <a href="https://www.nano-editor.org/"><code>Nano</code></a> is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">nano</span> script_1.R     <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">nano</span> script_1.R   <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
 <p>Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.</p>
 <p>We now need to stage (<code>git add</code>) and commit (<code>git commit</code>)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> add -A  <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. Your changes are now registered // You could also just do git add script_1.R if you wanted to</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">git</span> status      <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> add -A    <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. </span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>              <span class="co"># Your changes are now registered </span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>              <span class="co"># You could also just do git add script_1.R if you wanted to</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
 <pre><code>On branch master
 Changes to be committed:
   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
@@ -431,9 +433,12 @@ Changes to be committed:
 <ol style="list-style-type: decimal">
 <li>Tell git the address of your remote</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...    <span class="co"># Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
-<p>After to <strong>push</strong> your repo. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a> <span class="fu">git</span> push --set-upstream origin master  <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>                                  <span class="co"># for instance https://github.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>You now need to upload your repo to the remote, i.e. to <strong>push</strong> your commits. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a> <span class="fu">git</span> push --set-upstream origin master    <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
 <pre><code>Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 263 bytes | 263.00 KiB/s, done.
@@ -441,13 +446,19 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/VLucet/gitWorkshop
  * [new branch]      master -&gt; master
 Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a> <span class="fu">git</span> push origin master         <span class="co"># If you try to push again, it will tell you that everything is up to date!</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a> <span class="fu">git</span> push   <span class="co"># If you try to push again, </span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>            <span class="co"># it will tell you that everything is up to date!</span></span></code></pre></div>
 <pre><code>Everything up-to-date</code></pre>
 <p>There you go! you now have a copy of your repo on GitHub. Well done!</p>
 </div>
 <div id="in-rstudio-6" class="section level4">
 <h4>In RStudio</h4>
-<p>Need to clone from rstudio</p>
+<ol style="list-style-type: decimal">
+<li>In Rstudio you have to click to the <strong>New Branch</strong> button in the git pane, in the top right corner of the pane:</li>
+</ol>
+<center>
+<img src="images/new_branch_icon.png" style="width:50.0%" />
+</center>
 <p><strong>Note:</strong> it is also possible to start the repo on GitHub and download a <strong>clone</strong>. It is the opposite operation (see exercise 4).</p>
 <hr />
 </div>
