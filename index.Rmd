@@ -393,6 +393,24 @@ There you go! you now have a copy of your repo on GitHub. Well done!
   ![](images/new_branch_icon.png){width=50%}
 </center>
 
+2. The dialogue window should open, click on **add remote**
+
+<center>
+  ![](images/dialogue_1.png){width=50%}
+</center>
+
+3. Put **origin** as the remote name. Why **origin**? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters! Put the also address of your repo (for instance for me it is `for instance https://github.com/VLucet/gitWorkshoptest`)
+
+<center>
+  ![](images/dialogue_2.png){width=50%}
+</center>
+
+4. Back to the previous dialogue box, write **master** as the main branch and make sure to tick the box **sync branch with remote**.
+
+<center>
+  ![](images/dialogue_3.png){width=50%}
+</center>
+
 <!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 
 ------
