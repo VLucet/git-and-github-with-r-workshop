@@ -1,13 +1,12 @@
 ---
 title: "Git and GitHub from the Terminal & RStudio: An Introduction"
-
-output: 
-  html_document:
-    df_print: default
-    theme: spacelab
-    number_sections: no
+author: Valentin Lucet
+output:
+  rmdformats::readthedown:
+    code_folding: hide
     self_contained: no
-    toc: yes
+    thumbnails: false
+    lightbox: true
     toc_depth: 3
     toc_float:
       collapsed: no
@@ -346,19 +345,21 @@ The first thing to do is to create the remote:
   ![](images/create_repo.png){width=75%}
 </center>
 
-The next thing is to tell your local git that you have created a new remote. You will name this the **origin** remote. 
+The next thing is to tell your local git that you have created a new remote. You will name this the **origin** remote. Why **origin**? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters!
 
-> This is where the command line and the terminal have different approaches
+***
 
-[add drawing]?
+> Let's now link your local repo with the GitHub "remote"
 
 #### At the terminal
+
+1. Tell git the address of your remote
 
 ```{sh eval=FALSE, include=TRUE}
 git remote add origin https:...	   # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
 ```
 
-Finally, it is time to **push** your repo. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
+After  to **push** your repo. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
 
 ```{sh eval=FALSE, include=TRUE} 
  git push --set-upstream origin master	# This pushes and sets the remote as "upstream"
