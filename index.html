@@ -264,7 +264,7 @@ div.tocify {
 
 
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 16 July, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 23 July, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. --></p>
 <hr />
 <p><em>The following workshop is inspired from the following resources:</em></p>
@@ -474,15 +474,21 @@ Changes to be committed:
 </div>
 <div id="in-rstudio-5" class="section level4">
 <h4>In RStudio</h4>
-<p>Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:</p>
+<ol style="list-style-type: decimal">
+<li>Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:</li>
+</ol>
 <center>
 <img src="images/mod_step1.png" />
 </center>
-<p>Now, <em>Stage the file</em> by chekcing it.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Now, <em>Stage the file</em> by chekcing it.</li>
+</ol>
 <center>
 <img src="images/mod_step2.png" />
 </center>
-<p>Then, make sure you commit once again.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Then, make sure you commit once again.</li>
+</ol>
 <center>
 <img src="images/mod_step3.png" />
 </center>
@@ -498,17 +504,34 @@ Changes to be committed:
 </div>
 <div id="exercise-2-all-roads-lead-to-github" class="section level3">
 <h3>Exercise 2: All roads lead to GitHub</h3>
-<p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
-<ul>
-<li>The first thing to do is to create the remote on github.com:
-<ul>
-<li>log in at github.com.</li>
-<li>click on the green folder.</li>
-<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!).</li>
-<li><strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be an <strong>empty repo</strong>.</li>
-</ul></li>
-<li>The next thing is to tell your local git that you have created a new remote. You will name this the <strong>origin</strong> remote.</li>
-</ul>
+<p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
+<p>“Linking” can mean multiple things depending on where you start things.</p>
+<p>We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
+<hr />
+<blockquote>
+<p>We first need to create the remote repository on <a href="github.com">GitHub</a></p>
+</blockquote>
+<p>The first thing to do is to create the remote:</p>
+<ol style="list-style-type: decimal">
+<li><p>log in</p></li>
+<li><p>click on the green folder.</p></li>
+</ol>
+<center>
+<img src="images/green_github.png" />
+</center>
+<ol start="3" style="list-style-type: decimal">
+<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). <strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be an <strong>empty repo</strong>.</li>
+</ol>
+<center>
+<img src="images/create_repo.png" style="width:75.0%" />
+</center>
+<p>The next thing is to tell your local git that you have created a new remote. You will name this the <strong>origin</strong> remote.</p>
+<blockquote>
+<p>This is where the command line and the terminal have different approaches</p>
+</blockquote>
+<p>[add drawing]?</p>
+<div id="at-the-terminal-6" class="section level4">
+<h4>At the terminal</h4>
 <pre class="sh"><code>git remote add origin https:...    # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest</code></pre>
 <p>Finally, it is time to <strong>push</strong> your repo. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</p>
 <pre class="sh"><code> git push --set-upstream origin master  # This pushes and sets the remote as &quot;upstream&quot;</code></pre>
@@ -522,8 +545,13 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <pre class="sh"><code> git push origin master         # If you try to push again, it will tell you that everything is up to date!</code></pre>
 <pre><code>Everything up-to-date</code></pre>
 <p>There you go! you now have a copy of your repo on GitHub. Well done!</p>
+</div>
+<div id="in-rstudio-6" class="section level4">
+<h4>In RStudio</h4>
+<p>Need to clone from rstudio</p>
 <p><strong>Note:</strong> it is also possible to start the repo on GitHub and download a <strong>clone</strong>. It is the opposite operation (see exercise 4).</p>
 <hr />
+</div>
 </div>
 <div id="demo-gitkraken" class="section level3">
 <h3>DEMO: Gitkraken</h3>
@@ -597,7 +625,7 @@ git commit -m &quot;modified the README&quot; # Do not push!</code></pre>
 <pre class="sh"><code>git fetch   # This fetches the changes
 git status  # WOW! Status says that the commits are different... this might cause a problem
 git pull    # There is now a &quot;conflict&quot; and you need to resolve it</code></pre>
-<p>You’ve created a conflict 😱. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
+<p>You’ve created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
 <div class="figure">
 <img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="" />
 <p class="caption">Git conflict illustrated</p>
@@ -615,12 +643,12 @@ git pull    # There is now a &quot;conflict&quot; and you need to resolve it</co
 git commit -m &quot;fixed the conflict&quot;  # You fixed the conflict, better put a messgae indicating it!
 git push origin master          # Push it!
 git status              # All is good!</code></pre>
-<p>Well done! You’ve learned how to deal with conflicts! 💪</p>
+<p>Well done! You’ve learned how to deal with conflicts!</p>
 <p>In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).</p>
 <hr />
 </div>
 <div id="exercise-7-the-tree-of-git" class="section level3">
-<h3>Exercise 7: The tree of git 🌳</h3>
+<h3>Exercise 7: The tree of git</h3>
 <p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
 <p>One of the team members should do the following. The first thing is to create the branch:</p>
 <pre class="sh"><code>git branch mynewbranch      # This simply creates the new branch</code></pre>

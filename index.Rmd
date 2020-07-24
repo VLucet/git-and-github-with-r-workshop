@@ -320,14 +320,39 @@ This image summarises what we have learned so far. Each change in the repository
 
 ### Exercise 2: All roads lead to GitHub
 
-After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to copy your repo to GitHub, an online hub for repositories. We call this **pushing**. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
+After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories. 
 
-- The first thing to do is to create the remote on github.com: 
-	- log in at github.com. 
-	- click on the green folder.
-	- Give a name to your repo. It's good practice to the use the same name than your local git repo (it's also easier to remember that way!).
-	- **Do not** add a `README.md` or `.gitignore`. The repo needs to be an **empty repo**.
-- The next thing is to tell your local git that you have created a new remote. You will name this the **origin** remote. 
+"Linking" can mean multiple things depending on where you start things.
+
+We call this **pushing**. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
+
+***
+
+> We first need to create the remote repository on [GitHub](github.com)
+
+The first thing to do is to create the remote: 
+
+  1. log in
+	
+  2. click on the green folder.
+
+<center>
+  ![](images/green_github.png)
+</center>
+
+  3. Give a name to your repo. It's good practice to the use the same name than your local git repo (it's also easier to remember that way!). **Do not** add a `README.md` or `.gitignore`. The repo needs to be an **empty repo**.
+  
+<center>
+  ![](images/create_repo.png){width=75%}
+</center>
+
+The next thing is to tell your local git that you have created a new remote. You will name this the **origin** remote. 
+
+> This is where the command line and the terminal have different approaches
+
+[add drawing]?
+
+#### At the terminal
 
 ```{sh eval=FALSE, include=TRUE}
 git remote add origin https:...	   # Add here the URL of your git repo, for instance https://github.com/VLucet/gitWorkshoptest
@@ -354,6 +379,11 @@ Branch 'master' set up to track remote branch 'master' from 'origin'.
 Everything up-to-date
 ```
 There you go! you now have a copy of your repo on GitHub. Well done!
+
+#### In RStudio
+
+Need to clone from rstudio
+
 
 **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4).
 
