@@ -143,13 +143,12 @@ $(document).ready(function () {
     <div id="table-of-contents">
       <ul>
       <li><a href="#preparation">Preparation</a></li>
-      <li><a href="#exercise-1-once-upon-a-commit">Exercise 1: Once upon a commit…</a></li>
-      <li><a href="#exercise-2-all-roads-lead-to-github">Exercise 2: All roads lead to GitHub</a></li>
-      <li><a href="#demo-gitkraken">DEMO: Gitkraken</a></li>
-      <li><a href="#exercise-4-team-work-makes-the-dream-work">Exercise 4: Team Work makes the Dream Work</a></li>
-      <li><a href="#exercise-5-do-the-push-and-pull">Exercise 5: (Do The) Push and Pull</a></li>
-      <li><a href="#exercise-6-git-of-war">Exercise 6: Git of war</a></li>
-      <li><a href="#exercise-7-the-tree-of-git">Exercise 7: The tree of git</a></li>
+      <li><a href="#exercise-1-once-upon-a-commit"><em>Exercise 1</em> Once upon a commit…</a></li>
+      <li><a href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote"><em>Exercise 2</em> All roads lead to GitHub: how to add a remote</a></li>
+      <li><a href="#exercise-3-team-work-makes-the-dream-work-collabaring-with-git"><em>Exercise 3</em> Team Work makes the Dream Work: collabaring with git</a></li>
+      <li><a href="#exercise-4-do-the-push-and-pull-how-to"><em>Exercise 4</em> (Do The) Push and Pull: how to</a></li>
+      <li><a href="#exercise-5-git-of-war-conflicts-and-how-to-resolve-them"><em>Exercise 5</em> Git of war: conflicts and how to resolve them</a></li>
+      <li><a href="#exercise-6-the-tree-of-git-branching-the-basics"><em>Exercise 6</em> The tree of git: branching, the basics</a></li>
       </ul>
     </div>
     
@@ -189,7 +188,7 @@ This workshop makes use of different sources of online learning materials. --></
 <hr />
 </div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
-<h3>Exercise 1: Once upon a commit…</h3>
+<h3><em>Exercise 1</em> Once upon a commit…</h3>
 <p>Let’s start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
 <div id="at-the-terminal" class="section level4">
 <h4>At the terminal</h4>
@@ -400,8 +399,8 @@ Changes to be committed:
 <hr />
 </div>
 </div>
-<div id="exercise-2-all-roads-lead-to-github" class="section level3">
-<h3>Exercise 2: All roads lead to GitHub</h3>
+<div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote" class="section level3">
+<h3><em>Exercise 2</em> All roads lead to GitHub: how to add a remote</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
 <p>“Linking” can mean multiple things depending on where you start things.</p>
 <p>We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
@@ -488,13 +487,8 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <hr />
 </div>
 </div>
-<div id="demo-gitkraken" class="section level3">
-<h3>DEMO: Gitkraken</h3>
-<p><em>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>.</em></p>
-<hr />
-</div>
-<div id="exercise-4-team-work-makes-the-dream-work" class="section level3">
-<h3>Exercise 4: Team Work makes the Dream Work</h3>
+<div id="exercise-3-team-work-makes-the-dream-work-collabaring-with-git" class="section level3">
+<h3><em>Exercise 3</em> Team Work makes the Dream Work: collabaring with git</h3>
 <p>Git is made for collaboration. In one image, this can be summarized like this:</p>
 <div class="figure">
 <img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="" />
@@ -521,8 +515,8 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
 <hr />
 </div>
-<div id="exercise-5-do-the-push-and-pull" class="section level3">
-<h3>Exercise 5: (Do The) Push and Pull</h3>
+<div id="exercise-4-do-the-push-and-pull-how-to" class="section level3">
+<h3><em>Exercise 4</em> (Do The) Push and Pull: how to</h3>
 <p>You are now ready to do yur first round of <strong>pushing and pulling</strong>.</p>
 <p>To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
@@ -550,8 +544,8 @@ To github.com:VLucet/gitWorkshop.git
 <p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
 <hr />
 </div>
-<div id="exercise-6-git-of-war" class="section level3">
-<h3>Exercise 6: Git of war</h3>
+<div id="exercise-5-git-of-war-conflicts-and-how-to-resolve-them" class="section level3">
+<h3><em>Exercise 5</em> Git of war: conflicts and how to resolve them</h3>
 <p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Do not push!</span></span></code></pre></div>
@@ -582,8 +576,8 @@ To github.com:VLucet/gitWorkshop.git
 <p>In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).</p>
 <hr />
 </div>
-<div id="exercise-7-the-tree-of-git" class="section level3">
-<h3>Exercise 7: The tree of git</h3>
+<div id="exercise-6-the-tree-of-git-branching-the-basics" class="section level3">
+<h3><em>Exercise 6</em> The tree of git: branching, the basics</h3>
 <p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
 <p>One of the team members should do the following. The first thing is to create the branch:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
@@ -628,6 +622,19 @@ To github.com:VLucet/gitWorkshop.git
    </code></pre>
 <p>Additionally, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
 <hr />
+<table style="width:10%;">
+<colgroup>
+<col width="9%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>### DEMO: Gitkraken</td>
+</tr>
+<tr class="even">
+<td>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>. This video actually also covers more advanced topics, but you can use it to get a feel for where in the interface the buttons for adding (staging), committing and pushing/pulling are.</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
