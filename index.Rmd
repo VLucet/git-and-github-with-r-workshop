@@ -656,8 +656,8 @@ Additionally, you can do all this by creating a pull request on github (**DEMO**
 
 ------
 
-------
 ### DEMO: Gitkraken
 
 DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU). This video actually also covers more advanced topics, but you can use it to get a feel for where in the interface the buttons for adding (staging), committing and pushing/pulling are.
+
 ------
