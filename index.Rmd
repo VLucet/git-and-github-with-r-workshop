@@ -425,7 +425,7 @@ There you go! you now have a copy of your repo on GitHub. Well done! Fron now on
 
 ### DEMO: Gitkraken
 
-_DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU)._
+DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU). This video actually also covers more advanced topics, but you can use it to get a feel for where in the interface the buttons for adding (staging), committing and pushing/pulling are.
 
 ------
 
