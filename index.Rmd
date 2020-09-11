@@ -491,7 +491,7 @@ Well done, you have no set up a team and you are now technically working on the 
 
 ------
 
-### *Exercise 4* (Do The) Push and Pull: how to
+### Exercise 4: (Do The) Push and Pull, or the git workflow
 
 You are now ready to do yur first round of **pushing and pulling**.
 
@@ -551,7 +551,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 ------
 
-### *Exercise 5* Git of war: conflicts and how to resolve them
+### Exercise 5 Git of war, or conflicts and how to resolve them
 
 Now, let's do it again but a little differently. The one person in the group to not have edited the `README` should do it now on their machine. Please add and commit but **do not push yet**.
 
@@ -601,7 +601,7 @@ In addition, git clients like GitHub Desktop or GitKraken have their own editor 
 
 ------
 
-### *Exercise 6* The tree of git: branching, the basics
+### Exercise 6: The tree of git, or the basics of branching
 
 A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the master branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
 

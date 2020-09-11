@@ -146,9 +146,9 @@ $(document).ready(function () {
       <li><a href="#exercise-1-once-upon-a-commit">Exercise 1: Once upon a commit…</a></li>
       <li><a href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote">Exercise 2: All roads lead to GitHub, how to add a remote</a></li>
       <li><a href="#exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git">Exercise 3: Teamwork makes the dream work, or collabaring with git</a></li>
-      <li><a href="#exercise-4-do-the-push-and-pull-how-to"><em>Exercise 4</em> (Do The) Push and Pull: how to</a></li>
-      <li><a href="#exercise-5-git-of-war-conflicts-and-how-to-resolve-them"><em>Exercise 5</em> Git of war: conflicts and how to resolve them</a></li>
-      <li><a href="#exercise-6-the-tree-of-git-branching-the-basics"><em>Exercise 6</em> The tree of git: branching, the basics</a></li>
+      <li><a href="#exercise-4-do-the-push-and-pull-or-the-git-workflow">Exercise 4: (Do The) Push and Pull, or the git workflow</a></li>
+      <li><a href="#exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them">Exercise 5 Git of war, or conflicts and how to resolve them</a></li>
+      <li><a href="#exercise-6-the-tree-of-git-or-the-basics-of-branching">Exercise 6: The tree of git, or the basics of branching</a></li>
       <li><a href="#demo-gitkraken">DEMO: Gitkraken</a></li>
       </ul>
     </div>
@@ -548,8 +548,8 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
 <hr />
 </div>
-<div id="exercise-4-do-the-push-and-pull-how-to" class="section level3">
-<h3><em>Exercise 4</em> (Do The) Push and Pull: how to</h3>
+<div id="exercise-4-do-the-push-and-pull-or-the-git-workflow" class="section level3">
+<h3>Exercise 4: (Do The) Push and Pull, or the git workflow</h3>
 <p>You are now ready to do yur first round of <strong>pushing and pulling</strong>.</p>
 <p>To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
@@ -577,8 +577,8 @@ To github.com:VLucet/gitWorkshop.git
 <p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
 <hr />
 </div>
-<div id="exercise-5-git-of-war-conflicts-and-how-to-resolve-them" class="section level3">
-<h3><em>Exercise 5</em> Git of war: conflicts and how to resolve them</h3>
+<div id="exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them" class="section level3">
+<h3>Exercise 5 Git of war, or conflicts and how to resolve them</h3>
 <p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Do not push!</span></span></code></pre></div>
@@ -609,8 +609,8 @@ To github.com:VLucet/gitWorkshop.git
 <p>In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).</p>
 <hr />
 </div>
-<div id="exercise-6-the-tree-of-git-branching-the-basics" class="section level3">
-<h3><em>Exercise 6</em> The tree of git: branching, the basics</h3>
+<div id="exercise-6-the-tree-of-git-or-the-basics-of-branching" class="section level3">
+<h3>Exercise 6: The tree of git, or the basics of branching</h3>
 <p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
 <p>One of the team members should do the following. The first thing is to create the branch:</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
