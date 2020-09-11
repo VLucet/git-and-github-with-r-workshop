@@ -143,9 +143,9 @@ $(document).ready(function () {
     <div id="table-of-contents">
       <ul>
       <li><a href="#preparation">Preparation</a></li>
-      <li><a href="#exercise-1-once-upon-a-commit"><em>Exercise 1</em> Once upon a commit…</a></li>
-      <li><a href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote"><em>Exercise 2</em> All roads lead to GitHub: how to add a remote</a></li>
-      <li><a href="#exercise-3-team-work-makes-the-dream-work-collabaring-with-git"><em>Exercise 3</em> Team Work makes the Dream Work: collabaring with git</a></li>
+      <li><a href="#exercise-1-once-upon-a-commit">Exercise 1: Once upon a commit…</a></li>
+      <li><a href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote">Exercise 2: All roads lead to GitHub, how to add a remote</a></li>
+      <li><a href="#exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git">Exercise 3: Teamwork makes the dream work, or collabaring with git</a></li>
       <li><a href="#exercise-4-do-the-push-and-pull-how-to"><em>Exercise 4</em> (Do The) Push and Pull: how to</a></li>
       <li><a href="#exercise-5-git-of-war-conflicts-and-how-to-resolve-them"><em>Exercise 5</em> Git of war: conflicts and how to resolve them</a></li>
       <li><a href="#exercise-6-the-tree-of-git-branching-the-basics"><em>Exercise 6</em> The tree of git: branching, the basics</a></li>
@@ -160,7 +160,7 @@ $(document).ready(function () {
 
 <div id="main">
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 24 July, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 11 September, 2020. <!--  (See [changelog](https://vlucet.github.io/git-and-github-with-r-workshop/commits/master)).<br />
 This workshop makes use of different sources of online learning materials. --></p>
 <hr />
 <p><em>The following workshop is inspired from the following resources:</em></p>
@@ -183,53 +183,54 @@ This workshop makes use of different sources of online learning materials. --></
 <li>(Optionnal) Install a git client: I recommend <a href="https://www.gitkraken.com/"><strong>GitKraken</strong></a></li>
 <li><a href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn <strong>5 key things</strong> about Git is</a> (thanks to Alice Bartlett from the Financial times for this great intro to Git)</li>
 </ol>
-<p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong> <a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. <strong>If you are having issues with this step, please reach out to me a prior to the training so that I can help you.</strong></p>
+<p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong></p>
+<p><a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. <strong>If you are having issues with this step, please reach out to me a prior to the training so that I can help you.</strong></p>
 <p><strong>Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.</strong></p>
 <p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). <strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface. This can turn out be a lovely thing, but sometimes leads to problems. I advise you to <a href="https://happygitwithr.com/troubleshooting.html">bookmark this troubleshooting guide for later just in case.</a>).</p>
 <hr />
 </div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
-<h3><em>Exercise 1</em> Once upon a commit…</h3>
+<h3>Exercise 1: Once upon a commit…</h3>
 <p>Let’s start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
 <div id="at-the-terminal" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> ~    <span class="co"># Go to your home directory</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> ~    <span class="co"># Go to your home directory</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">mkdir</span> gitWorkshop   <span class="co"># Creates a new directory called gitWorkshop in your home directory</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="bu">cd</span> gitWorkshop        <span class="co"># Moves to inside the new directory</span></span></code></pre></div>
 <p>Now that you have a fresh directory, we need to make it a git repository, aka a <strong>repo</strong> (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It’s simple:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> init    <span class="co"># This initialize git in your directory</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> init    <span class="co"># This initialize git in your directory</span></span></code></pre></div>
 <pre><code>Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/</code></pre>
 </div>
 <div id="in-rstudio" class="section level4">
 <h4>In RStudio</h4>
 <p>To use git in Rstudio, you need to create a new <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>. Let’s start by creating our project directory.</p>
-<ol style="list-style-type: decimal">
+<ul>
 <li>Open RStudio, in the top right corner create a new project</li>
-</ol>
+</ul>
 <center>
 <img src="images/Step_1.png" />
 </center>
-<ol start="2" style="list-style-type: decimal">
+<ul>
 <li>Select <strong>New Directory</strong> Note that <strong>Version Control</strong> is reserved for when you already created a repo on GitHub. We will come back to this later.</li>
-</ol>
+</ul>
 <center>
 <img src="images/Step_2.png" style="width:50.0%" />
 </center>
-<ol start="3" style="list-style-type: decimal">
+<ul>
 <li>Select <strong>New Project</strong></li>
-</ol>
+</ul>
 <center>
 <img src="images/Step_3.png" style="width:50.0%" />
 </center>
-<ol start="4" style="list-style-type: decimal">
+<ul>
 <li>Choose a new for your repo and a location. <strong>Make sure that <em>create a git repository</em> is checked</strong></li>
-</ol>
+</ul>
 <center>
 <img src="images/Step_4.png" style="width:50.0%" />
 </center>
-<ol start="5" style="list-style-type: decimal">
+<ul>
 <li>You can now look under the <em>git tab</em>, you should see this:</li>
-</ol>
+</ul>
 <center>
 <p><img src="images/final.png" /></p>
 </center>
@@ -242,7 +243,7 @@ This workshop makes use of different sources of online learning materials. --></
 <div id="at-the-terminal-1" class="section level4">
 <h4>At the terminal</h4>
 <p>We create a file using the <code>touch</code> command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">touch</span> script_1.R    <span class="co"># Creates the file</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">touch</span> script_1.R    <span class="co"># Creates the file</span></span></code></pre></div>
 </div>
 <div id="in-rstudio-1" class="section level4">
 <h4>In RStudio</h4>
@@ -256,7 +257,7 @@ This workshop makes use of different sources of online learning materials. --></
 <h4>At the terminal</h4>
 <p>With the <code>ls</code> command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file.</p>
 <p>At any time, git lets you know if you have a untracked file, thanks to the <code>git status</code> command.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ls</span>             <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ls</span>             <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> status <span class="co"># Shows the current status of your repo with regards to git</span></span></code></pre></div>
 <pre><code>On branch master
 
@@ -287,7 +288,7 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 <div id="at-the-terminal-3" class="section level4">
 <h4>At the terminal</h4>
 <p>From the terminal, we can use the <code>git add</code> command. This tells git which file you care about and want to start tracking. This is called <strong>Staging the file</strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> add script_1.R</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> add script_1.R</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
 <pre><code>On branch master
 
@@ -313,12 +314,12 @@ Changes to be committed:
 <div id="at-the-terminal-4" class="section level4">
 <h4>At the terminal</h4>
 <p>We have staged the file. Let’s now take a snapshot of this file with the <code>git commit</code> command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
 <pre><code>[master (root-commit) 03a1fe9] First commit - adding script1
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 script_1.R</code></pre>
 <p>Another useful command: git <code>log</code> shows you the recent commit history.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> log   <span class="co"># Git log shows you the history</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> log   <span class="co"># Git log shows you the history</span></span></code></pre></div>
 <pre><code>commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -&gt; master)
 Author: VLucet &lt;valentin.lucet@gmail.com&gt;
 Date:   Wed Apr 8 18:19:53 2020 -0400
@@ -328,22 +329,21 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 <div id="in-rstudio-4" class="section level4">
 <h4>In RStudio</h4>
 <p>In Rstudio, committing is a few clicks away.</p>
-<ol style="list-style-type: decimal">
-<li>Click on <code>commit</code> on the top of the file list.</li>
-<li>This window should appear:</li>
-</ol>
+<ul>
+<li>Click on <code>commit</code> on the top of the file list. This window should appear:</li>
+</ul>
 <center>
 <img src="images/commit.png" style="width:75.0%" />
 </center>
-<ol start="3" style="list-style-type: decimal">
+<ul>
 <li>Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</li>
-</ol>
+</ul>
 <center>
 <img src="images/message.png" style="width:50.0%" />
 </center>
-<ol start="4" style="list-style-type: decimal">
+<ul>
 <li>Click on commit in order to commit the changes!</li>
-</ol>
+</ul>
 <hr />
 <blockquote>
 <p><strong>Let’s now make some changes to this file and commit them</strong></p>
@@ -352,10 +352,10 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 <div id="at-the-terminal-5" class="section level4">
 <h4>At the terminal</h4>
 <p>The code below opens the <strong>nano</strong> editor. <a href="https://www.nano-editor.org/"><code>Nano</code></a> is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">nano</span> script_1.R   <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">nano</span> script_1.R   <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
 <p>Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.</p>
 <p>We now need to stage (<code>git add</code>) and commit (<code>git commit</code>)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> add -A    <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. </span></span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> add -A    <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. </span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>              <span class="co"># Your changes are now registered </span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>              <span class="co"># You could also just do git add script_1.R if you wanted to</span></span>
 <span id="cb14-4"><a href="#cb14-4"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
@@ -365,28 +365,28 @@ Changes to be committed:
 
         modified:   script_1.R</code></pre>
 <p>Now let’s commit:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
 <pre><code>[master (root-commit) e07b863] First commit - adding script1
  1 file changed, 1 insertion(+)
  create mode 100644 script_1.R</code></pre>
 </div>
 <div id="in-rstudio-5" class="section level4">
 <h4>In RStudio</h4>
-<ol style="list-style-type: decimal">
+<ul>
 <li>Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:</li>
-</ol>
+</ul>
 <center>
 <img src="images/mod_step1.png" />
 </center>
-<ol start="2" style="list-style-type: decimal">
+<ul>
 <li>Now, <em>Stage the file</em> by chekcing it.</li>
-</ol>
+</ul>
 <center>
 <img src="images/mod_step2.png" />
 </center>
-<ol start="3" style="list-style-type: decimal">
+<ul>
 <li>Then, make sure you commit once again.</li>
-</ol>
+</ul>
 <center>
 <img src="images/mod_step3.png" />
 </center>
@@ -401,44 +401,43 @@ Changes to be committed:
 </div>
 </div>
 <div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote" class="section level3">
-<h3><em>Exercise 2</em> All roads lead to GitHub: how to add a remote</h3>
+<h3>Exercise 2: All roads lead to GitHub, how to add a remote</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
 <p>“Linking” can mean multiple things depending on where you start things.</p>
 <p>We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
 <hr />
 <blockquote>
-<p>We first need to create the remote repository on <a href="github.com">GitHub</a></p>
+<p><strong>We first need to create the remote repository on <a href="github.com">GitHub</a></strong></p>
 </blockquote>
 <p>The first thing to do is to create the remote:</p>
-<ol style="list-style-type: decimal">
-<li><p>log in</p></li>
-<li><p>click on the green folder.</p></li>
-</ol>
+<ul>
+<li>Log in, then click on the green folder.</li>
+</ul>
 <center>
 <img src="images/green_github.png" />
 </center>
-<ol start="3" style="list-style-type: decimal">
-<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). <strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be an <strong>empty repo</strong>.</li>
-</ol>
+<ul>
+<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). <strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be <strong>empty</strong>.</li>
+</ul>
 <center>
 <img src="images/create_repo.png" style="width:75.0%" />
 </center>
 <p>The next thing is to tell your local git that you have created a new remote. You will name this the <strong>origin</strong> remote. Why <strong>origin</strong>? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters!</p>
 <hr />
 <blockquote>
-<p>Let’s now link your local repo with the GitHub “remote”</p>
+<p><strong>Let’s now link your local repo with the GitHub “remote”</strong></p>
 </blockquote>
 <div id="at-the-terminal-6" class="section level4">
 <h4>At the terminal</h4>
-<ol style="list-style-type: decimal">
+<ul>
 <li>Tell git the address of your remote</li>
-</ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>                                  <span class="co"># for instance https://github.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
-<ol start="2" style="list-style-type: decimal">
+<ul>
 <li>You now need to upload your repo to the remote, i.e. to <strong>push</strong> your commits. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</li>
-</ol>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a> <span class="fu">git</span> push --set-upstream origin master    <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
+</ul>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a> <span class="fu">git</span> push --set-upstream origin master    <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
 <pre><code>Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 263 bytes | 263.00 KiB/s, done.
@@ -446,40 +445,40 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/VLucet/gitWorkshop
  * [new branch]      master -&gt; master
 Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39;origin&#39;.</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a> <span class="fu">git</span> push   <span class="co"># If you try to push again, </span></span>
+<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a> <span class="fu">git</span> push   <span class="co"># If you try to push again, </span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>            <span class="co"># it will tell you that everything is up to date!</span></span></code></pre></div>
 <pre><code>Everything up-to-date</code></pre>
 <p>There you go! you now have a copy of your repo on GitHub. Well done!</p>
 </div>
 <div id="in-rstudio-6" class="section level4">
 <h4>In RStudio</h4>
-<ol style="list-style-type: decimal">
+<ul>
 <li>In Rstudio you have to click to the <strong>New Branch</strong> button in the git pane, in the top right corner of the pane:</li>
-</ol>
+</ul>
 <center>
 <img src="images/new_branch_icon.png" style="width:50.0%" />
 </center>
-<ol start="2" style="list-style-type: decimal">
+<ul>
 <li>The dialogue window should open, click on <strong>add remote</strong></li>
-</ol>
+</ul>
 <center>
 <img src="images/dialogue_1.png" style="width:50.0%" />
 </center>
-<ol start="3" style="list-style-type: decimal">
+<ul>
 <li>Put <strong>origin</strong> as the remote name. Why <strong>origin</strong>? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters! Put the also address of your repo (for instance for me it is <code>for instance https://github.com/VLucet/gitWorkshoptest</code>)</li>
-</ol>
+</ul>
 <center>
 <img src="images/dialogue_2.png" style="width:50.0%" />
 </center>
-<ol start="4" style="list-style-type: decimal">
+<ul>
 <li>Back to the previous dialogue box, write <strong>master</strong> as the main branch and make sure to tick the box <strong>sync branch with remote</strong>.</li>
-</ol>
+</ul>
 <center>
 <img src="images/dialogue_3.png" style="width:50.0%" />
 </center>
-<ol start="5" style="list-style-type: decimal">
+<ul>
 <li>You can now push your commits by clicking on the <strong>push</strong> button. You can go to to your repo to see the changes.</li>
-</ol>
+</ul>
 <center>
 <img src="images/push.png" style="width:50.0%" />
 </center>
@@ -488,30 +487,63 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <hr />
 </div>
 </div>
-<div id="exercise-3-team-work-makes-the-dream-work-collabaring-with-git" class="section level3">
-<h3><em>Exercise 3</em> Team Work makes the Dream Work: collabaring with git</h3>
+<div id="exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git" class="section level3">
+<h3>Exercise 3: Teamwork makes the dream work, or collabaring with git</h3>
 <p>Git is made for collaboration. In one image, this can be summarized like this:</p>
-<div class="figure">
-<img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" alt="" />
-<p class="caption">Git</p>
-</div>
-<p>Form teams of 3. The youngest of the team will be the repo owner for this exercise.</p>
+<p><img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" /></p>
+<p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this exercise.</p>
 <ul>
-<li>Repo Owner, head over to github to create a new online repository.
+<li>Repo Owner <strong>only</strong>, head over to github to create a new online repository</li>
+</ul>
+<center>
+<img src="images/green_github.png" />
+</center>
 <ul>
 <li>This time, make sure to initiate this repository with a <strong>ReadMe</strong> file. A <code>ReadMe</code> file is an important file for a repo, as it is there to describe the purpose of the repo and contains important metadata on that repo.</li>
-</ul></li>
-<li>In the <code>ReadMe</code>, type in the name of your favorite movie or TV show.</li>
-<li>Next step is for you to make a team by <strong>inviting collaborators</strong>.
-<ul>
-<li>Navigate to your repo settings.</li>
-<li>Go to <code>Manage Access</code> and click <code>invite a colaborator</code></li>
-<li>Add the members of your team by typing in their <strong>GitHub Username</strong>.<br />
-</li>
-</ul></li>
-<li>You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line:</li>
 </ul>
-<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">cd</span> ~            <span class="co"># Navigate to your home folder again </span></span>
+<center>
+<img src="images/Add_readme.png" />
+</center>
+<ul>
+<li>Modify the ReadMe directly in GitHub by clicking on the small pencil in the corner. You can edit most files directly in GitHub.</li>
+</ul>
+<center>
+<img src="images/edit_readme.png" />
+</center>
+<ul>
+<li>Type some changes</li>
+</ul>
+<center>
+<img src="images/Type_in.png" />
+</center>
+<ul>
+<li>Then, scroll down to commit your changes</li>
+</ul>
+<center>
+<img src="images/Commit_readme.png" />
+</center>
+<hr />
+<blockquote>
+<p><strong>Let’s now invite people to collaborate on your repo</strong></p>
+</blockquote>
+<ul>
+<li>To do so, click on <strong>Settings</strong> then <strong>Manage access</strong> and <strong>Invite collaborators</strong></li>
+</ul>
+<center>
+<img src="images/settings.png" />
+</center>
+<ul>
+<li>Use the username of your group members to invite them to collaborate</li>
+</ul>
+<center>
+<img src="images/invite.png" />
+</center>
+<hr />
+<blockquote>
+<p><strong>We have the repo set up for collaboration, let’s now “clone” the repo</strong></p>
+</blockquote>
+<p>Cloning means “pulling” the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. You cannot clone from Rstudio, you have to use the command line or using the Github Desktop app or similar github client. For now let’s stick to the command line</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">cd</span> ~            <span class="co"># Navigate to your home folder again </span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> clone *URL*     <span class="co"># The URL of the repo created by the repo owner</span></span></code></pre></div>
 <p>Well done, you have no set up a team and you are now technically working on the same repo.</p>
 <hr />
@@ -520,15 +552,15 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 <h3><em>Exercise 4</em> (Do The) Push and Pull: how to</h3>
 <p>You are now ready to do yur first round of <strong>pushing and pulling</strong>.</p>
 <p>To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
 <p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you teammate’s favorite movie is <em>not</em> Sharknados 3. They’d be wrong, but still, they’re welcome to change that…).</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
 <p>Then, add, commit and push those changes</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;</span></span></code></pre></div>
 <pre><code>[master 58c8cb7] modified the README
  1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin master          <span class="co"># Push it!</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin master          <span class="co"># Push it!</span></span></code></pre></div>
 <pre><code>Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
@@ -538,21 +570,21 @@ Total 3 (delta 0), reused 0 (delta 0)
 To github.com:VLucet/gitWorkshop.git
    a992c9a..58c8cb7  master -&gt; master</code></pre>
 <p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should a little familiar with these by now!</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">git</span> status  <span class="co"># Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </span></span></code></pre></div>
 <p>To remedy to this, it is as simple as <strong>pulling</strong> the changes in your local repo.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin master  <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin master  <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
 <p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
 <hr />
 </div>
 <div id="exercise-5-git-of-war-conflicts-and-how-to-resolve-them" class="section level3">
 <h3><em>Exercise 5</em> Git of war: conflicts and how to resolve them</h3>
 <p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Do not push!</span></span></code></pre></div>
 <p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.</p>
 <p>Now, the person to have just changed the file on their machine will do the pulling procedure:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
 <p>You’ve created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
@@ -566,10 +598,10 @@ To github.com:VLucet/gitWorkshop.git
 <p class="caption">Commit merge</p>
 </div>
 <p>You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using <code>nano</code>:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
 <p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. You can choose to keep either of the changes or both.</p>
 <p>Once you have made your changes, it is time to commit your change, and merge it with the remote repo.</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
+<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a messgae indicating it!</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="fu">git</span> push origin master          <span class="co"># Push it!</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="fu">git</span> status              <span class="co"># All is good!</span></span></code></pre></div>
@@ -581,19 +613,19 @@ To github.com:VLucet/gitWorkshop.git
 <h3><em>Exercise 6</em> The tree of git: branching, the basics</h3>
 <p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the master branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
 <p>One of the team members should do the following. The first thing is to create the branch:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
 <p>The branch is created, but you are still on the master branch. To be able to switch to the new branch, we need to "checkout’ the branch:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;mynewbranch&#39;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
 <pre><code>On branch mynewbranch
 nothing to commit, working tree clean</code></pre>
 <p><strong><em>note</em></strong>: <em>there is a shortchut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em> You are now on the new branch! This branch is only on your local machine for now. Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit hostory of your branch</span></span>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit hostory of your branch</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> commit -a -m <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shorcut to add and commit at the same time!</span></span></code></pre></div>
 <pre><code>[mynewbranch 92b76fb] added some changes to the new branch
  1 file changed, 1 insertion(+)</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> push origin mynewbranch    <span class="co"># Pushing to the new branch - you can also just type in &quot;git push&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> push origin mynewbranch    <span class="co"># Pushing to the new branch - you can also just type in &quot;git push&quot;</span></span></code></pre></div>
 <pre><code>Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
@@ -608,15 +640,15 @@ To github.com:VLucet/gitWorkshop.git
  * [new branch]      mynewbranch -&gt; mynewbranch</code></pre>
 <p>Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the master branch. Once this is done, it is time to merge the new branch with the master branch.</p>
 <p>Merging means doing a “pull request”: you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then <em>pull</em> the new branch into the master.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout master <span class="co"># You&#39;ve switched to the master branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout master <span class="co"># You&#39;ve switched to the master branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;master&#39;
 Your branch is up to date with &#39;origin/master&#39;.</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">git</span> merge mynewbranch   <span class="co"># this merges (opens a pull request and checks it against the master)</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">git</span> merge mynewbranch   <span class="co"># this merges (opens a pull request and checks it against the master)</span></span></code></pre></div>
 <pre><code>Updating 58c8cb7..92b76fb
 Fast-forward
  script_1.R | 1 +
  1 file changed, 1 insertion(+)</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">git</span> push        <span class="co"># this pushes the merging of the two branches </span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">git</span> push        <span class="co"># this pushes the merging of the two branches </span></span></code></pre></div>
 <pre><code>Total 0 (delta 0), reused 0 (delta 0)
 To github.com:VLucet/gitWorkshop.git
    58c8cb7..92b76fb  master -&gt; master

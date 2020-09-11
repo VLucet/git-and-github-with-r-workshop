@@ -40,7 +40,9 @@ This workshop makes use of different sources of online learning materials. -->
 4. (Optionnal) Install a git client: I recommend [**GitKraken**](https://www.gitkraken.com/)
 5. [Learn **5 key things** about Git is](https://speakerdeck.com/alicebartlett/git-for-humans) (thanks to Alice Bartlett from the Financial times for this great intro to Git)
 
-**(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** https://happygitwithr.com/ssh-keys.html. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
+**(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** 
+
+https://happygitwithr.com/ssh-keys.html. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
 **If you are having issues with this step, please reach out to me a prior to the training so that I can help you.**
 
 **Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.**
@@ -50,12 +52,12 @@ There is value in being able to do all of this in the command line, because it a
 
 ***
 
-### *Exercise 1* Once upon a commit...
+### Exercise 1: Once upon a commit...
 Let's start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the `mkdir` command like below (stands for "make directory"). The `cd` command, for "change directory", allows us to move into this new directory.
 
 #### At the terminal
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 cd ~    # Go to your home directory
 mkdir gitWorkshop   # Creates a new directory called gitWorkshop in your home directory
 cd gitWorkshop 		  # Moves to inside the new directory
@@ -63,7 +65,7 @@ cd gitWorkshop 		  # Moves to inside the new directory
 
 Now that you have a fresh directory, we need to make it a git repository, aka a **repo** (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It's simple: 
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git init    # This initialize git in your directory
 ```
 ```{}
@@ -74,31 +76,31 @@ Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/
 
 To use git in Rstudio, you need to create a new [Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects). Let's start by creating our project directory. 
 
-  1. Open RStudio, in the top right corner create a new project 
+ - Open RStudio, in the top right corner create a new project 
 
 <center>
   ![](images/Step_1.png)
 </center>
 
-  2. Select **New Directory** Note that **Version Control** is reserved for when you already created a repo on GitHub. We will come back to this later.
+  - Select **New Directory** Note that **Version Control** is reserved for when you already created a repo on GitHub. We will come back to this later.
 
 <center>
   ![](images/Step_2.png){width=50%}
 </center>
 
-  3. Select **New Project**
+  - Select **New Project**
 
 <center>
   ![](images/Step_3.png){width=50%}
 </center>
 
-  4. Choose a new for your repo and a location. **Make sure that _create a git repository_ is checked**
+  - Choose a new for your repo and a location. **Make sure that _create a git repository_ is checked**
 
 <center>
   ![](images/Step_4.png){width=50%}
 </center>
 
- 5. You can now look under the *git tab*, you should see this: 
+ - You can now look under the *git tab*, you should see this: 
  
 <center>
 ![](images/final.png)
@@ -115,7 +117,7 @@ To use git in Rstudio, you need to create a new [Project](https://support.rstudi
 
 We create a file using the `touch` command:
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 touch script_1.R    # Creates the file
 ```
 
@@ -133,7 +135,7 @@ With the `ls` command, which lists everything in your directory, you can see the
 
 At any time, git lets you know if you have a untracked file, thanks to the `git status` command.
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 ls			   # This lists the files in the directory. You should see your file listed!
 git status # Shows the current status of your repo with regards to git
 ```
@@ -168,7 +170,7 @@ No need for the `status` command in RStudio, the *Git* tab shows you in real tim
 
 From the terminal, we can use the `git add` command. This tells git which file you care about and want to start tracking. This is called **Staging the file**.
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git add script_1.R
 git status    # Status now shows, in green, which changes have to be committed
 ```
@@ -201,7 +203,7 @@ While you are at it, make sure to also check the `.gitignore file.` **What is a 
 
 We have staged the file. Let's now take a snapshot of this file with the `git commit` command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git commit -m "First commit - adding script1"   # the -m flag adds a message to a commit
 ```
 ```{}
@@ -212,7 +214,7 @@ git commit -m "First commit - adding script1"   # the -m flag adds a message to 
 
 Another useful command: git `log` shows you the recent commit history. 
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git log   # Git log shows you the history
 ```
 ```{}
@@ -227,20 +229,19 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 
 In Rstudio, committing is a few clicks away.
 
-  1. Click on `commit` on the top of the file list.
-  2. This window should appear:
+- Click on `commit` on the top of the file list. This window should appear:
   
 <center>
   ![](images/commit.png){width=75%}
 </center>
 
-  3. Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
+- Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
   
 <center>
   ![](images/message.png){width=50%}
 </center>
 
-  4. Click on commit in order to commit the changes!
+- Click on commit in order to commit the changes!
 
 ***
 
@@ -250,7 +251,7 @@ In Rstudio, committing is a few clicks away.
 
 The code below opens the **nano** editor. [`Nano`](https://www.nano-editor.org/) is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 nano script_1.R   # This opens the nano Text editor. 
 ```
 
@@ -258,7 +259,7 @@ Type in what you want. You can then close the editor with `ctrl+X`. Make sure to
 
 We now need to stage (`git add`) and commit (`git commit`)
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git add -A    # This adds ALL (hence the -A) the changes you made to the git index. 
               # Your changes are now registered 
               # You could also just do git add script_1.R if you wanted to
@@ -275,7 +276,7 @@ Changes to be committed:
 
 Now let's commit:
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git commit -m "First commit - adding script1"	# the -m flag adds a message to a commit
 ```
 ```{}
@@ -287,19 +288,19 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
 
 #### In RStudio
 
- 1. Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
+- Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
 
 <center>
   ![](images/mod_step1.png)
 </center>
 
-  2. Now, *Stage the file* by chekcing it.
+- Now, *Stage the file* by chekcing it.
 
 <center>
   ![](images/mod_step2.png)
 </center>
 
-  3. Then, make sure you commit once again.
+- Then, make sure you commit once again.
 
 <center>
   ![](images/mod_step3.png)
@@ -319,7 +320,7 @@ This image summarises what we have learned so far. Each change in the repository
 
 ------
 
-### *Exercise 2* All roads lead to GitHub: how to add a remote
+### Exercise 2: All roads lead to GitHub, how to add a remote
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories. 
 
@@ -329,19 +330,17 @@ We call this **pushing**. After pushing, a copy of your repo will live on the gi
 
 ***
 
-> We first need to create the remote repository on [GitHub](github.com)
+> **We first need to create the remote repository on [GitHub](github.com)**
 
 The first thing to do is to create the remote: 
 
-  1. log in
-	
-  2. click on the green folder.
+- Log in, then click on the green folder.
 
 <center>
   ![](images/green_github.png)
 </center>
 
-  3. Give a name to your repo. It's good practice to the use the same name than your local git repo (it's also easier to remember that way!). **Do not** add a `README.md` or `.gitignore`. The repo needs to be an **empty repo**.
+- Give a name to your repo. It's good practice to the use the same name than your local git repo (it's also easier to remember that way!). **Do not** add a `README.md` or `.gitignore`. The repo needs to be **empty**.
   
 <center>
   ![](images/create_repo.png){width=75%}
@@ -351,20 +350,20 @@ The next thing is to tell your local git that you have created a new remote. You
 
 ***
 
-> Let's now link your local repo with the GitHub "remote"
+> **Let's now link your local repo with the GitHub "remote"**
 
 #### At the terminal
 
-1. Tell git the address of your remote
+- Tell git the address of your remote
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git remote add origin https:...	  # Add here the URL of your git repo, 
                                   # for instance https://github.com/VLucet/gitWorkshoptest
 ```
 
-2. You now need to upload your repo to the remote, i.e. to **push** your commits. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
+- You now need to upload your repo to the remote, i.e. to **push** your commits. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
 
-```{sh eval=FALSE, include=TRUE} 
+```{bash eval=FALSE, include=TRUE} 
  git push --set-upstream origin master    # This pushes and sets the remote as "upstream"
 ```
 ```{}
@@ -376,7 +375,7 @@ To https://github.com/VLucet/gitWorkshop
  * [new branch]      master -> master
 Branch 'master' set up to track remote branch 'master' from 'origin'.
 ```
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
  git push   # If you try to push again, 
             # it will tell you that everything is up to date!
 ```
@@ -387,31 +386,31 @@ There you go! you now have a copy of your repo on GitHub. Well done!
 
 #### In RStudio
 
-1. In Rstudio you have to click to the **New Branch** button in the git pane, in the top right corner of the pane: 
+  - In Rstudio you have to click to the **New Branch** button in the git pane, in the top right corner of the pane: 
 
 <center>
   ![](images/new_branch_icon.png){width=50%}
 </center>
 
-2. The dialogue window should open, click on **add remote**
+- The dialogue window should open, click on **add remote**
 
 <center>
   ![](images/dialogue_1.png){width=50%}
 </center>
 
-3. Put **origin** as the remote name. Why **origin**? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters! Put the also address of your repo (for instance for me it is `for instance https://github.com/VLucet/gitWorkshoptest`)
+- Put **origin** as the remote name. Why **origin**? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters! Put the also address of your repo (for instance for me it is `for instance https://github.com/VLucet/gitWorkshoptest`)
 
 <center>
   ![](images/dialogue_2.png){width=50%}
 </center>
 
-4. Back to the previous dialogue box, write **master** as the main branch and make sure to tick the box **sync branch with remote**.
+- Back to the previous dialogue box, write **master** as the main branch and make sure to tick the box **sync branch with remote**.
 
 <center>
   ![](images/dialogue_3.png){width=50%}
 </center>
 
-5. You can now push your commits by clicking on the **push** button. You can go to to your repo to see the changes.
+- You can now push your commits by clicking on the **push** button. You can go to to your repo to see the changes.
 
 <center>
   ![](images/push.png){width=50%}
@@ -423,23 +422,68 @@ There you go! you now have a copy of your repo on GitHub. Well done! Fron now on
 
 ------
 
-### *Exercise 3* Team Work makes the Dream Work: collabaring with git
+### Exercise 3: Teamwork makes the dream work, or collabaring with git
 
 Git is made for collaboration. In one image, this can be summarized like this:
 
-![Git](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
+![](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
 
-Form teams of 3. The youngest of the team will be the repo owner for this exercise. 
+Form teams of 3 and designate a **Repo Owner** for this exercise.
 
-- Repo Owner, head over to github to create a new online repository. 
-	- This time, make sure to initiate this repository with a **ReadMe** file. A `ReadMe` file is an important file for a repo, as it is there to describe the purpose of the repo and contains important metadata on that repo.
-- In the `ReadMe`, type in the name of your favorite movie or TV show.
-- Next step is for you to make a team by **inviting collaborators**.
-  - Navigate to your repo settings. 
-  - Go to `Manage Access` and click `invite a colaborator`
-  - Add the members of your team by typing in their **GitHub Username**.  
-- You can now all clone the repo. You can use GitHub desktop or the command line. Using the command line: 
-```{sh eval=FALSE, include=TRUE}
+- Repo Owner **only**, head over to github to create a new online repository
+
+<center>
+  ![](images/green_github.png)
+</center>
+
+- This time, make sure to initiate this repository with a **ReadMe** file. A `ReadMe` file is an important file for a repo, as it is there to describe the purpose of the repo and contains important metadata on that repo.
+
+<center>
+  ![](images/Add_readme.png)
+</center>
+
+- Modify the ReadMe directly in GitHub by clicking on the small pencil in the corner. You can edit most files directly in GitHub.
+
+<center>
+  ![](images/edit_readme.png)
+</center>
+
+- Type some changes
+  
+<center>
+  ![](images/Type_in.png)
+</center>
+
+- Then, scroll down to commit your changes
+  
+<center>
+  ![](images/Commit_readme.png)
+</center>
+
+***
+
+> **Let's now invite people to collaborate on your repo**
+
+- To do so, click on **Settings** then **Manage access** and **Invite collaborators**
+
+<center>
+  ![](images/settings.png)
+</center>
+
+
+- Use the username of your group members to invite them to collaborate
+
+<center>
+  ![](images/invite.png)
+</center>
+
+***
+
+> **We have the repo set up for collaboration, let's now "clone" the repo**
+
+Cloning means "pulling" the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. You cannot clone from Rstudio, you have to use the command line or using the Github Desktop app or similar github client. For now let's stick to the command line
+
+```{bash eval=FALSE, include=TRUE}
 cd ~ 			# Navigate to your home folder again 
 git clone *URL* 	# The URL of the repo created by the repo owner
 ```
@@ -453,19 +497,19 @@ You are now ready to do yur first round of **pushing and pulling**.
 
 To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of  the repo that is on GitHub. To do so, we use the `fetch` command. 
 
-```{sh eval=FALSE, include=TRUE} 
+```{bash eval=FALSE, include=TRUE} 
 git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)
 ```
 
 The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you teammate's favorite movie is *not* Sharknados 3. They'd be wrong, but still, they're welcome to change that...).
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 nano README.md	# Reminder: nano is the console editor
 ```
 
 Then, add, commit and push those changes
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
 git commit -m "modified the README"	# Always add a useful message (unless it's 2:32am and then you can just say "gazoub."
 ```
@@ -475,7 +519,7 @@ git commit -m "modified the README"	# Always add a useful message (unless it's 2
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git push origin master			# Push it!
 ```
 
@@ -492,14 +536,14 @@ To github.com:VLucet/gitWorkshop.git
 
 Now, two of the team members are not in sync with the changes. These people can see it with a `fetch`. Below I cannot show the outputs but you should a little familiar with these by now!
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git fetch	# This will download the changes pushed by your team member
 git status	# Always good to run status once in a while. Here it will tell you that you are 1 commit behind! 
 ```
 
 To remedy to this, it is as simple as **pulling** the changes in your local repo. 
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git pull origin master	# Nice! Git will print a nice summary with green + and red -. How cute. 
 ```
 
@@ -511,7 +555,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 Now, let's do it again but a little differently. The one person in the group to not have edited the `README` should do it now on their machine. Please add and commit but **do not push yet**.
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
 git commit -m "modified the README"	# Do not push!
 ```
@@ -520,7 +564,7 @@ Now, repo owner will go on github and change the file. There are many types of f
 
 Now, the person to have just changed the file on their machine will do the pulling procedure:
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git fetch 	# This fetches the changes
 git status 	# WOW! Status says that the commits are different... this might cause a problem
 git pull 	# There is now a "conflict" and you need to resolve it
@@ -536,7 +580,7 @@ Git doesn't know which changes to keep and which one to throw away. We need to m
 
 You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 nano *file*	# Opens file in nano 
 ```
 
@@ -544,7 +588,7 @@ When you open the conflicted file you will see code that is enclosed within `<<<
 
 Once you have made your changes, it is time to commit your change, and merge it with the remote repo. 
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
 git commit -m "fixed the conflict"	# You fixed the conflict, better put a messgae indicating it!
 git push origin master			# Push it!
@@ -563,13 +607,13 @@ A great way to make conflicst much more manageable is to use the magic of branch
 
 One of the team members should do the following. The first thing is to create the branch:
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git branch mynewbranch		# This simply creates the new branch
 ```
 
 The branch is created, but you are still on the master branch. To be able to switch to the new branch, we need to "checkout' the branch:
 
-```{sh eval=FALSE, include=TRUE} 
+```{bash eval=FALSE, include=TRUE} 
 git checkout mynewbranch	# This makes you switch to the new branch
 ```
 
@@ -577,7 +621,7 @@ git checkout mynewbranch	# This makes you switch to the new branch
 Switched to branch 'mynewbranch'
 ```
 
-```{sh eval=FALSE, include=TRUE} 
+```{bash eval=FALSE, include=TRUE} 
 git status 			# You are now on the new branch
 ``` 
 
@@ -589,7 +633,7 @@ nothing to commit, working tree clean
 ***note***: *there is a shortchut to do those 2 commands in one line: `git checkout -b mynewbranch`*
 You are now on the new branch! This branch is only on your local machine for now. Let's add some changes and then commit and push so that you branch is saved on the remote!
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 # Do some changes in your repo! They will only be part of the commit hostory of your branch
 git commit -a -m 'added some changes to the new branch'  # Another shorcut to add and commit at the same time!
 ```
@@ -599,7 +643,7 @@ git commit -a -m 'added some changes to the new branch'  # Another shorcut to ad
  1 file changed, 1 insertion(+)
 ```
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git push origin mynewbranch    # Pushing to the new branch - you can also just type in "git push"
 ```
 
@@ -622,7 +666,7 @@ Awesome! Now, while one of the team member is adding commits to their new branch
 
 Merging means doing a "pull request": you are pulling the new branch into the master branch. You therefore need to checkout the master branch and then *pull* the new branch into the master.
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git checkout master	# You've switched to the master branch
 ```
 
@@ -630,7 +674,7 @@ git checkout master	# You've switched to the master branch
 Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 ```
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git merge mynewbranch	# this merges (opens a pull request and checks it against the master)
 ```
 
@@ -641,7 +685,7 @@ Fast-forward
  1 file changed, 1 insertion(+)
 ```
 
-```{sh eval=FALSE, include=TRUE}
+```{bash eval=FALSE, include=TRUE}
 git push 		# this pushes the merging of the two branches 
 ```
 
