@@ -566,7 +566,13 @@ To github.com:VLucet/gitWorkshop.git
 
 #### In Rstudio
 
- - Open the readme in the editor and modify it.
+ - Open the readme in the editor and modify it. Save the changes. The git pane should look something like that:
+ 
+<center>
+  ![](images/Now, two of the team members are not in sync with the changes.)
+</center>
+
+ - As in the previous exercises, you can commit and push the new change. You have now pushed new changes to the repo, but the rest of your team is now behind.
 
 ***
 
@@ -591,11 +597,17 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 #### In Rstudio
 
+ - In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by cliking on the blue pull arrow in the git pane.
 
 <center>
-  ![](images/)
+  ![](images/pull_arrow.png)
 </center>
 
+Well done! You now know how to **push** and **pull**, **fetch** and **status** your way around a shared repo. You're the best.
+
+***
+
+> **What if two people commit changes at the same line one after the other? Its a confict (see next exercise)**
 
 ------
 

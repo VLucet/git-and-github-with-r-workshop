@@ -550,39 +550,17 @@ Branch &#39;master&#39; set up to track remote branch &#39;master&#39; from &#39
 </div>
 <div id="exercise-4-do-the-push-and-pull-or-the-git-workflow" class="section level3">
 <h3>Exercise 4: (Do The) Push and Pull, or the git workflow</h3>
-<p>You are now ready to do your first round of <strong>pushing and pulling</strong>.</p>
-<p>To do so, we are going to use the repo you cloned at the previous exercise.</p>
+<p>In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the girhub repo with changes we make locally.</p>
 <div id="at-the-terminal-7" class="section level4">
 <h4>At the terminal</h4>
-<p>The first step is to make sure you are up to date with the version of the repo that is on GitHub. To do so, we use the <code>fetch</code> command.</p>
+<p>The first step is to make sure you are up to date with the version of the repo that is on GitHub. Navigate to the cloned repo an use the <code>fetch</code> command.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
-<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
-<p>Then, add, commit and push those changes:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;</span></span></code></pre></div>
-<pre><code>[master 58c8cb7] modified the README
- 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin master          <span class="co"># Push it!</span></span></code></pre></div>
-<pre><code>Enumerating objects: 5, done.
-Counting objects: 100% (5/5), done.
-Delta compression using up to 12 threads
-Compressing objects: 100% (2/2), done.
-Writing objects: 100% (3/3), 313 bytes | 313.00 KiB/s, done.
-Total 3 (delta 0), reused 0 (delta 0)
-To github.com:VLucet/gitWorkshop.git
-   a992c9a..58c8cb7  master -&gt; master</code></pre>
-<p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should be a little more familiar with these by now.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">git</span> status  <span class="co"># Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </span></span></code></pre></div>
-<p>You are 1 commit behind! To remedy to this, it is as simple as <strong>pulling</strong> the changes in your local repo.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin master  <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
-<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+<p>Everything should be up to date, so all good.</p>
 </div>
 <div id="in-rstudio-7" class="section level4">
 <h4>In RStudio</h4>
 <ul>
-<li>In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. To do so, navigate to the R box in the top right corner and click on “New Project”</li>
+<li>In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the rstudio context To do so, navigate to the R box in the top right corner and click on “New Project”</li>
 </ul>
 <center>
 <img src="images/new_project.png" />
@@ -599,9 +577,68 @@ To github.com:VLucet/gitWorkshop.git
 <center>
 <img src="images/create_project.png" />
 </center>
+<hr />
+<blockquote>
+<p><strong>Let’s now learn how to makes changes in this repo and sync them with github</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-8" class="section level4">
+<h4>At the terminal</h4>
+<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
+<p>Then, add, commit and push those changes:</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;</span></span></code></pre></div>
+<pre><code>[master 58c8cb7] modified the README
+ 1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin master          <span class="co"># Push it!</span></span></code></pre></div>
+<pre><code>Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 313 bytes | 313.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To github.com:VLucet/gitWorkshop.git
+   a992c9a..58c8cb7  master -&gt; master</code></pre>
+</div>
+<div id="in-rstudio-8" class="section level4">
+<h4>In Rstudio</h4>
+<ul>
+<li>Open the readme in the editor and modify it. Save the changes. The git pane should look something like that:</li>
+</ul>
 <center>
-<img src="images" />
+<img src="images/Now,%20two%20of%20the%20team%20members%20are%20not%20in%20sync%20with%20the%20changes." />
 </center>
+<ul>
+<li>As in the previous exercises, you can commit and push the new change. You have now pushed new changes to the repo, but the rest of your team is now behind.</li>
+</ul>
+<hr />
+<blockquote>
+<p><strong>One group member has made changes to the repo, let’s make sure the rest of the time is up to date as well!</strong></p>
+</blockquote>
+</div>
+<div id="at-the-terminal-9" class="section level4">
+<h4>At the terminal</h4>
+<p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should be a little more familiar with these by now.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">git</span> status  <span class="co"># Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </span></span></code></pre></div>
+<p>You are 1 commit behind! To remedy to this, it is as simple as <strong>pulling</strong> the changes in your local repo.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin master  <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
+<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+</div>
+<div id="in-rstudio-9" class="section level4">
+<h4>In Rstudio</h4>
+<ul>
+<li>In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by cliking on the blue pull arrow in the git pane.</li>
+</ul>
+<center>
+<img src="images/pull_arrow.png" />
+</center>
+<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+<hr />
+<blockquote>
+<p><strong>What if two people commit changes at the same line one after the other? Its a confict (see next exercise)</strong></p>
+</blockquote>
 <hr />
 </div>
 </div>
