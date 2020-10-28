@@ -27,7 +27,7 @@ This workshop makes use of different sources of online learning materials. -->
 - https://blog.developer.atlassian.com/a-better-pull-request/  
 - https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it
 
-*We will also use [this amazing website](https://git-school.github.io/visualizing-git/) as a visual aid.*
+*We will also use [this amazing website](https://onlywei.github.io/explain-git-with-d3/) as a visual aid.*
 
 ***
 
