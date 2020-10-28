@@ -487,27 +487,57 @@ Cloning means "pulling" the repo from the remote, to make a copy on your compute
 cd ~ 			# Navigate to your home folder again 
 git clone *URL* 	# The URL of the repo created by the repo owner
 ```
-Well done, you have no set up a team and you are now technically working on the same repo.
+Well done, you have now set up a team and you are now technically working on the same repo.
 
 ------
 
 ### Exercise 4: (Do The) Push and Pull, or the git workflow
 
-You are now ready to do yur first round of **pushing and pulling**.
+In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the girhub repo with changes we make locally.
 
-To do so, we are going to use the repo you cloned at the previous exercise. The first step is to make sure you are up to date with the version of  the repo that is on GitHub. To do so, we use the `fetch` command. 
+#### At the terminal
+
+The first step is to make sure you are up to date with the version of the repo that is on GitHub. Navigate to the cloned repo an use the `fetch` command. 
 
 ```{bash eval=FALSE, include=TRUE} 
 git fetch  # Fetch compares your local version with the remote version but does not apply the new changes (if there are any)
 ```
 
-The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance (maybe you teammate's favorite movie is *not* Sharknados 3. They'd be wrong, but still, they're welcome to change that...).
+Everything should be up to date, so all good.
+
+#### In RStudio
+
+- In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the rstudio context To do so, navigate to the R box in the top right corner and click on "New Project"
+
+<center>
+  ![](images/new_project.png)
+</center>
+
+- Select "Existing directory", we will choose the directory you cloned from github.
+
+<center>
+  ![](images/existing_directory.png)
+</center>
+
+- Browse for your directory (it should be in your home folder) and create the new project.
+
+<center>
+  ![](images/create_project.png)
+</center>
+
+***
+
+> **Let's now learn how to makes changes in this repo and sync them with github**
+
+#### At the terminal
+
+The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance.
 
 ```{bash eval=FALSE, include=TRUE}
 nano README.md	# Reminder: nano is the console editor
 ```
 
-Then, add, commit and push those changes
+Then, add, commit and push those changes:
 
 ```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
@@ -534,20 +564,38 @@ To github.com:VLucet/gitWorkshop.git
    a992c9a..58c8cb7  master -> master
 ```
 
-Now, two of the team members are not in sync with the changes. These people can see it with a `fetch`. Below I cannot show the outputs but you should a little familiar with these by now!
+#### In Rstudio
+
+ - Open the readme in the editor and modify it.
+
+***
+
+> **One group member has made changes to the repo, let's make sure the rest of the time is up to date as well!**
+
+#### At the terminal
+
+Now, two of the team members are not in sync with the changes. These people can see it with a `fetch`. Below I cannot show the outputs but you should be a little more familiar with these by now.
 
 ```{bash eval=FALSE, include=TRUE}
 git fetch	# This will download the changes pushed by your team member
 git status	# Always good to run status once in a while. Here it will tell you that you are 1 commit behind! 
 ```
 
-To remedy to this, it is as simple as **pulling** the changes in your local repo. 
+You are 1 commit behind! To remedy to this, it is as simple as **pulling** the changes in your local repo. 
 
 ```{bash eval=FALSE, include=TRUE}
 git pull origin master	# Nice! Git will print a nice summary with green + and red -. How cute. 
 ```
 
 Well done! You now know how to **push** and **pull**, **fetch** and **status** your way around a shared repo. You're the best.
+
+#### In Rstudio
+
+
+<center>
+  ![](images/)
+</center>
+
 
 ------
 
@@ -702,6 +750,6 @@ Additionally, you can do all this by creating a pull request on github (**DEMO**
 
 ### DEMO: Gitkraken
 
-DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU). This video actually also covers more advanced topics, but you can use it to get a feel for where in the interface the buttons for adding (staging), committing and pushing/pulling are.
+DEMO of the git client GitKraken if time permits. Otherwise, see [this video](https://www.youtube.com/watch?v=ub9GfRziCtU). This video actually also covers more advanced topics, but you can use it to get a feel for where the interface to find the buttons for adding (staging), committing and pushing/pulling.
 
 ------
