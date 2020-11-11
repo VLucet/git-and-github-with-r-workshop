@@ -695,15 +695,34 @@ Well done! Now the other team members will need to pull down this new commit mer
 
 ### Exercise 6: The tree of git, or the basics of branching
 
-A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the main branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
+A great way to make conflicst avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the main branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
 
-One of the team members should do the following. The first thing is to create the branch:
+The first thing is to create the branch:
+
+#### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 git branch mynewbranch		# This simply creates the new branch
 ```
 
-The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout' the branch:
+#### In Rstudio
+
+1. Click on the new branch button in the top right corner of the git pane.
+
+<center>
+  ![](images/new_branch.png)
+</center>
+
+2. Name the branch and create it. Make sure the remote origin is checked.
+
+<center>
+  ![](images/name_branch.png)
+</center>
+
+***
+> The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout' the branch.
+
+#### At the terminal
 
 ```{bash eval=FALSE, include=TRUE} 
 git checkout mynewbranch	# This makes you switch to the new branch
@@ -723,7 +742,16 @@ nothing to commit, working tree clean
 ```
 
 ***note***: *there is a shortchut to do those 2 commands in one line: `git checkout -b mynewbranch`*
-You are now on the new branch! This branch is only on your local machine for now. Let's add some changes and then commit and push so that you branch is saved on the remote!
+
+#### In Rstudio
+
+Rstudio **automatically checks out the new branch when your create it**. You can switch branches veru easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).
+
+***
+
+> You are now on the new branch! This branch is only on your local machine for now. Let's add some changes and then commit and push so that you branch is saved on the remote!
+
+#### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 # Do some changes in your repo! They will only be part of the commit hostory of your branch
@@ -753,6 +781,10 @@ remote:
 To github.com:VLucet/gitWorkshop.git
  * [new branch]      mynewbranch -> mynewbranch
 ```
+
+#### In Rstudio
+
+[...]
 
 Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch. 
 

@@ -711,16 +711,50 @@ In fact, Back To The Future is the best movie ever
 </div>
 <div id="exercise-6-the-tree-of-git-or-the-basics-of-branching" class="section level3">
 <h3>Exercise 6: The tree of git, or the basics of branching</h3>
-<p>A great way to make conflicst much more manageable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the main branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
-<p>One of the team members should do the following. The first thing is to create the branch:</p>
+<p>A great way to make conflicst avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the main branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
+<p>The first thing is to create the branch:</p>
+<div id="at-the-terminal-13" class="section level4">
+<h4>At the terminal</h4>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
-<p>The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout’ the branch:</p>
+</div>
+<div id="in-rstudio-13" class="section level4">
+<h4>In Rstudio</h4>
+<ol style="list-style-type: decimal">
+<li>Click on the new branch button in the top right corner of the git pane.</li>
+</ol>
+<center>
+<img src="images/new_branch.png" />
+</center>
+<ol start="2" style="list-style-type: decimal">
+<li>Name the branch and create it. Make sure the remote origin is checked.</li>
+</ol>
+<center>
+<img src="images/name_branch.png" />
+</center>
+<hr />
+<blockquote>
+<p>The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout’ the branch.</p>
+</blockquote>
+</div>
+<div id="at-the-terminal-14" class="section level4">
+<h4>At the terminal</h4>
 <div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;mynewbranch&#39;</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
 <pre><code>On branch mynewbranch
 nothing to commit, working tree clean</code></pre>
-<p><strong><em>note</em></strong>: <em>there is a shortchut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em> You are now on the new branch! This branch is only on your local machine for now. Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
+<p><strong><em>note</em></strong>: <em>there is a shortchut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em></p>
+</div>
+<div id="in-rstudio-14" class="section level4">
+<h4>In Rstudio</h4>
+<p>Rstudio <strong>automatically checks out the new branch when your create it</strong>. You can switch branches veru easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).</p>
+<hr />
+<blockquote>
+<p>You are now on the new branch! This branch is only on your local machine for now. Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
+</blockquote>
+</div>
+<div id="at-the-terminal-15" class="section level4">
+<h4>At the terminal</h4>
 <div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit hostory of your branch</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> commit -a -m <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shorcut to add and commit at the same time!</span></span></code></pre></div>
 <pre><code>[mynewbranch 92b76fb] added some changes to the new branch
@@ -738,6 +772,10 @@ remote:      https://github.com/VLucet/gitWorkshop/pull/new/mynewbranch
 remote:
 To github.com:VLucet/gitWorkshop.git
  * [new branch]      mynewbranch -&gt; mynewbranch</code></pre>
+</div>
+<div id="in-rstudio-15" class="section level4">
+<h4>In Rstudio</h4>
+<p>[…]</p>
 <p>Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch.</p>
 <p>Merging means doing a “pull request”: you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then <em>pull</em> the new branch into the main.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout main   <span class="co"># You&#39;ve switched to the main branch</span></span></code></pre></div>
@@ -755,6 +793,7 @@ To github.com:VLucet/gitWorkshop.git
    </code></pre>
 <p>Additionally, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
 <hr />
+</div>
 </div>
 <div id="demo-gitkraken" class="section level3">
 <h3>DEMO: Gitkraken</h3>
