@@ -149,7 +149,9 @@ $(document).ready(function () {
       <li><a href="#exercise-4-do-the-push-and-pull-or-the-git-workflow">Exercise 4: (Do The) Push and Pull, or the git workflow</a></li>
       <li><a href="#exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them">Exercise 5 Git of war, or conflicts and how to resolve them</a></li>
       <li><a href="#exercise-6-the-tree-of-git-or-the-basics-of-branching">Exercise 6: The tree of git, or the basics of branching</a></li>
+      <li><a href="#in-rstudio-16">In Rstudio</a><ul>
       <li><a href="#demo-gitkraken">DEMO: Gitkraken</a></li>
+      </ul></li>
       </ul>
     </div>
     
@@ -747,10 +749,10 @@ nothing to commit, working tree clean</code></pre>
 </div>
 <div id="in-rstudio-14" class="section level4">
 <h4>In Rstudio</h4>
-<p>Rstudio <strong>automatically checks out the new branch when your create it</strong>. You can switch branches veru easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).</p>
+<p>Rstudio <strong>automatically checks out the new branch, and publish it to the remote, when your create it</strong>. You can switch branches very easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).</p>
 <hr />
 <blockquote>
-<p>You are now on the new branch! This branch is only on your local machine for now. Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
+<p>You are now on the new branch! This branch is only on your local machine for now (unless you use Github). Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
 </blockquote>
 </div>
 <div id="at-the-terminal-15" class="section level4">
@@ -775,8 +777,14 @@ To github.com:VLucet/gitWorkshop.git
 </div>
 <div id="in-rstudio-15" class="section level4">
 <h4>In Rstudio</h4>
-<p>[…]</p>
-<p>Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch.</p>
+<p>Modify the Readme again and push the changes to the new branch.</p>
+<hr />
+<blockquote>
+<p>Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch.</p>
+</blockquote>
+</div>
+<div id="at-the-terminal-16" class="section level4">
+<h4>At the terminal</h4>
 <p>Merging means doing a “pull request”: you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then <em>pull</em> the new branch into the main.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout main   <span class="co"># You&#39;ve switched to the main branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;main&#39;
@@ -791,14 +799,17 @@ Fast-forward
 To github.com:VLucet/gitWorkshop.git
    58c8cb7..92b76fb  main -&gt; main
    </code></pre>
-<p>Additionally, you can do all this by creating a pull request on github (<strong>DEMO</strong>).</p>
+</div>
+</div>
+<div id="in-rstudio-16" class="section level1">
+<h1>In Rstudio</h1>
+<p>You cannot do this in Rstudio, but you can do this on github (<strong>DEMO</strong>).</p>
 <hr />
-</div>
-</div>
 <div id="demo-gitkraken" class="section level3">
 <h3>DEMO: Gitkraken</h3>
 <p>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>. This video actually also covers more advanced topics, but you can use it to get a feel for where the interface to find the buttons for adding (staging), committing and pushing/pulling.</p>
 <hr />
+</div>
 </div>
 </div>
 

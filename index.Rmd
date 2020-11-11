@@ -745,11 +745,11 @@ nothing to commit, working tree clean
 
 #### In Rstudio
 
-Rstudio **automatically checks out the new branch when your create it**. You can switch branches veru easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).
+Rstudio **automatically checks out the new branch, and publish it to the remote, when your create it**. You can switch branches very easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).
 
 ***
 
-> You are now on the new branch! This branch is only on your local machine for now. Let's add some changes and then commit and push so that you branch is saved on the remote!
+> You are now on the new branch! This branch is only on your local machine for now (unless you use Github). Let's add some changes and then commit and push so that you branch is saved on the remote!
 
 #### At the terminal
 
@@ -784,9 +784,13 @@ To github.com:VLucet/gitWorkshop.git
 
 #### In Rstudio
 
-[...]
+Modify the Readme again and push the changes to the new branch. 
 
-Awesome! Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch. 
+***
+
+> Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch. 
+
+#### At the terminal
 
 Merging means doing a "pull request": you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then *pull* the new branch into the main.
 
@@ -820,7 +824,9 @@ To github.com:VLucet/gitWorkshop.git
    
 ```
 
-Additionally, you can do all this by creating a pull request on github (**DEMO**). 
+# In Rstudio
+
+You cannot do this in Rstudio, but you can do this on github (**DEMO**). 
 
 ------
 
