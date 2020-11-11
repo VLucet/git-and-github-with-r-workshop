@@ -323,9 +323,7 @@ This image summarises what we have learned so far. Each change in the repository
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories. 
 
-"Linking" can mean multiple things depending on where you start things.
-
-We call this **pushing**. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
+"Linking" can mean multiple things depending on where you start things. If you start on your computer, we call this **pushing** your local repo to the remote. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
 
 ***
 
@@ -427,7 +425,7 @@ Git is made for collaboration. In one image, this can be summarized like this:
 
 ![](https://www.nobledesktop.com/image/blog/git-branches-merge.png)
 
-Form teams of 3 and designate a **Repo Owner** for this exercise.
+Form teams of 3 and designate a **Repo Owner** for this exercise. For this exercise and the next one, we will see the other way to start a repo, by starting it on Github and then **cloning** it onto your computer.
 
 - Repo Owner **only**, head over to github to create a new online repository
 
@@ -612,16 +610,17 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 ### Exercise 5 Git of war, or conflicts and how to resolve them
 
-Now, let's do it again but a little differently. The one person in the group to not have edited the `README` should do it now on their machine. Please add and commit but **do not push yet**.
+Now, let's do this again but a little differently. One person in the group to not have edited the `README` yet should do it now on their machine. Please add and commit but **do not push your changes yet** (see in the previous exercises.
 
-```{bash eval=FALSE, include=TRUE}
-git add -A 				# Once again, add all the changes
-git commit -m "modified the README"	# Do not push!
-```
+Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please **change the same line than the previous person**. Commit this change to the repo.
 
-Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.
+***
 
-Now, the person to have just changed the file on their machine will do the pulling procedure:
+> Now, the person who changed the file on their machine will do the pulling procedure:
+
+#### At the terminal
+
+At the terminal, do the following:
 
 ```{bash eval=FALSE, include=TRUE}
 git fetch 	# This fetches the changes
@@ -629,23 +628,53 @@ git status 	# WOW! Status says that the commits are different... this might caus
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
 
+#### In Rstudio
+
+In Rstudio, try to push your changes. You should get a message explaining that you cannot do so. Instead, pull your changes and you will receive a message stating that a conflict was created.
+
+***
+
+> How can one resolve a conflict?
+
 You've created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
 
 ![Git conflict illustrated](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
 
-Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge". As illistrated below, git will compare the two streams of information:
+Git doesn't know which changes to keep and which one to throw away. We need to make a choice: we call that doing a "commit merge". As illustrated below, git will compare the two streams of information:
 
 ![Commit merge](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png)
 
-You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using `nano`:
+#### At the terminal
+
+You can use the `nano` editor to open the conflicted file. 
 
 ```{bash eval=FALSE, include=TRUE}
 nano *file*	# Opens file in nano 
 ```
 
-When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. You can choose to keep either of the changes or both. 
+#### In Rstudio
 
-Once you have made your changes, it is time to commit your change, and merge it with the remote repo. 
+Simply open the conflicted file in the editor.
+
+***
+
+When you open the conflicted file you will see code that is enclosed within `<<<<<<< HEAD` and `=======`. This corresponds to your local version of this line of code. Then between `=======` and `>>>>>>> 3f74688ab...` is the version corresponding to the commit (with the hash `3f74688ab...`) that you pulled from remote. You need to edit the file so that these various things, `<<<<<<< HEAD` and `=======` and `>>>>>>> 3f74688ab...` are no longer there. It will look like this:
+
+```{}
+<<<<<<< HEAD
+Fight Club is the best movie ever
+=======
+In fact, Back To The Future is the best movie ever
+>>>>>>> main
+```
+
+You can choose to keep either of the changes or to keep both. all that matters is that the elemenst `<<<<<<< HEAD` ; `=======` and `>>>>>>> main` are now longer in the file.
+
+***
+
+> Once you have decided what to keep, it is time to commit your change, and merge it with the remote repo. 
+
+#### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
@@ -654,9 +683,13 @@ git push origin main			# Push it!
 git status				# All is good!
 ```
 
-Well done! You've learned how to deal with conflicts!
+#### In Rstudio
 
-In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).
+Simply add and commit the final version of the corrected file. You will see a message about a git merge.
+
+***
+
+Well done! Now the other team members will need to pull down this new commit merge. You've learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as github Desktop or Git Kraken. Even better is to avoid conflicts from even happening by **branching**.
 
 ------
 

@@ -402,8 +402,7 @@ Changes to be committed:
 <div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote" class="section level3">
 <h3>Exercise 2: All roads lead to GitHub, how to add a remote</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
-<p>“Linking” can mean multiple things depending on where you start things.</p>
-<p>We call this <strong>pushing</strong>. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
+<p>“Linking” can mean multiple things depending on where you start things. If you start on your computer, we call this <strong>pushing</strong> your local repo to the remote. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
 <hr />
 <blockquote>
 <p><strong>We first need to create the remote repository on <a href="github.com">GitHub</a></strong></p>
@@ -490,7 +489,7 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <h3>Exercise 3: Teamwork makes the dream work, or collabaring with git</h3>
 <p>Git is made for collaboration. In one image, this can be summarized like this:</p>
 <p><img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" /></p>
-<p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this exercise.</p>
+<p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this exercise. For this exercise and the next one, we will see the other way to start a repo, by starting it on Github and then <strong>cloning</strong> it onto your computer.</p>
 <ul>
 <li>Repo Owner <strong>only</strong>, head over to github to create a new online repository</li>
 </ul>
@@ -643,35 +642,72 @@ To github.com:VLucet/gitWorkshop.git
 </div>
 <div id="exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them" class="section level3">
 <h3>Exercise 5 Git of war, or conflicts and how to resolve them</h3>
-<p>Now, let’s do it again but a little differently. The one person in the group to not have edited the <code>README</code> should do it now on their machine. Please add and commit but <strong>do not push yet</strong>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Do not push!</span></span></code></pre></div>
-<p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please change the same line than the previous person. Commit the change to the repo.</p>
-<p>Now, the person to have just changed the file on their machine will do the pulling procedure:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
-<span id="cb33-3"><a href="#cb33-3"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
+<p>Now, let’s do this again but a little differently. One person in the group to not have edited the <code>README</code> yet should do it now on their machine. Please add and commit but <strong>do not push your changes yet</strong> (see in the previous exercises.</p>
+<p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please <strong>change the same line than the previous person</strong>. Commit this change to the repo.</p>
+<hr />
+<blockquote>
+<p>Now, the person who changed the file on their machine will do the pulling procedure:</p>
+</blockquote>
+<div id="at-the-terminal-10" class="section level4">
+<h4>At the terminal</h4>
+<p>At the terminal, do the following:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
+</div>
+<div id="in-rstudio-10" class="section level4">
+<h4>In Rstudio</h4>
+<p>In Rstudio, try to push your changes. You should get a message explaining that you cannot do so. Instead, pull your changes and you will receive a message stating that a conflict was created.</p>
+<hr />
+<blockquote>
+<p>How can one resolve a conflict?</p>
+</blockquote>
 <p>You’ve created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
 <div class="figure">
 <img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="" />
 <p class="caption">Git conflict illustrated</p>
 </div>
-<p>Git doesn’t know which changes to keep and which one to throw away. We need to make a choice: we call that doing a “commit merge”. As illistrated below, git will compare the two streams of information:</p>
+<p>Git doesn’t know which changes to keep and which one to throw away. We need to make a choice: we call that doing a “commit merge”. As illustrated below, git will compare the two streams of information:</p>
 <div class="figure">
 <img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png" alt="" />
 <p class="caption">Commit merge</p>
 </div>
-<p>You have 2 options: you can use the nano editor: or you can use a combination of GitHub Desktop/External editor. The Atom editor is especially useful. If using <code>nano</code>:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
-<p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. You can choose to keep either of the changes or both.</p>
-<p>Once you have made your changes, it is time to commit your change, and merge it with the remote repo.</p>
+</div>
+<div id="at-the-terminal-11" class="section level4">
+<h4>At the terminal</h4>
+<p>You can use the <code>nano</code> editor to open the conflicted file.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
+</div>
+<div id="in-rstudio-11" class="section level4">
+<h4>In Rstudio</h4>
+<p>Simply open the conflicted file in the editor.</p>
+<hr />
+<p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. It will look like this:</p>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+Fight Club is the best movie ever
+=======
+In fact, Back To The Future is the best movie ever
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code></pre>
+<p>You can choose to keep either of the changes or to keep both. all that matters is that the elemenst <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ; <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code> are now longer in the file.</p>
+<hr />
+<blockquote>
+<p>Once you have decided what to keep, it is time to commit your change, and merge it with the remote repo.</p>
+</blockquote>
+</div>
+<div id="at-the-terminal-12" class="section level4">
+<h4>At the terminal</h4>
 <div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a messgae indicating it!</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="fu">git</span> status              <span class="co"># All is good!</span></span></code></pre></div>
-<p>Well done! You’ve learned how to deal with conflicts!</p>
-<p>In addition, git clients like GitHub Desktop or GitKraken have their own editor for conflicts (demo).</p>
+</div>
+<div id="in-rstudio-12" class="section level4">
+<h4>In Rstudio</h4>
+<p>Simply add and commit the final version of the corrected file. You will see a message about a git merge.</p>
 <hr />
+<p>Well done! Now the other team members will need to pull down this new commit merge. You’ve learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as github Desktop or Git Kraken. Even better is to avoid conflicts from even happening by <strong>branching</strong>.</p>
+<hr />
+</div>
 </div>
 <div id="exercise-6-the-tree-of-git-or-the-basics-of-branching" class="section level3">
 <h3>Exercise 6: The tree of git, or the basics of branching</h3>
