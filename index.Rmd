@@ -824,7 +824,7 @@ To github.com:VLucet/gitWorkshop.git
    
 ```
 
-# In Rstudio
+#### In Rstudio
 
 You cannot do this in Rstudio, but you can do this on github (**DEMO**). 
 
