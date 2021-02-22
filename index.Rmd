@@ -598,7 +598,7 @@ To github.com:VLucet/gitWorkshop.git
  - Open the ReadMe in the editor and modify it. Save the changes. The git pane should look something like that:
  
 <center>
-  ![](images/Now, two of the team members are not in sync with the changes.)
+  ![](images/new_changes.png)
 </center>
 
  - As in the previous exercises, you can commit and push the new change. You have now pushed new changes to the repo, but the rest of your team is now behind.
