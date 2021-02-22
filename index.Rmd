@@ -26,7 +26,7 @@ Last updated: `r format(Sys.time(), '%d %B, %Y')`.
 - https://blog.developer.atlassian.com/a-better-pull-request/  
 - https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it
 
-*We will also use [this amazing website](https://onlywei.github.io/explain-git-with-d3/) as a visual aid.*
+*We will also use [this amazing website](https://onlywei.GitHub.io/explain-git-with-d3/) as a visual aid.*
 
 ***
 
@@ -36,7 +36,7 @@ Last updated: `r format(Sys.time(), '%d %B, %Y')`.
 1. [Register on GitHub](https://happygitwithr.com/github-acct.html)
 2. [Install or update Rstudio](https://happygitwithr.com/install-r-rstudio.html)
 3. [Install & Configure git](https://happygitwithr.com/install-git.html)
-4. (Optionnal) Install a git client: I recommend [**GitKraken**](https://www.gitkraken.com/)
+4. (Optional) Install a git client: I recommend [**GitKraken**](https://www.gitkraken.com/)
 5. [Learn **5 key things** about Git is](https://speakerdeck.com/alicebartlett/git-for-humans) (thanks to Alice Bartlett from the Financial times for this great intro to Git)
 
 **(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** 
@@ -293,7 +293,7 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
   ![](images/mod_step1.png)
 </center>
 
-- Now, *Stage the file* by chekcing it.
+- Now, *Stage the file* by checking it.
 
 <center>
   ![](images/mod_step2.png)
@@ -309,9 +309,9 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
 
 ***
 
-Note that once you have staged a file, you could do more changes, and you would need to re-run `git add` to add them to the index. Those changes not yet fully registered by git, they are like a draft, not untiil you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.
+Note that once you have staged a file, you could do more changes, and you would need to re-run `git add` to add them to the index. Those changes not yet fully registered by git, they are like a draft, not until you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.
 
-This image summarises what we have learned so far. Each change in the repository (adding a file, modifying a file, etc...) needs to be staged before it is commited. 
+This image summarizes what we have learned so far. Each change in the repository (adding a file, modifying a file, etc...) needs to be staged before it is committed. 
 
 <center>
 ![](https://git-scm.com/images/about/index1@2x.png){width=65%}
@@ -323,11 +323,11 @@ This image summarises what we have learned so far. Each change in the repository
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories. 
 
-"Linking" can mean multiple things depending on where you start things. If you start on your computer, we call this **pushing** your local repo to the remote. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
+"Linking" can mean multiple things depending on where you start things. If you start on your computer, we call this **pushing** your local repo to the remote. After pushing, a copy of your repo will live on the GitHub servers and will remain linked to the original copy. The GitHub copy is called a **remote**. 
 
 ***
 
-> **We first need to create the remote repository on [GitHub](github.com)**
+> **We first need to create the remote repository on [GitHub](GitHub.com)**
 
 The first thing to do is to create the remote: 
 
@@ -355,7 +355,7 @@ The next thing is to tell your local git that you have created a new remote. You
 
 ```{bash eval=FALSE, include=TRUE}
 git remote add origin https:...	  # Add here the URL of your git repo, 
-                                  # for instance https://github.com/VLucet/gitWorkshoptest
+                                  # for instance https://GitHub.com/VLucet/gitWorkshoptest
 ```
 
 - You now need to upload your repo to the remote, i.e. to **push** your commits. The first time you push, you have to tell git that the remote is an **upstream branch** (more on that later).
@@ -413,7 +413,7 @@ There you go! you now have a copy of your repo on GitHub. Well done!
   ![](images/push.png){width=50%}
 </center>
 
-There you go! you now have a copy of your repo on GitHub. Well done! Fron now on you can continue to **add**, **commit** and **push** your commits.
+There you go! you now have a copy of your repo on GitHub. Well done! From now on you can continue to **add**, **commit** and **push** your commits.
 
 <!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 
@@ -427,7 +427,7 @@ Git is made for collaboration. In one image, this can be summarized like this:
 
 Form teams of 3 and designate a **Repo Owner** for this exercise. For this exercise and the next one, we will see the other way to start a repo, by starting it on Github and then **cloning** it onto your computer.
 
-- Repo Owner **only**, head over to github to create a new online repository
+- Repo Owner **only**, head over to GitHub to create a new online repository
 
 <center>
   ![](images/green_github.png)
@@ -478,7 +478,11 @@ Form teams of 3 and designate a **Repo Owner** for this exercise. For this exerc
 
 > **We have the repo set up for collaboration, let's now "clone" the repo**
 
-Cloning means "pulling" the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. You cannot clone from Rstudio, you have to use the command line or using the Github Desktop app or similar github client. For now let's stick to the command line
+Cloning means "pulling" the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. 
+
+#### At the terminal
+
+Cloning from the command line is very simple:
 
 ```{bash eval=FALSE, include=TRUE}
 cd ~ 			# Navigate to your home folder again 
@@ -486,11 +490,39 @@ git clone *URL* 	# The URL of the repo created by the repo owner
 ```
 Well done, you have now set up a team and you are now technically working on the same repo.
 
+#### In Rstudio
+
+You can clone a GitHub repo from Rstudio:
+
+ - Open RStudio, in the top right corner create a new project 
+
+<center>
+  ![](images/Step_1.png)
+</center>
+
+  - Select **Version Control**, which is is reserved for when you already created a repo on GitHub.
+
+<center>
+  ![](images/Step_2.png){width=50%}
+</center>
+
+- Select **Git**. Subversion is listed here as another version control software supported by Rstudio.
+
+<center>
+  ![](images/select_git.png){width=50%}
+</center>
+
+- Fill the different fields as such: for the "Repository URL", paste the URL of the repo (of the type 'https://GitHub.com/VLucet/GitWorkshop.git'), which should update the field "Project directory name". Finally, select where on your computer you would like to clone the repo (the Home directory or your Documents directory for instance).
+
+<center>
+  ![](images/new_repo_vc.png){width=50%}
+</center>
+
 ------
 
 ### Exercise 4: (Do The) Push and Pull, or the git workflow
 
-In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the girhub repo with changes we make locally.
+In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the GitHub repo with changes we make locally.
 
 #### At the terminal
 
@@ -504,13 +536,13 @@ Everything should be up to date, so all good.
 
 #### In RStudio
 
-- In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the rstudio context To do so, navigate to the R box in the top right corner and click on "New Project"
+- In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the Rstudio context To do so, navigate to the R box in the top right corner and click on "New Project"
 
 <center>
   ![](images/new_project.png)
 </center>
 
-- Select "Existing directory", we will choose the directory you cloned from github.
+- Select "Existing directory", we will choose the directory you cloned from GitHub.
 
 <center>
   ![](images/existing_directory.png)
@@ -524,11 +556,11 @@ Everything should be up to date, so all good.
 
 ***
 
-> **Let's now learn how to makes changes in this repo and sync them with github**
+> **Let's now learn how to makes changes in this repo and sync them with GitHub**
 
 #### At the terminal
 
-The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance.
+The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the ReadMe file for instance.
 
 ```{bash eval=FALSE, include=TRUE}
 nano README.md	# Reminder: nano is the console editor
@@ -538,7 +570,7 @@ Then, add, commit and push those changes:
 
 ```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
-git commit -m "modified the README"	# Always add a useful message (unless it's 2:32am and then you can just say "gazoub."
+git commit -m "modified the README"	# Always add a useful message
 ```
 
 ```{}
@@ -563,7 +595,7 @@ To github.com:VLucet/gitWorkshop.git
 
 #### In Rstudio
 
- - Open the readme in the editor and modify it. Save the changes. The git pane should look something like that:
+ - Open the ReadMe in the editor and modify it. Save the changes. The git pane should look something like that:
  
 <center>
   ![](images/Now, two of the team members are not in sync with the changes.)
@@ -594,7 +626,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 #### In Rstudio
 
- - In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by cliking on the blue pull arrow in the git pane.
+ - In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by clicking on the blue pull arrow in the git pane.
 
 <center>
   ![](images/pull_arrow.png)
@@ -604,7 +636,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 ***
 
-> **What if two people commit changes at the same line one after the other? Its a confict (see next exercise)**
+> **What if two people commit changes at the same line one after the other? Its a conflict (see next exercise)**
 
 ------
 
@@ -612,7 +644,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 Now, let's do this again but a little differently. One person in the group to not have edited the `README` yet should do it now on their machine. Please add and commit but **do not push your changes yet** (see in the previous exercises.
 
-Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please **change the same line than the previous person**. Commit this change to the repo.
+Now, repo owner will go on GitHub and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please **change the same line than the previous person**. Commit this change to the repo.
 
 ***
 
@@ -636,7 +668,7 @@ In Rstudio, try to push your changes. You should get a message explaining that y
 
 > How can one resolve a conflict?
 
-You've created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
+You've created a conflict. A conflict typically happens when you have committed a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below: 
 
 ![Git conflict illustrated](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png)
 
@@ -668,7 +700,7 @@ In fact, Back To The Future is the best movie ever
 >>>>>>> main
 ```
 
-You can choose to keep either of the changes or to keep both. all that matters is that the elemenst `<<<<<<< HEAD` ; `=======` and `>>>>>>> main` are now longer in the file.
+You can choose to keep either of the changes or to keep both. all that matters is that the elements `<<<<<<< HEAD` ; `=======` and `>>>>>>> main` are now longer in the file.
 
 ***
 
@@ -678,7 +710,7 @@ You can choose to keep either of the changes or to keep both. all that matters i
 
 ```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
-git commit -m "fixed the conflict"	# You fixed the conflict, better put a messgae indicating it!
+git commit -m "fixed the conflict"	# You fixed the conflict, better put a message indicating it!
 git push origin main			# Push it!
 git status				# All is good!
 ```
@@ -689,13 +721,13 @@ Simply add and commit the final version of the corrected file. You will see a me
 
 ***
 
-Well done! Now the other team members will need to pull down this new commit merge. You've learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as github Desktop or Git Kraken. Even better is to avoid conflicts from even happening by **branching**.
+Well done! Now the other team members will need to pull down this new commit merge. You've learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as GitHub Desktop or Git Kraken. Even better is to avoid conflicts from even happening by **branching**.
 
 ------
 
 ### Exercise 6: The tree of git, or the basics of branching
 
-A great way to make conflicst avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the main branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
+A great way to make conflicts avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the main branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
 
 The first thing is to create the branch:
 
@@ -741,7 +773,7 @@ On branch mynewbranch
 nothing to commit, working tree clean
 ```
 
-***note***: *there is a shortchut to do those 2 commands in one line: `git checkout -b mynewbranch`*
+***note***: *there is a shortcut to do those 2 commands in one line: `git checkout -b mynewbranch`*
 
 #### In Rstudio
 
@@ -754,8 +786,8 @@ Rstudio **automatically checks out the new branch, and publish it to the remote,
 #### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
-# Do some changes in your repo! They will only be part of the commit hostory of your branch
-git commit -a -m 'added some changes to the new branch'  # Another shorcut to add and commit at the same time!
+# Do some changes in your repo! They will only be part of the commit history of your branch
+git commit -a -m 'added some changes to the new branch'  # Another shortcut to add and commit at the same time!
 ```
 
 ```{}
@@ -784,7 +816,7 @@ To github.com:VLucet/gitWorkshop.git
 
 #### In Rstudio
 
-Modify the Readme again and push the changes to the new branch. 
+Modify the ReadMe again and push the changes to the new branch. 
 
 ***
 
@@ -826,7 +858,7 @@ To github.com:VLucet/gitWorkshop.git
 
 #### In Rstudio
 
-You cannot do this in Rstudio, but you can do this on github (**DEMO**). 
+You cannot do this in Rstudio, but you can do this on GitHub (**DEMO**). 
 
 ------
 
