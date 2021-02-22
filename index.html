@@ -1,148 +1,211 @@
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="generator" content="pandoc" />
 
-<head>
+        <meta name="author" content="Valentin Lucet" />
+    
+    
+    <title>Git and GitHub from the Terminal &amp; RStudio: An Introduction</title>
 
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
+        <script src="index_files/jquery-1.11.3/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="index_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="index_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+    <script src="index_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+    <script src="index_files/navigation-1.1/tabsets.js"></script>
+    <script src="index_files/navigation-1.1/codefolding.js"></script>
+    <link href="index_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+    <script src="index_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+    <link href="index_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+    <link href="index_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+    <script src="index_files/readthedown-0.1/readthedown.js"></script>
+    <link href="index_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+    <script src="index_files/tocify-1.9.1/jquery.tocify.js"></script>
+    <script src="index_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+    
+    
+        <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+      code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
+      code.sourceCode > span:empty { height: 1.2em; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      }
+      pre.numberSource code
+        { counter-reset: source-line 0; }
+      pre.numberSource code > span
+        { position: relative; left: -4em; counter-increment: source-line; }
+      pre.numberSource code > span > a:first-child::before
+        { content: counter(source-line);
+          position: relative; left: -1em; text-align: right; vertical-align: baseline;
+          border: none; display: inline-block;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          background-color: #ffffff;
+          color: #a0a0a0;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
+      div.sourceCode
+        { color: #1f1c1b; background-color: #ffffff; }
+      @media screen {
+      code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      }
+      code span. { color: #1f1c1b; } /* Normal */
+      code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
+      code span.an { color: #ca60ca; } /* Annotation */
+      code span.at { color: #0057ae; } /* Attribute */
+      code span.bn { color: #b08000; } /* BaseN */
+      code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
+      code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #924c9d; } /* Char */
+      code span.cn { color: #aa5500; } /* Constant */
+      code span.co { color: #898887; } /* Comment */
+      code span.cv { color: #0095ff; } /* CommentVar */
+      code span.do { color: #607880; } /* Documentation */
+      code span.dt { color: #0057ae; } /* DataType */
+      code span.dv { color: #b08000; } /* DecVal */
+      code span.er { color: #bf0303; text-decoration: underline; } /* Error */
+      code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
+      code span.fl { color: #b08000; } /* Float */
+      code span.fu { color: #644a9b; } /* Function */
+      code span.im { color: #ff5500; } /* Import */
+      code span.in { color: #b08000; } /* Information */
+      code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
+      code span.op { color: #1f1c1b; } /* Operator */
+      code span.ot { color: #006e28; } /* Other */
+      code span.pp { color: #006e28; } /* Preprocessor */
+      code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
+      code span.sc { color: #3daee9; } /* SpecialChar */
+      code span.ss { color: #ff5500; } /* SpecialString */
+      code span.st { color: #bf0303; } /* String */
+      code span.va { color: #0057ae; } /* Variable */
+      code span.vs { color: #bf0303; } /* VerbatimString */
+      code span.wa { color: #bf0303; } /* Warning */
+    </style>
+    
+    
+    <!-- tabsets -->
+    <script>
+      $(document).ready(function () {
+	  window.buildTabsets("toc");
+      });
+      $(document).ready(function () {
+	  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+	      $(this).parent().toggleClass('nav-tabs-open')
+	  });
+      });
+    </script>
 
-<meta name="author" content="Valentin Lucet" />
+    <!-- code folding -->
+        <script>
+      $(document).ready(function () {
+	  	  	  window.initializeCodeFolding("show" === "show");
+	        });
+    </script>
+    
+    <!-- code download -->
+    
+    <!-- tabsets dropdown -->
 
+    <style type="text/css">
+      .tabset-dropdown > .nav-tabs {
+	  display: inline-table;
+	  max-height: 500px;
+	  min-height: 44px;
+	  overflow-y: auto;
+	  background: white;
+	  border: 1px solid #ddd;
+	  border-radius: 4px;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+	  content: "&#xe258;";
+	  border: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+	  content: "";
+	  font-family: 'Glyphicons Halflings';
+	  display: inline-block;
+	  padding: 10px;
+	  border-right: 1px solid #ddd;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li.active {
+	  display: block;
+      }
 
-<title>Git and GitHub from the Terminal &amp; RStudio: An Introduction</title>
+      .tabset-dropdown > .nav-tabs > li.active a {
+  	  padding: 0 15px !important;
+      }
 
-<script src="index_files/jquery-1.11.3/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="index_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-<script src="index_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-<script src="index_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<script src="index_files/navigation-1.1/tabsets.js"></script>
-<script src="index_files/navigation-1.1/codefolding.js"></script>
-<link href="index_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
-<script src="index_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
-<link href="index_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
-<script src="index_files/readthedown-0.1/readthedown.js"></script>
-<link href="index_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="index_files/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="index_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
-<link href="index_files/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="index_files/anchor-sections-1.0/anchor-sections.js"></script>
-
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    background-color: #ffffff;
-    color: #a0a0a0;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #a0a0a0;  padding-left: 4px; }
-div.sourceCode
-  { color: #1f1c1b; background-color: #ffffff; }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span. { color: #1f1c1b; } /* Normal */
-code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
-code span.an { color: #ca60ca; } /* Annotation */
-code span.at { color: #0057ae; } /* Attribute */
-code span.bn { color: #b08000; } /* BaseN */
-code span.bu { color: #644a9b; font-weight: bold; } /* BuiltIn */
-code span.cf { color: #1f1c1b; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #924c9d; } /* Char */
-code span.cn { color: #aa5500; } /* Constant */
-code span.co { color: #898887; } /* Comment */
-code span.cv { color: #0095ff; } /* CommentVar */
-code span.do { color: #607880; } /* Documentation */
-code span.dt { color: #0057ae; } /* DataType */
-code span.dv { color: #b08000; } /* DecVal */
-code span.er { color: #bf0303; text-decoration: underline; } /* Error */
-code span.ex { color: #0095ff; font-weight: bold; } /* Extension */
-code span.fl { color: #b08000; } /* Float */
-code span.fu { color: #644a9b; } /* Function */
-code span.im { color: #ff5500; } /* Import */
-code span.in { color: #b08000; } /* Information */
-code span.kw { color: #1f1c1b; font-weight: bold; } /* Keyword */
-code span.op { color: #1f1c1b; } /* Operator */
-code span.ot { color: #006e28; } /* Other */
-code span.pp { color: #006e28; } /* Preprocessor */
-code span.re { color: #0057ae; background-color: #e0e9f8; } /* RegionMarker */
-code span.sc { color: #3daee9; } /* SpecialChar */
-code span.ss { color: #ff5500; } /* SpecialString */
-code span.st { color: #bf0303; } /* String */
-code span.va { color: #0057ae; } /* Variable */
-code span.vs { color: #bf0303; } /* VerbatimString */
-code span.wa { color: #bf0303; } /* Warning */
-</style>
-
-
+      .tabset-dropdown > .nav-tabs > li > a,
+      .tabset-dropdown > .nav-tabs > li > a:focus,
+      .tabset-dropdown > .nav-tabs > li > a:hover {
+	  border: none;
+	  display: inline-block;
+	  border-radius: 4px;
+	  background-color: transparent;
+      }
+      
+      .tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+	  display: block;
+	  float: none;
+      }
+      
+      .tabset-dropdown > .nav-tabs > li {
+	  display: none;
+	  margin-left: 0 !important;
+      }
+    </style>
+    
 </head>
 
-<body>
+<body class="preload">
 
-
-<div id="content" data-toggle="wy-nav-shift">
-
-<!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("text-table-of-contents");
-});
-</script>
-
-<!-- code folding -->
-<script>
-$(document).ready(function () {
-  window.initializeCodeFolding("show" === "show");
-});
-</script>
-
-<nav id="nav-top" role="navigation" aria-label="top navigation">
-    <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
-</nav>
-
-<div class="btn-group pull-right">
-<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="text-muted">Code</span> <span class="text-muted caret"></span></button>
-<ul class="dropdown-menu" style="min-width: 50px;">
-<li><a id="rmd-show-all-code" href="#">Show All</a></li>
-<li><a id="rmd-hide-all-code" href="#">Hide All</a></li>
-</ul>
-</div>
-
-<div id="header">
-<h1 class="title">Git and GitHub from the Terminal &amp; RStudio: An Introduction</h1>
-</div>
-
-
-<div id="sidebar">
+            <!-- readthedown start -->   
+   <div id="content" data-toggle="wy-nav-shift">
+     <nav id="nav-top" role="navigation" aria-label="top navigation">
+       <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
+     </nav>
+         
+      <div class="btn-group pull-right">
+     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+     <ul class="dropdown-menu" style="min-width: 50px;">
+	    	    <li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+	    <li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+	    	    	         </ul>
+   </div>
+   
+        
+      <h1 class="title">Git and GitHub from the Terminal &amp; RStudio: An Introduction</h1>
+      
+         <!-- readthedown authors -->
+   <div id="sidebar">
     <h2><a href="#content">Git and GitHub from the Terminal &amp; RStudio: An Introduction</a></h2>
-    <div id="table-of-contents">
+    <div id="toc">
       <ul>
       <li><a href="#preparation">Preparation</a></li>
       <li><a href="#exercise-1-once-upon-a-commit">Exercise 1: Once upon a commit…</a></li>
@@ -154,15 +217,18 @@ $(document).ready(function () {
       <li><a href="#demo-gitkraken">DEMO: Gitkraken</a></li>
       </ul>
     </div>
-    
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
-              <p class="author"><span class="glyphicon glyphicon-user"></span> Valentin Lucet</p>
-                </div>
-</div>
-
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Valentin Lucet</p>
+                      </div>
+   </div>
+   
+   
+      
+   
+<!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div id="main">
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 16 December, 2020.</p>
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 22 February, 2021.</p>
 <hr />
 <p><em>The following workshop is inspired from the following resources:</em></p>
 <ul>
@@ -172,7 +238,7 @@ $(document).ready(function () {
 </li>
 <li><a href="https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it" class="uri">https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it</a></li>
 </ul>
-<p><em>We will also use <a href="https://onlywei.github.io/explain-git-with-d3/">this amazing website</a> as a visual aid.</em></p>
+<p><em>We will also use <a href="https://onlywei.GitHub.io/explain-git-with-d3/">this amazing website</a> as a visual aid.</em></p>
 <hr />
 <div id="preparation" class="section level3">
 <h3>Preparation</h3>
@@ -181,7 +247,7 @@ $(document).ready(function () {
 <li><a href="https://happygitwithr.com/github-acct.html">Register on GitHub</a></li>
 <li><a href="https://happygitwithr.com/install-r-rstudio.html">Install or update Rstudio</a></li>
 <li><a href="https://happygitwithr.com/install-git.html">Install &amp; Configure git</a></li>
-<li>(Optionnal) Install a git client: I recommend <a href="https://www.gitkraken.com/"><strong>GitKraken</strong></a></li>
+<li>(Optional) Install a git client: I recommend <a href="https://www.gitkraken.com/"><strong>GitKraken</strong></a></li>
 <li><a href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn <strong>5 key things</strong> about Git is</a> (thanks to Alice Bartlett from the Financial times for this great intro to Git)</li>
 </ol>
 <p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong></p>
@@ -380,7 +446,7 @@ Changes to be committed:
 <img src="images/mod_step1.png" />
 </center>
 <ul>
-<li>Now, <em>Stage the file</em> by chekcing it.</li>
+<li>Now, <em>Stage the file</em> by checking it.</li>
 </ul>
 <center>
 <img src="images/mod_step2.png" />
@@ -393,8 +459,8 @@ Changes to be committed:
 </center>
 <p><strong>Note</strong>: take a look at the <strong>history</strong> tab in the commit window.</p>
 <hr />
-<p>Note that once you have staged a file, you could do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft, not untiil you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.</p>
-<p>This image summarises what we have learned so far. Each change in the repository (adding a file, modifying a file, etc…) needs to be staged before it is commited.</p>
+<p>Note that once you have staged a file, you could do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft, not until you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.</p>
+<p>This image summarizes what we have learned so far. Each change in the repository (adding a file, modifying a file, etc…) needs to be staged before it is committed.</p>
 <center>
 <img src="https://git-scm.com/images/about/index1@2x.png" style="width:65.0%" />
 </center>
@@ -404,10 +470,10 @@ Changes to be committed:
 <div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote" class="section level3">
 <h3>Exercise 2: All roads lead to GitHub, how to add a remote</h3>
 <p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
-<p>“Linking” can mean multiple things depending on where you start things. If you start on your computer, we call this <strong>pushing</strong> your local repo to the remote. After pushing, a copy of your repo will live on the github servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
+<p>“Linking” can mean multiple things depending on where you start things. If you start on your computer, we call this <strong>pushing</strong> your local repo to the remote. After pushing, a copy of your repo will live on the GitHub servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
 <hr />
 <blockquote>
-<p><strong>We first need to create the remote repository on <a href="github.com">GitHub</a></strong></p>
+<p><strong>We first need to create the remote repository on <a href="GitHub.com">GitHub</a></strong></p>
 </blockquote>
 <p>The first thing to do is to create the remote:</p>
 <ul>
@@ -433,7 +499,7 @@ Changes to be committed:
 <li>Tell git the address of your remote</li>
 </ul>
 <div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>                                  <span class="co"># for instance https://github.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
+<span id="cb18-2"><a href="#cb18-2"></a>                                  <span class="co"># for instance https://GitHub.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
 <ul>
 <li>You now need to upload your repo to the remote, i.e. to <strong>push</strong> your commits. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</li>
 </ul>
@@ -482,7 +548,7 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <center>
 <img src="images/push.png" style="width:50.0%" />
 </center>
-<p>There you go! you now have a copy of your repo on GitHub. Well done! Fron now on you can continue to <strong>add</strong>, <strong>commit</strong> and <strong>push</strong> your commits.</p>
+<p>There you go! you now have a copy of your repo on GitHub. Well done! From now on you can continue to <strong>add</strong>, <strong>commit</strong> and <strong>push</strong> your commits.</p>
 <!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 <hr />
 </div>
@@ -493,7 +559,7 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <p><img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" /></p>
 <p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this exercise. For this exercise and the next one, we will see the other way to start a repo, by starting it on Github and then <strong>cloning</strong> it onto your computer.</p>
 <ul>
-<li>Repo Owner <strong>only</strong>, head over to github to create a new online repository</li>
+<li>Repo Owner <strong>only</strong>, head over to GitHub to create a new online repository</li>
 </ul>
 <center>
 <img src="images/green_github.png" />
@@ -542,31 +608,63 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <blockquote>
 <p><strong>We have the repo set up for collaboration, let’s now “clone” the repo</strong></p>
 </blockquote>
-<p>Cloning means “pulling” the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. You cannot clone from Rstudio, you have to use the command line or using the Github Desktop app or similar github client. For now let’s stick to the command line</p>
+<p>Cloning means “pulling” the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier.</p>
+<div id="at-the-terminal-7" class="section level4">
+<h4>At the terminal</h4>
+<p>Cloning from the command line is very simple:</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">cd</span> ~            <span class="co"># Navigate to your home folder again </span></span>
 <span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> clone *URL*     <span class="co"># The URL of the repo created by the repo owner</span></span></code></pre></div>
 <p>Well done, you have now set up a team and you are now technically working on the same repo.</p>
+</div>
+<div id="in-rstudio-7" class="section level4">
+<h4>In Rstudio</h4>
+<p>You can clone a GitHub repo from Rstudio:</p>
+<ul>
+<li>Open RStudio, in the top right corner create a new project</li>
+</ul>
+<center>
+<img src="images/Step_1.png" />
+</center>
+<ul>
+<li>Select <strong>Version Control</strong>, which is is reserved for when you already created a repo on GitHub.</li>
+</ul>
+<center>
+<img src="images/Step_2.png" style="width:50.0%" />
+</center>
+<ul>
+<li>Select <strong>Git</strong>. Subversion is listed here as another version control software supported by Rstudio.</li>
+</ul>
+<center>
+<img src="images/select_git.png" style="width:50.0%" />
+</center>
+<ul>
+<li>Fill the different fields as such: for the “Repository URL”, paste the URL of the repo (of the type ‘<a href="https://GitHub.com/VLucet/GitWorkshop.git" class="uri">https://GitHub.com/VLucet/GitWorkshop.git</a>’), which should update the field “Project directory name”. Finally, select where on your computer you would like to clone the repo (the Home directory or your Documents directory for instance).</li>
+</ul>
+<center>
+<img src="images/new_repo_vc.png" style="width:50.0%" />
+</center>
 <hr />
+</div>
 </div>
 <div id="exercise-4-do-the-push-and-pull-or-the-git-workflow" class="section level3">
 <h3>Exercise 4: (Do The) Push and Pull, or the git workflow</h3>
-<p>In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the girhub repo with changes we make locally.</p>
-<div id="at-the-terminal-7" class="section level4">
+<p>In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the GitHub repo with changes we make locally.</p>
+<div id="at-the-terminal-8" class="section level4">
 <h4>At the terminal</h4>
 <p>The first step is to make sure you are up to date with the version of the repo that is on GitHub. Navigate to the cloned repo an use the <code>fetch</code> command.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
 <p>Everything should be up to date, so all good.</p>
 </div>
-<div id="in-rstudio-7" class="section level4">
+<div id="in-rstudio-8" class="section level4">
 <h4>In RStudio</h4>
 <ul>
-<li>In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the rstudio context To do so, navigate to the R box in the top right corner and click on “New Project”</li>
+<li>In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the Rstudio context To do so, navigate to the R box in the top right corner and click on “New Project”</li>
 </ul>
 <center>
 <img src="images/new_project.png" />
 </center>
 <ul>
-<li>Select “Existing directory”, we will choose the directory you cloned from github.</li>
+<li>Select “Existing directory”, we will choose the directory you cloned from GitHub.</li>
 </ul>
 <center>
 <img src="images/existing_directory.png" />
@@ -579,16 +677,16 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 </center>
 <hr />
 <blockquote>
-<p><strong>Let’s now learn how to makes changes in this repo and sync them with github</strong></p>
+<p><strong>Let’s now learn how to makes changes in this repo and sync them with GitHub</strong></p>
 </blockquote>
 </div>
-<div id="at-the-terminal-8" class="section level4">
+<div id="at-the-terminal-9" class="section level4">
 <h4>At the terminal</h4>
-<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the Readme file for instance.</p>
+<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the ReadMe file for instance.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
 <p>Then, add, commit and push those changes:</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message (unless it&#39;s 2:32am and then you can just say &quot;gazoub.&quot;</span></span></code></pre></div>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message</span></span></code></pre></div>
 <pre><code>[main 58c8cb7] modified the README
  1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
 <div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span></code></pre></div>
@@ -601,10 +699,10 @@ Total 3 (delta 0), reused 0 (delta 0)
 To github.com:VLucet/gitWorkshop.git
    a992c9a..58c8cb7  main -&gt; main</code></pre>
 </div>
-<div id="in-rstudio-8" class="section level4">
+<div id="in-rstudio-9" class="section level4">
 <h4>In Rstudio</h4>
 <ul>
-<li>Open the readme in the editor and modify it. Save the changes. The git pane should look something like that:</li>
+<li>Open the ReadMe in the editor and modify it. Save the changes. The git pane should look something like that:</li>
 </ul>
 <center>
 <img src="images/Now,%20two%20of%20the%20team%20members%20are%20not%20in%20sync%20with%20the%20changes." />
@@ -617,7 +715,7 @@ To github.com:VLucet/gitWorkshop.git
 <p><strong>One group member has made changes to the repo, let’s make sure the rest of the time is up to date as well!</strong></p>
 </blockquote>
 </div>
-<div id="at-the-terminal-9" class="section level4">
+<div id="at-the-terminal-10" class="section level4">
 <h4>At the terminal</h4>
 <p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should be a little more familiar with these by now.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
@@ -626,10 +724,10 @@ To github.com:VLucet/gitWorkshop.git
 <div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin main    <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
 <p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
 </div>
-<div id="in-rstudio-9" class="section level4">
+<div id="in-rstudio-10" class="section level4">
 <h4>In Rstudio</h4>
 <ul>
-<li>In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by cliking on the blue pull arrow in the git pane.</li>
+<li>In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by clicking on the blue pull arrow in the git pane.</li>
 </ul>
 <center>
 <img src="images/pull_arrow.png" />
@@ -637,7 +735,7 @@ To github.com:VLucet/gitWorkshop.git
 <p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
 <hr />
 <blockquote>
-<p><strong>What if two people commit changes at the same line one after the other? Its a confict (see next exercise)</strong></p>
+<p><strong>What if two people commit changes at the same line one after the other? Its a conflict (see next exercise)</strong></p>
 </blockquote>
 <hr />
 </div>
@@ -645,26 +743,26 @@ To github.com:VLucet/gitWorkshop.git
 <div id="exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them" class="section level3">
 <h3>Exercise 5 Git of war, or conflicts and how to resolve them</h3>
 <p>Now, let’s do this again but a little differently. One person in the group to not have edited the <code>README</code> yet should do it now on their machine. Please add and commit but <strong>do not push your changes yet</strong> (see in the previous exercises.</p>
-<p>Now, repo owner will go on github and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please <strong>change the same line than the previous person</strong>. Commit this change to the repo.</p>
+<p>Now, repo owner will go on GitHub and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please <strong>change the same line than the previous person</strong>. Commit this change to the repo.</p>
 <hr />
 <blockquote>
 <p>Now, the person who changed the file on their machine will do the pulling procedure:</p>
 </blockquote>
-<div id="at-the-terminal-10" class="section level4">
+<div id="at-the-terminal-11" class="section level4">
 <h4>At the terminal</h4>
 <p>At the terminal, do the following:</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
 </div>
-<div id="in-rstudio-10" class="section level4">
+<div id="in-rstudio-11" class="section level4">
 <h4>In Rstudio</h4>
 <p>In Rstudio, try to push your changes. You should get a message explaining that you cannot do so. Instead, pull your changes and you will receive a message stating that a conflict was created.</p>
 <hr />
 <blockquote>
 <p>How can one resolve a conflict?</p>
 </blockquote>
-<p>You’ve created a conflict. A conflict typically happens when you have commited a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
+<p>You’ve created a conflict. A conflict typically happens when you have committed a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
 <div class="figure">
 <img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="" />
 <p class="caption">Git conflict illustrated</p>
@@ -675,12 +773,12 @@ To github.com:VLucet/gitWorkshop.git
 <p class="caption">Commit merge</p>
 </div>
 </div>
-<div id="at-the-terminal-11" class="section level4">
+<div id="at-the-terminal-12" class="section level4">
 <h4>At the terminal</h4>
 <p>You can use the <code>nano</code> editor to open the conflicted file.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
 </div>
-<div id="in-rstudio-11" class="section level4">
+<div id="in-rstudio-12" class="section level4">
 <h4>In Rstudio</h4>
 <p>Simply open the conflicted file in the editor.</p>
 <hr />
@@ -690,36 +788,36 @@ Fight Club is the best movie ever
 =======
 In fact, Back To The Future is the best movie ever
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code></pre>
-<p>You can choose to keep either of the changes or to keep both. all that matters is that the elemenst <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ; <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code> are now longer in the file.</p>
+<p>You can choose to keep either of the changes or to keep both. all that matters is that the elements <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ; <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code> are now longer in the file.</p>
 <hr />
 <blockquote>
 <p>Once you have decided what to keep, it is time to commit your change, and merge it with the remote repo.</p>
 </blockquote>
 </div>
-<div id="at-the-terminal-12" class="section level4">
+<div id="at-the-terminal-13" class="section level4">
 <h4>At the terminal</h4>
 <div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a messgae indicating it!</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a message indicating it!</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span>
 <span id="cb35-4"><a href="#cb35-4"></a><span class="fu">git</span> status              <span class="co"># All is good!</span></span></code></pre></div>
 </div>
-<div id="in-rstudio-12" class="section level4">
+<div id="in-rstudio-13" class="section level4">
 <h4>In Rstudio</h4>
 <p>Simply add and commit the final version of the corrected file. You will see a message about a git merge.</p>
 <hr />
-<p>Well done! Now the other team members will need to pull down this new commit merge. You’ve learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as github Desktop or Git Kraken. Even better is to avoid conflicts from even happening by <strong>branching</strong>.</p>
+<p>Well done! Now the other team members will need to pull down this new commit merge. You’ve learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as GitHub Desktop or Git Kraken. Even better is to avoid conflicts from even happening by <strong>branching</strong>.</p>
 <hr />
 </div>
 </div>
 <div id="exercise-6-the-tree-of-git-or-the-basics-of-branching" class="section level3">
 <h3>Exercise 6: The tree of git, or the basics of branching</h3>
-<p>A great way to make conflicst avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the main branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
+<p>A great way to make conflicts avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the main branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
 <p>The first thing is to create the branch:</p>
-<div id="at-the-terminal-13" class="section level4">
+<div id="at-the-terminal-14" class="section level4">
 <h4>At the terminal</h4>
 <div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
 </div>
-<div id="in-rstudio-13" class="section level4">
+<div id="in-rstudio-14" class="section level4">
 <h4>In Rstudio</h4>
 <ol style="list-style-type: decimal">
 <li>Click on the new branch button in the top right corner of the git pane.</li>
@@ -738,16 +836,16 @@ In fact, Back To The Future is the best movie ever
 <p>The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout’ the branch.</p>
 </blockquote>
 </div>
-<div id="at-the-terminal-14" class="section level4">
+<div id="at-the-terminal-15" class="section level4">
 <h4>At the terminal</h4>
 <div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;mynewbranch&#39;</code></pre>
 <div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
 <pre><code>On branch mynewbranch
 nothing to commit, working tree clean</code></pre>
-<p><strong><em>note</em></strong>: <em>there is a shortchut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em></p>
+<p><strong><em>note</em></strong>: <em>there is a shortcut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em></p>
 </div>
-<div id="in-rstudio-14" class="section level4">
+<div id="in-rstudio-15" class="section level4">
 <h4>In Rstudio</h4>
 <p>Rstudio <strong>automatically checks out the new branch, and publish it to the remote, when your create it</strong>. You can switch branches very easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).</p>
 <hr />
@@ -755,10 +853,10 @@ nothing to commit, working tree clean</code></pre>
 <p>You are now on the new branch! This branch is only on your local machine for now (unless you use Github). Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
 </blockquote>
 </div>
-<div id="at-the-terminal-15" class="section level4">
+<div id="at-the-terminal-16" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit hostory of your branch</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> commit -a -m <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shorcut to add and commit at the same time!</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit history of your branch</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> commit -a -m <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shortcut to add and commit at the same time!</span></span></code></pre></div>
 <pre><code>[mynewbranch 92b76fb] added some changes to the new branch
  1 file changed, 1 insertion(+)</code></pre>
 <div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> push origin mynewbranch    <span class="co"># Pushing to the new branch - you can also just type in &quot;git push&quot;</span></span></code></pre></div>
@@ -775,15 +873,15 @@ remote:
 To github.com:VLucet/gitWorkshop.git
  * [new branch]      mynewbranch -&gt; mynewbranch</code></pre>
 </div>
-<div id="in-rstudio-15" class="section level4">
+<div id="in-rstudio-16" class="section level4">
 <h4>In Rstudio</h4>
-<p>Modify the Readme again and push the changes to the new branch.</p>
+<p>Modify the ReadMe again and push the changes to the new branch.</p>
 <hr />
 <blockquote>
 <p>Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch.</p>
 </blockquote>
 </div>
-<div id="at-the-terminal-16" class="section level4">
+<div id="at-the-terminal-17" class="section level4">
 <h4>At the terminal</h4>
 <p>Merging means doing a “pull request”: you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then <em>pull</em> the new branch into the main.</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout main   <span class="co"># You&#39;ve switched to the main branch</span></span></code></pre></div>
@@ -800,9 +898,9 @@ To github.com:VLucet/gitWorkshop.git
    58c8cb7..92b76fb  main -&gt; main
    </code></pre>
 </div>
-<div id="in-rstudio-16" class="section level4">
+<div id="in-rstudio-17" class="section level4">
 <h4>In Rstudio</h4>
-<p>You cannot do this in Rstudio, but you can do this on github (<strong>DEMO</strong>).</p>
+<p>You cannot do this in Rstudio, but you can do this on GitHub (<strong>DEMO</strong>).</p>
 <hr />
 </div>
 </div>
@@ -813,40 +911,42 @@ To github.com:VLucet/gitWorkshop.git
 </div>
 </div>
 
+   
+   
+            
+      
 
-</div>
+  <script>
+    $(document).ready(function () {
 
-
-
-
-<script>
-$(document).ready(function () {
- 	    $('#content img')
- 	  .addClass("image-lb");
-  $('#content').magnificPopup({
-	      type:'image',
-	      closeOnContentClick: false,
-	      closeBtnInside: false,
-	      delegate: 'img',
-	      gallery: {enabled: false },
-	      image: {
+			
+ 		
+		$('#content img').addClass("image-lb");
+	$('#content').magnificPopup({
+	    type:'image',
+	    closeOnContentClick: false,
+	    closeBtnInside: false,
+	    delegate: '.image-lb',
+	    gallery: {enabled: false },
+	    image: {
 	        verticalFit: true,
-          titleSrc: 'alt'
-	      }
- 	    });
+		titleSrc: 'alt'
+	    }
  	});
-</script>
+ 	    });
+  </script>
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
+    <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+  
 </body>
 </html>

@@ -1,36 +1,3 @@
-/* Palette : https://coolors.co/211103-3d1308-7b0d1e-9f2042-f8e5ee */
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/Lato.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/LatoBold.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Lato';
-  font-style: italic;
-  font-weight: 400;
-  src: url(fonts/LatoItalic.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Roboto Slab';
-  font-style: normal;
-  font-weight: 400;
-  src: url(fonts/RobotoSlab-Regular.ttf) format('truetype');
-}
-@font-face {
-  font-family: 'Roboto Slab';
-  font-style: normal;
-  font-weight: 700;
-  src: url(fonts/RobotoSlab-Bold.ttf) format('truetype');
-}
-
 
 /* Nav pills */
 
@@ -107,6 +74,14 @@ img.image-lb {
   font-size: 90%;
 }
 
+.pagedtable-index-current {
+  font-weight: bold;
+}
+
+#main a.anchor-section {
+    color: #BBB;
+}
+
 /* General styling */
 
 h1,h2,h3,h4,h5,h6,legend{
@@ -116,47 +91,54 @@ h1,h2,h3,h4,h5,h6,legend{
 }
 
 h1{
-    font-size:200%;
+    font-size:2rem;
     margin-top: 1em;
     margin-bottom: 1.2em;
 }
 
-h1.title{
-  font-size: 250%;
-  margin-top: 0px;
+h1.title {
+  margin-top: 1em;
+}
+h1.title,
+h1.title p {
+  font-size: 2.3rem;
+  line-height: 2.7rem;
 }
 
-.subtitle{
-    font-size:95%; /* of h1 */
+
+h1.subtitle {
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
+h1.subtitle,
+h1.subtitle p {
+    font-size: 1.6rem;
+    line-height: 2rem;
 }
 
 h2{
   margin-top: 1em;
   margin-bottom: 1.2em;
-  font-size:160%;
+  font-size:1.6rem;
 }
 
 h3{
   margin-top: 1em;
   margin-bottom: 1.2em;
-  font-size:125%;
+  font-size:1.25rem;
 }
 
 h4{
   margin-top: 1em;
   margin-bottom: 1.2em;
-  font-size:115%;
+  font-size:1.15rem;
 }
 
 h5{
-    font-size:110%;
+    font-size:1.1rem;
 }
 
-h6{
-    font-size:100%;
-}
-
-h4,h5,h6{
+h4,h5 {
     font-weight:300;
 }
 
@@ -187,7 +169,7 @@ body{
     min-height:100%;
 }
 
-p{
+p {
     font-size:16px;
     line-height:24px;
     margin:0px 0px 24px 0px;
@@ -212,6 +194,10 @@ blockquote{
     margin:0px 0px 24px 0px;
     /* margin-left:24px; */
     padding: 6px 20px;
+}
+#content blockquote > p,
+#content blockquote > ul {
+    margin-bottom: 0;
 }
 
 ul,ol,dl{
@@ -461,6 +447,10 @@ code{
     white-space: pre;
 }
 
+#content #main code a {
+  color: inherit;
+  background: none;
+}
 
 #content pre {
     /* background:#f3f6f6; */
@@ -489,7 +479,7 @@ code{
   margin-bottom: 1.8em;
 }
 
-table{
+#main table{
     border-collapse:collapse;
     border-spacing:0;
     empty-cells:show;
@@ -497,21 +487,25 @@ table{
     border-bottom:1px solid #e1e4e5;
 }
 
-td{
-    vertical-align:top}
+#main table:not(.dataTable) {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
 
-table td,table th{
+table:not(.dataTable) td,table:not(.dataTable) th{
     font-size:90%;
+    padding: 8px;
     margin:0;
     overflow:visible;
-    padding:8px 16px;
     border:1px solid #e1e4e5;
 }
 
-table thead th{
+#main table thead th {
     font-weight:bold;
-    border-top:3px solid #e1e4e5;
-    border-bottom:1px solid #e1e4e5;
+    border-top: 1px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    background-color:white;
 }
 
 table caption{
@@ -683,7 +677,7 @@ a {
     cursor:pointer;
 }
 
-#main a {
+#main :not(.leaflet-control) > a {
     background-image: linear-gradient(180deg,#d64a70,#d64a70);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -694,7 +688,7 @@ a {
     transition: background-position .15s, color .15s;
 }
 
-#main a:hover {
+#main :not(.leaflet-control) > a:hover {
     text-decoration: none;
     background-position: 0 0.3em;
     color: #ffffff;
@@ -709,6 +703,10 @@ a:hover{
 
 a:visited{
     color:#3d1308}
+
+#main a.sourceLine {
+  color: inherit;
+}
 
 .left{
     text-align:left}
@@ -727,7 +725,7 @@ hr{
     margin:24px 0;
     padding:0}
 
-#table-of-contents li{
+#toc li{
     list-style:none;
     margin-left: 0px;
 }
@@ -744,27 +742,27 @@ hr{
     color:#9F2042;
     white-space:nowrap}
 
-#table-of-contents ul{
+#toc ul{
     margin-bottom:0}
 
-#table-of-contents li.divide-top{
+#toc li.divide-top{
     border-top:solid 1px #404040}
 
-#table-of-contents li.divide-bottom{
+#toc li.divide-bottom{
     border-bottom:solid 1px #404040}
 
-#table-of-contents li.current{
+#toc li.current{
     background:#e3e3e3}
 
-#table-of-contents li.current a{
+#toc li.current a{
     color:gray;
     border-right:solid 1px #c9c9c9;
     padding:0.4045em 2.427em}
 
-#table-of-contents li.current a:hover{
+#toc li.current a:hover{
     background:#d6d6d6}
 
-#table-of-contents li a{
+#toc li a{
     /* color:#404040; */
     padding:0.4045em 1.618em;
     position:relative;
@@ -774,23 +772,23 @@ hr{
     /* border-top:solid 1px #c9c9c9; */
     padding-left:1.618em -4px}
 
-#table-of-contents li.on a:hover,#table-of-contents li.current>a:hover{
+#toc li.on a:hover,#toc li.current>a:hover{
     background:#fcfcfc}
 
-#table-of-contents li ul li a{
+#toc li ul li a{
     /* background:#c9c9c9; */
     padding:0.4045em 2.427em}
 
-#table-of-contents li ul li ul li a{
+#toc li ul li ul li a{
     padding:0.4045em 3.236em}
 
-#table-of-contents li.current ul{
+#toc li.current ul{
     display:block}
 
-#table-of-contents .local-toc li ul{
+#toc .local-toc li ul{
     display:block}
 
-#table-of-contents li ul li a{
+#toc li ul li a{
     margin-bottom:0;
     color:#b3b3b3;
     font-weight:normal}
@@ -811,7 +809,7 @@ hr{
     background-color:#4e4a4a;
     cursor:pointer}
 
-#table-of-contents {
+#toc {
     overflow-x: hidden;
     overflow-y: auto;
     flex-grow: 200;
@@ -854,47 +852,47 @@ hr{
 }
 
 
-#table-of-contents ul.nav li ul li {
+#toc ul.nav li ul li {
     display: none;
 }
 
-#table-of-contents ul.nav li ul li ul li {
+#toc ul.nav li ul li ul li {
     display: none;
 }
 
-#table-of-contents ul.nav li.active ul li {
+#toc ul.nav li.active ul li {
     display: inline;
 }
 
-#table-of-contents ul.nav li.active ul li ul li {
+#toc ul.nav li.active ul li ul li {
     display: inline;
 }
 
-#table-of-contents ul.nav li.active ul li a {
+#toc ul.nav li.active ul li a {
     background-color: #E3E3E3;
     color: #8099B0;
     border-right:solid 1px #c9c9c9 !important;
 }
 
-#table-of-contents ul.nav li.active ul li.active a {
+#toc ul.nav li.active ul li.active a {
     background-color: #C9C9C9;
     color: black !important;
     font-weight: bold !important;
 }
 
-#table-of-contents ul.nav li.active ul li.active ul li.active a {
+#toc ul.nav li.active ul li.active ul li.active a {
     color: black !important;
     font-weight: bold !important;
     display: block !important;
 }
 
-#table-of-contents ul.nav li.active ul li.active ul li a {
+#toc ul.nav li.active ul li.active ul li a {
     color: #808080 !important;
     font-weight: normal !important;
     display: block !important;
 }
 
-#table-of-contents ul.nav li.active ul li ul li a {
+#toc ul.nav li.active ul li ul li a {
     display: none !important;
 }
 
@@ -903,24 +901,24 @@ hr{
 /*     /\* display: none; /\* as long as nav is on multiple levels of ul *\\/ *\/ */
 /* } */
 
-#table-of-contents ul.nav li ul li ul li ul li {
+#toc ul.nav li ul li ul li ul li {
     display: none !important; /* as long as nav is on multiple levels of ul */
     /* display: none; /* as long as nav is on multiple levels of ul *\/ */
 }
 
-#table-of-contents ul.nav li.active > a {
+#toc ul.nav li.active > a {
     border-bottom:solid 1px #c9c9c9 !important; /* XXX Restrict it to 2nd level */
     border-right:solid 1px #c9c9c9 !important;
 }
 
-#table-of-contents ul.nav li.active a {
+#toc ul.nav li.active a {
     color: gray !important;
     font-weight:bold;
     background-color: white;
     border-right:solid 0px white !important;
 }
 
-#table-of-contents ul.nav > li.active > a {
+#toc ul.nav > li.active > a {
     color: black !important;
 }
 
