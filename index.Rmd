@@ -38,7 +38,7 @@ Last updated: `r format(Sys.time(), '%d %B, %Y')`.
 3. [Install & Configure git](https://happygitwithr.com/install-git.html)
 4. [Introduce yourself to git](https://happygitwithr.com/hello-git.html)
 
-**(3) Set up HTTPS or SSH protocols by completing part of section 2 of the happywithgithr workshop ("Connect Git, GitHub, RStudio")** 
+**(2) Set up HTTPS or SSH protocols by completing part of section 2 of the happywithgithr workshop ("Connect Git, GitHub, RStudio")** 
 **If you are having issues with this step, please reach out to me a prior to the training so that I can help you.**
 
 This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 

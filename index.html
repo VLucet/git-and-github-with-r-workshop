@@ -10,38 +10,38 @@
     
     <title>Git and GitHub from the Terminal &amp; RStudio: An Introduction</title>
 
-        <script src="index_files/jquery-1.11.3/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="index_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="index_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-    <script src="index_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
-    <script src="index_files/navigation-1.1/tabsets.js"></script>
-    <script src="index_files/navigation-1.1/codefolding.js"></script>
-    <link href="index_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
-    <script src="index_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
-    <link href="index_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
-    <link href="index_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
-    <script src="index_files/readthedown-0.1/readthedown.js"></script>
-    <link href="index_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-    <script src="index_files/tocify-1.9.1/jquery.tocify.js"></script>
-    <script src="index_files/accessible-code-block-0.0.1/empty-anchor.js"></script>
+        <script src="index_files/header-attrs-2.20/header-attrs.js"></script>
+        <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="index_files/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="index_files/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+        <script src="index_files/navigation-1.1/tabsets.js"></script>
+        <script src="index_files/navigation-1.1/codefolding.js"></script>
+        <link href="index_files/magnific-popup-1.1.0/magnific-popup.css" rel="stylesheet" />
+        <script src="index_files/magnific-popup-1.1.0/jquery.magnific-popup.min.js"></script>
+        <link href="index_files/readthedown-0.1/readthedown.css" rel="stylesheet" />
+        <link href="index_files/readthedown-0.1/readthedown_fonts_embed.css" rel="stylesheet" />
+        <script src="index_files/readthedown-0.1/readthedown.js"></script>
+        <script src="index_files/jqueryui-1.11.4/jquery-ui.min.js"></script>
+        <link href="index_files/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+        <script src="index_files/tocify-1.9.1/jquery.tocify.js"></script>
     
     
         <style type="text/css">code{white-space: pre;}</style>
     <style type="text/css">
-      code.sourceCode > span { display: inline-block; line-height: 1.25; }
-      code.sourceCode > span { color: inherit; text-decoration: inherit; }
-      code.sourceCode > span:empty { height: 1.2em; }
+      pre > code.sourceCode { white-space: pre; position: relative; }
+      pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+      pre > code.sourceCode > span:empty { height: 1.2em; }
       .sourceCode { overflow: visible; }
-      code.sourceCode { white-space: pre; position: relative; }
+      code.sourceCode > span { color: inherit; text-decoration: inherit; }
       div.sourceCode { margin: 1em 0; }
       pre.sourceCode { margin: 0; }
       @media screen {
       div.sourceCode { overflow: auto; }
       }
       @media print {
-      code.sourceCode { white-space: pre-wrap; }
-      code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+      pre > code.sourceCode { white-space: pre-wrap; }
+      pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
       }
       pre.numberSource code
         { counter-reset: source-line 0; }
@@ -62,9 +62,9 @@
       div.sourceCode
         { color: #1f1c1b; background-color: #ffffff; }
       @media screen {
-      code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+      pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
       }
-      code span. { color: #1f1c1b; } /* Normal */
+      code span { color: #1f1c1b; } /* Normal */
       code span.al { color: #bf0303; background-color: #f7e6e6; font-weight: bold; } /* Alert */
       code span.an { color: #ca60ca; } /* Annotation */
       code span.at { color: #0057ae; } /* Attribute */
@@ -185,7 +185,8 @@
 
 <body class="preload">
 
-            <!-- readthedown start -->   
+   	
+         <!-- readthedown start -->   
    <div id="content" data-toggle="wy-nav-shift">
      <nav id="nav-top" role="navigation" aria-label="top navigation">
        <a role="button" href="#" data-toggle="wy-nav-top"><span class="glyphicon glyphicon-menu-hamburger"></span></a>
@@ -200,77 +201,153 @@
    </div>
    
         
-      <h1 class="title">Git and GitHub from the Terminal &amp; RStudio: An Introduction</h1>
+      <h1 class="title">Git and GitHub from the Terminal &amp; RStudio:
+An Introduction</h1>
       
          <!-- readthedown authors -->
    <div id="sidebar">
-    <h2><a href="#content">Git and GitHub from the Terminal &amp; RStudio: An Introduction</a></h2>
+    <h2><a href="#content">Git and GitHub from the Terminal &amp;
+RStudio: An Introduction</a></h2>
     <div id="toc">
       <ul>
-      <li><a href="#preparation">Preparation</a></li>
-      <li><a href="#exercise-1-once-upon-a-commit">Exercise 1: Once upon a commit…</a></li>
-      <li><a href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote">Exercise 2: All roads lead to GitHub, how to add a remote</a></li>
-      <li><a href="#exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git">Exercise 3: Teamwork makes the dream work, or collabaring with git</a></li>
-      <li><a href="#exercise-4-do-the-push-and-pull-or-the-git-workflow">Exercise 4: (Do The) Push and Pull, or the git workflow</a></li>
-      <li><a href="#exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them">Exercise 5 Git of war, or conflicts and how to resolve them</a></li>
-      <li><a href="#exercise-6-the-tree-of-git-or-the-basics-of-branching">Exercise 6: The tree of git, or the basics of branching</a></li>
-      <li><a href="#demo-gitkraken">DEMO: Gitkraken</a></li>
+      <li><a href="#preparation"
+      id="toc-preparation">Preparation</a></li>
+      <li><a href="#exercise-1-once-upon-a-commit"
+      id="toc-exercise-1-once-upon-a-commit">Exercise 1: Once upon a
+      commit…</a></li>
+      <li><a
+      href="#exercise-2-all-roads-lead-to-github-how-to-add-a-remote"
+      id="toc-exercise-2-all-roads-lead-to-github-how-to-add-a-remote">Exercise
+      2: All roads lead to GitHub, how to add a remote</a></li>
+      <li><a
+      href="#exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git"
+      id="toc-exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git">Exercise
+      3: Teamwork makes the dream work, or collabaring with git</a></li>
+      <li><a href="#exercise-4-do-the-push-and-pull-or-the-git-workflow"
+      id="toc-exercise-4-do-the-push-and-pull-or-the-git-workflow">Exercise
+      4: (Do The) Push and Pull, or the git workflow</a></li>
+      <li><a
+      href="#exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them"
+      id="toc-exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them">Exercise
+      5 Git of war, or conflicts and how to resolve them</a></li>
+      <li><a
+      href="#exercise-6-the-tree-of-git-or-the-basics-of-branching"
+      id="toc-exercise-6-the-tree-of-git-or-the-basics-of-branching">Exercise
+      6: The tree of git, or the basics of branching</a></li>
+      <li><a href="#demo-gitkraken" id="toc-demo-gitkraken">DEMO:
+      Gitkraken</a></li>
       </ul>
     </div>
     <div id="postamble" data-toggle="wy-nav-shift" class="status">
-                  <p class="author"><span class="glyphicon glyphicon-user"></span> Valentin Lucet</p>
+                  <p class="author"><span class="glyphicon glyphicon-user"></span> Valentin
+Lucet</p>
                       </div>
    </div>
-   
+     
+
    
       
    
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div id="main">
 <p><img align="right" width="300" height="100" src="https://git-scm.com/images/logos/2color-lightbg@2x.png"></p>
-<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>, <a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 22 February, 2021.</p>
+<p>By Valentin Lucet (<a href="https://vlucet.github.io/">Website</a>,
+<a href="https://github.com/vlucet">GitHub</a>).<br /> Last updated: 23
+February, 2023.</p>
 <hr />
-<p><em>The following workshop is inspired from the following resources:</em></p>
+<p><em>The following workshop is inspired from the following
+resources:</em></p>
 <ul>
-<li><a href="https://happygitwithr.com/" class="uri">https://happygitwithr.com/</a><br />
+<li><a href="https://happygitwithr.com/"
+class="uri">https://happygitwithr.com/</a><br />
 </li>
-<li><a href="https://blog.developer.atlassian.com/a-better-pull-request/" class="uri">https://blog.developer.atlassian.com/a-better-pull-request/</a><br />
+<li><a
+href="https://blog.developer.atlassian.com/a-better-pull-request/"
+class="uri">https://blog.developer.atlassian.com/a-better-pull-request/</a><br />
 </li>
-<li><a href="https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it" class="uri">https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it</a></li>
+<li><a
+href="https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it"
+class="uri">https://www.nobledesktop.com/blog/what-is-git-and-why-should-you-use-it</a></li>
 </ul>
-<p><em>We will also use <a href="https://onlywei.GitHub.io/explain-git-with-d3/">this amazing website</a> as a visual aid.</em></p>
+<p><em>We will also use <a
+href="https://onlywei.GitHub.io/explain-git-with-d3/">this amazing
+website</a> as a visual aid.</em></p>
 <hr />
 <div id="preparation" class="section level3">
 <h3>Preparation</h3>
-<p><strong>(1) Complete section 1 of the happywithgithr workshop (“Installation”)</strong></p>
+<p><strong>(1) Complete section 1 of the happywithgithr workshop
+(“Installation”)</strong></p>
 <ol style="list-style-type: decimal">
-<li><a href="https://happygitwithr.com/github-acct.html">Register on GitHub</a></li>
-<li><a href="https://happygitwithr.com/install-r-rstudio.html">Install or update Rstudio</a></li>
-<li><a href="https://happygitwithr.com/install-git.html">Install &amp; Configure git</a></li>
-<li>(Optional) Install a git client: I recommend <a href="https://www.gitkraken.com/"><strong>GitKraken</strong></a></li>
-<li><a href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn <strong>5 key things</strong> about Git is</a> (thanks to Alice Bartlett from the Financial times for this great intro to Git)</li>
+<li><a href="https://happygitwithr.com/github-acct.html">Register on
+GitHub</a></li>
+<li><a href="https://happygitwithr.com/install-r-rstudio.html">Install
+or update Rstudio</a></li>
+<li><a href="https://happygitwithr.com/install-git.html">Install &amp;
+Configure git</a></li>
+<li><a href="https://happygitwithr.com/hello-git.html">Introduce
+yourself to git</a></li>
 </ol>
-<p><strong>(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys</strong></p>
-<p><a href="https://happygitwithr.com/ssh-keys.html" class="uri">https://happygitwithr.com/ssh-keys.html</a>. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. <strong>If you are having issues with this step, please reach out to me a prior to the training so that I can help you.</strong></p>
-<p><strong>Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.</strong></p>
-<p>There is value in being able to do all of this in the command line, because it allows to build a mental model of how git works, which is extremely useful if you do not have access to an UI (this is the case when you are working on a supercomputer for instance). <strong>A note on the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its interface. This can turn out be a lovely thing, but sometimes leads to problems. I advise you to <a href="https://happygitwithr.com/troubleshooting.html">bookmark this troubleshooting guide for later just in case.</a>).</p>
+<p><strong>(2) Set up HTTPS or SSH protocols by completing part of
+section 2 of the happywithgithr workshop (“Connect Git, GitHub,
+RStudio”)</strong> <strong>If you are having issues with this step,
+please reach out to me a prior to the training so that I can help
+you.</strong></p>
+<p>This step is important because it allows you to securely connect you
+to GitHub every time you want to use it from your computer.</p>
+<ol style="list-style-type: decimal">
+<li>Read the <a
+href="https://happygitwithr.com/connect-intro.html">section’s
+intro</a></li>
+<li>Read the <a
+href="https://happygitwithr.com/https-pat.html#https-vs-ssh">comparison
+between https and ssh</a></li>
+<li>Set up <a href="https://happygitwithr.com/https-pat.html">https</a>
+OR <a href="https://happygitwithr.com/ssh-keys.html">ssh</a></li>
+</ol>
+<p><strong>(3) <a
+href="https://speakerdeck.com/alicebartlett/git-for-humans">Learn
+<strong>5 key things</strong> about Git</a></strong> Thanks to Alice
+Bartlett from the Financial times for this great intro to Git.</p>
+<p><strong>Note: This tutorial gives you the choice to either complete
+it at the terminal or in RStudio.</strong></p>
+<p>There is value in being able to do all of this in the command line,
+because it allows to build a mental model of how git works, which is
+extremely useful if you do not have access to an UI (this is the case
+when you are working on a supercomputer for instance). <strong>A note on
+the Git/Github/Rstudio nexus:</strong> Rstudio has integrated git in its
+interface. This can turn out be a lovely thing, but sometimes leads to
+problems. I advise you to <a
+href="https://happygitwithr.com/troubleshooting.html">bookmark this
+troubleshooting guide for later just in case.</a>).</p>
 <hr />
 </div>
 <div id="exercise-1-once-upon-a-commit" class="section level3">
 <h3>Exercise 1: Once upon a commit…</h3>
-<p>Let’s start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the <code>mkdir</code> command like below (stands for “make directory”). The <code>cd</code> command, for “change directory”, allows us to move into this new directory.</p>
+<p>Let’s start by creating a new directory, this will be our project
+directory. Open the terminal on your computer if you are on Mac or Linux
+(or the git console if you are on Windows) and use the
+<code>mkdir</code> command like below (stands for “make directory”). The
+<code>cd</code> command, for “change directory”, allows us to move into
+this new directory.</p>
 <div id="at-the-terminal" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="bu">cd</span> ~    <span class="co"># Go to your home directory</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">mkdir</span> gitWorkshop   <span class="co"># Creates a new directory called gitWorkshop in your home directory</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="bu">cd</span> gitWorkshop        <span class="co"># Moves to inside the new directory</span></span></code></pre></div>
-<p>Now that you have a fresh directory, we need to make it a git repository, aka a <strong>repo</strong> (i.e. a directory in which git is activated and is tracking files). To make this work you need to initialize git. It’s simple:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">git</span> init    <span class="co"># This initialize git in your directory</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~    <span class="co"># Go to your home directory</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> gitWorkshop   <span class="co"># Creates a new directory called gitWorkshop in your home directory</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> gitWorkshop        <span class="co"># Moves to inside the new directory</span></span></code></pre></div>
+<p>Now that you have a fresh directory, we need to make it a git
+repository, aka a <strong>repo</strong> (i.e. a directory in which git
+is activated and is tracking files). To make this work you need to
+initialize git. It’s simple:</p>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init    <span class="co"># This initialize git in your directory</span></span></code></pre></div>
 <pre><code>Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/</code></pre>
 </div>
 <div id="in-rstudio" class="section level4">
 <h4>In RStudio</h4>
-<p>To use git in Rstudio, you need to create a new <a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>. Let’s start by creating our project directory.</p>
+<p>To use git in Rstudio, you need to create a new <a
+href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">Project</a>.
+Let’s start by creating our project directory.</p>
 <ul>
 <li>Open RStudio, in the top right corner create a new project</li>
 </ul>
@@ -278,7 +355,9 @@
 <img src="images/Step_1.png" />
 </center>
 <ul>
-<li>Select <strong>New Directory</strong> Note that <strong>Version Control</strong> is reserved for when you already created a repo on GitHub. We will come back to this later.</li>
+<li>Select <strong>New Directory</strong> Note that <strong>Version
+Control</strong> is reserved for when you already created a repo on
+GitHub. We will come back to this later.</li>
 </ul>
 <center>
 <img src="images/Step_2.png" style="width:50.0%" />
@@ -290,42 +369,53 @@
 <img src="images/Step_3.png" style="width:50.0%" />
 </center>
 <ul>
-<li>Choose a new for your repo and a location. <strong>Make sure that <em>create a git repository</em> is checked</strong></li>
+<li>Choose a new for your repo and a location. <strong>Make sure that
+<em>create a git repository</em> is checked</strong></li>
 </ul>
 <center>
 <img src="images/Step_4.png" style="width:50.0%" />
 </center>
 <ul>
-<li>You can now look under the <em>git tab</em>, you should see this:</li>
+<li>You can now look under the <em>git tab</em>, you should see
+this:</li>
 </ul>
 <center>
 <p><img src="images/final.png" /></p>
 </center>
-<p><strong>Note: we will come back to what the <em>.gitignore</em> file is later!</strong></p>
+<p><strong>Note: we will come back to what the <em>.gitignore</em> file
+is later!</strong></p>
 <hr />
 <blockquote>
-<p><strong>Let’s now create a new file, the first file we want to keep track of in this project</strong></p>
+<p><strong>Let’s now create a new file, the first file we want to keep
+track of in this project</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-1" class="section level4">
 <h4>At the terminal</h4>
 <p>We create a file using the <code>touch</code> command:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">touch</span> script_1.R    <span class="co"># Creates the file</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> script_1.R    <span class="co"># Creates the file</span></span></code></pre></div>
 </div>
 <div id="in-rstudio-1" class="section level4">
 <h4>In RStudio</h4>
-<p>Create a new file: go to the menu <em>File =&gt; New file =&gt; R Script</em>. Make sure to save it with the name <em>script_1.R</em>.</p>
+<p>Create a new file: go to the menu <em>File =&gt; New file =&gt; R
+Script</em>. Make sure to save it with the name <em>script_1.R</em>.</p>
 <hr />
 <blockquote>
-<p><strong>The repo is created and you have created a file, can git see the new file?</strong></p>
+<p><strong>The repo is created and you have created a file, can git see
+the new file?</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-2" class="section level4">
 <h4>At the terminal</h4>
-<p>With the <code>ls</code> command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file.</p>
-<p>At any time, git lets you know if you have a untracked file, thanks to the <code>git status</code> command.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ls</span>             <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">git</span> status <span class="co"># Shows the current status of your repo with regards to git</span></span></code></pre></div>
+<p>With the <code>ls</code> command, which lists everything in your
+directory, you can see the file you have created. By editing the empty
+file and saving it, we created a change in this file.</p>
+<p>At any time, git lets you know if you have a untracked file, thanks
+to the <code>git status</code> command.</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span>             <span class="co"># This lists the files in the directory. You should see your file listed!</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status <span class="co"># Shows the current status of your repo with regards to git</span></span></code></pre></div>
 <pre><code>On branch main
 
 No commits yet
@@ -339,24 +429,33 @@ nothing added to commit but untracked files present (use &quot;git add&quot; to 
 </div>
 <div id="in-rstudio-2" class="section level4">
 <h4>In RStudio</h4>
-<p>No need for the <code>status</code> command in RStudio, the <em>Git</em> tab shows you in real time the status of your files:</p>
+<p>No need for the <code>status</code> command in RStudio, the
+<em>Git</em> tab shows you in real time the status of your files:</p>
 <ul>
-<li>Files that are <strong>untracked</strong> are represented by a <strong>yellow question mark</strong>.</li>
-<li>Files that have been <strong>added</strong> (see next section) are represented by a <strong>green A</strong></li>
-<li>Files that have been <strong>tracked and modified</strong> are represented by a <strong>blue M</strong>.</li>
+<li>Files that are <strong>untracked</strong> are represented by a
+<strong>yellow question mark</strong>.</li>
+<li>Files that have been <strong>added</strong> (see next section) are
+represented by a <strong>green A</strong></li>
+<li>Files that have been <strong>tracked and modified</strong> are
+represented by a <strong>blue M</strong>.</li>
 <li>Files that are <em>tracked but not modified</em> do not show.</li>
-<li>Files that have been <strong>deleted</strong> are shown with a <strong>red D</strong>.</li>
+<li>Files that have been <strong>deleted</strong> are shown with a
+<strong>red D</strong>.</li>
 </ul>
 <hr />
 <blockquote>
-<p><strong>By default, Git does not track anything. We need to tell it to do so. Let’s do that now!</strong></p>
+<p><strong>By default, Git does not track anything. We need to tell it
+to do so. Let’s do that now!</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-3" class="section level4">
 <h4>At the terminal</h4>
-<p>From the terminal, we can use the <code>git add</code> command. This tells git which file you care about and want to start tracking. This is called <strong>Staging the file</strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">git</span> add script_1.R</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
+<p>From the terminal, we can use the <code>git add</code> command. This
+tells git which file you care about and want to start tracking. This is
+called <strong>Staging the file</strong>.</p>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add script_1.R</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
 <pre><code>On branch main
 
 No commits yet
@@ -368,25 +467,39 @@ Changes to be committed:
 </div>
 <div id="in-rstudio-3" class="section level4">
 <h4>In RStudio</h4>
-<p>In RStudio, this is as simple as “checking off” the file in the Git tab. This is called <strong>Staging the file</strong>.</p>
+<p>In RStudio, this is as simple as “checking off” the file in the Git
+tab. This is called <strong>Staging the file</strong>.</p>
 <center>
 <img src="images/checked.png" />
 </center>
-<p>While you are at it, make sure to also check the <code>.gitignore file.</code> <strong>What is a gitignore?</strong> A gitignore is a file that lists the file you never want git to track. It can match certain file names (for instance, <code>.csv</code> or <code>.tif</code> files). This can be useful in case you need to make sure certain files (like data files or large files), do not get added.</p>
+<p>While you are at it, make sure to also check the
+<code>.gitignore file.</code> <strong>What is a gitignore?</strong> A
+gitignore is a file that lists the file you never want git to track. It
+can match certain file names (for instance, <code>.csv</code> or
+<code>.tif</code> files). This can be useful in case you need to make
+sure certain files (like data files or large files), do not get
+added.</p>
 <hr />
 <blockquote>
-<p><strong>Let’s now make sure this new file is registered by git: this is called a <em>commit</em></strong></p>
+<p><strong>Let’s now make sure this new file is registered by git: this
+is called a <em>commit</em></strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-4" class="section level4">
 <h4>At the terminal</h4>
-<p>We have staged the file. Let’s now take a snapshot of this file with the <code>git commit</code> command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
+<p>We have staged the file. Let’s now take a snapshot of this file with
+the <code>git commit</code> command. It is important to add a useful
+message to your commit, a bit like a journal entry, so that you can
+remember what you committed.</p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
 <pre><code>[main (root-commit) 03a1fe9] First commit - adding script1
  1 file changed, 0 insertions(+), 0 deletions(-)
  create mode 100644 script_1.R</code></pre>
-<p>Another useful command: git <code>log</code> shows you the recent commit history.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">git</span> log   <span class="co"># Git log shows you the history</span></span></code></pre></div>
+<p>Another useful command: git <code>log</code> shows you the recent
+commit history.</p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> log   <span class="co"># Git log shows you the history</span></span></code></pre></div>
 <pre><code>commit 03a1fe9489631db018d4ae6d39560ce2e5e00ead (HEAD -&gt; main)
 Author: VLucet &lt;valentin.lucet@gmail.com&gt;
 Date:   Wed Apr 8 18:19:53 2020 -0400
@@ -397,13 +510,16 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 <h4>In RStudio</h4>
 <p>In Rstudio, committing is a few clicks away.</p>
 <ul>
-<li>Click on <code>commit</code> on the top of the file list. This window should appear:</li>
+<li>Click on <code>commit</code> on the top of the file list. This
+window should appear:</li>
 </ul>
 <center>
 <img src="images/commit.png" style="width:75.0%" />
 </center>
 <ul>
-<li>Before committing anything you need to add a commit message. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed.</li>
+<li>Before committing anything you need to add a commit message. It is
+important to add a useful message to your commit, a bit like a journal
+entry, so that you can remember what you committed.</li>
 </ul>
 <center>
 <img src="images/message.png" style="width:50.0%" />
@@ -413,26 +529,38 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
 </ul>
 <hr />
 <blockquote>
-<p><strong>Let’s now make some changes to this file and commit them</strong></p>
+<p><strong>Let’s now make some changes to this file and commit
+them</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-5" class="section level4">
 <h4>At the terminal</h4>
-<p>The code below opens the <strong>nano</strong> editor. <a href="https://www.nano-editor.org/"><code>Nano</code></a> is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">nano</span> script_1.R   <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
-<p>Type in what you want. You can then close the editor with <code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press <code>enter</code> to save the file. If you do not want to use the terminal for this (or do not have nano), you can just open the file in a file editor.</p>
-<p>We now need to stage (<code>git add</code>) and commit (<code>git commit</code>)</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">git</span> add -A    <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. </span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>              <span class="co"># Your changes are now registered </span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>              <span class="co"># You could also just do git add script_1.R if you wanted to</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
+<p>The code below opens the <strong>nano</strong> editor. <a
+href="https://www.nano-editor.org/"><code>Nano</code></a> is a simple
+command line file editor. Once the file is opened, you will see the
+(empty) content of the file.</p>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> script_1.R   <span class="co"># This opens the nano Text editor. </span></span></code></pre></div>
+<p>Type in what you want. You can then close the editor with
+<code>ctrl+X</code>. Make sure to type <code>y</code> for yes and press
+<code>enter</code> to save the file. If you do not want to use the
+terminal for this (or do not have nano), you can just open the file in a
+file editor.</p>
+<p>We now need to stage (<code>git add</code>) and commit
+(<code>git commit</code>)</p>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span>    <span class="co"># This adds ALL (hence the -A) the changes you made to the git index. </span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>              <span class="co"># Your changes are now registered </span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>              <span class="co"># You could also just do git add script_1.R if you wanted to</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status    <span class="co"># Status now shows, in green, which changes have to be committed</span></span></code></pre></div>
 <pre><code>On branch main
 Changes to be committed:
   (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
 
         modified:   script_1.R</code></pre>
 <p>Now let’s commit:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">git</span> commit -m <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;First commit - adding script1&quot;</span>   <span class="co"># the -m flag adds a message to a commit</span></span></code></pre></div>
 <pre><code>[main (root-commit) e07b863] First commit - adding script1
  1 file changed, 1 insertion(+)
  create mode 100644 script_1.R</code></pre>
@@ -440,7 +568,9 @@ Changes to be committed:
 <div id="in-rstudio-5" class="section level4">
 <h4>In RStudio</h4>
 <ul>
-<li>Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:</li>
+<li>Open your file in the editor, and add some modifications. Make sure
+to save it. When you open the git tab, you should see the
+following:</li>
 </ul>
 <center>
 <img src="images/mod_step1.png" />
@@ -457,23 +587,40 @@ Changes to be committed:
 <center>
 <img src="images/mod_step3.png" />
 </center>
-<p><strong>Note</strong>: take a look at the <strong>history</strong> tab in the commit window.</p>
+<p><strong>Note</strong>: take a look at the <strong>history</strong>
+tab in the commit window.</p>
 <hr />
-<p>Note that once you have staged a file, you could do more changes, and you would need to re-run <code>git add</code> to add them to the index. Those changes not yet fully registered by git, they are like a draft, not until you commit. When you want to take a snapshot of a file, it means you are ready to commit that change to the index.</p>
-<p>This image summarizes what we have learned so far. Each change in the repository (adding a file, modifying a file, etc…) needs to be staged before it is committed.</p>
+<p>Note that once you have staged a file, you could do more changes, and
+you would need to re-run <code>git add</code> to add them to the index.
+Those changes not yet fully registered by git, they are like a draft,
+not until you commit. When you want to take a snapshot of a file, it
+means you are ready to commit that change to the index.</p>
+<p>This image summarizes what we have learned so far. Each change in the
+repository (adding a file, modifying a file, etc…) needs to be staged
+before it is committed.</p>
 <center>
-<img src="https://git-scm.com/images/about/index1@2x.png" style="width:65.0%" />
+<img src="https://git-scm.com/images/about/index1@2x.png"
+style="width:65.0%" />
 </center>
 <hr />
 </div>
 </div>
-<div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote" class="section level3">
+<div id="exercise-2-all-roads-lead-to-github-how-to-add-a-remote"
+class="section level3">
 <h3>Exercise 2: All roads lead to GitHub, how to add a remote</h3>
-<p>After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories.</p>
-<p>“Linking” can mean multiple things depending on where you start things. If you start on your computer, we call this <strong>pushing</strong> your local repo to the remote. After pushing, a copy of your repo will live on the GitHub servers and will remain linked to the original copy. The GitHub copy is called a <strong>remote</strong>.</p>
+<p>After having created a repo on your local machine (and provided that
+you have configured git on your computer), you will be able to link your
+repo to GitHub, an online hub for repositories.</p>
+<p>“Linking” can mean multiple things depending on where you start
+things. If you start on your computer, we call this
+<strong>pushing</strong> your local repo to the remote. After pushing, a
+copy of your repo will live on the GitHub servers and will remain linked
+to the original copy. The GitHub copy is called a
+<strong>remote</strong>.</p>
 <hr />
 <blockquote>
-<p><strong>We first need to create the remote repository on <a href="GitHub.com">GitHub</a></strong></p>
+<p><strong>We first need to create the remote repository on <a
+href="GitHub.com">GitHub</a></strong></p>
 </blockquote>
 <p>The first thing to do is to create the remote:</p>
 <ul>
@@ -483,27 +630,41 @@ Changes to be committed:
 <img src="images/green_github.png" />
 </center>
 <ul>
-<li>Give a name to your repo. It’s good practice to the use the same name than your local git repo (it’s also easier to remember that way!). <strong>Do not</strong> add a <code>README.md</code> or <code>.gitignore</code>. The repo needs to be <strong>empty</strong>.</li>
+<li>Give a name to your repo. It’s good practice to the use the same
+name than your local git repo (it’s also easier to remember that way!).
+<strong>Do not</strong> add a <code>README.md</code> or
+<code>.gitignore</code>. The repo needs to be
+<strong>empty</strong>.</li>
 </ul>
 <center>
 <img src="images/create_repo.png" style="width:75.0%" />
 </center>
-<p>The next thing is to tell your local git that you have created a new remote. You will name this the <strong>origin</strong> remote. Why <strong>origin</strong>? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters!</p>
+<p>The next thing is to tell your local git that you have created a new
+remote. You will name this the <strong>origin</strong> remote. Why
+<strong>origin</strong>? Because from the point of view of project
+development, you want this online repo to be the origin of all future
+work, and you want the online version to save all that matters!</p>
 <hr />
 <blockquote>
-<p><strong>Let’s now link your local repo with the GitHub “remote”</strong></p>
+<p><strong>Let’s now link your local repo with the GitHub
+“remote”</strong></p>
 </blockquote>
 <div id="at-the-terminal-6" class="section level4">
 <h4>At the terminal</h4>
 <ul>
 <li>Tell git the address of your remote</li>
 </ul>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>                                  <span class="co"># for instance https://GitHub.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https:...   <span class="co"># Add here the URL of your git repo, </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>                                  <span class="co"># for instance https://GitHub.com/VLucet/gitWorkshoptest</span></span></code></pre></div>
 <ul>
-<li>You now need to upload your repo to the remote, i.e. to <strong>push</strong> your commits. The first time you push, you have to tell git that the remote is an <strong>upstream branch</strong> (more on that later).</li>
+<li>You now need to upload your repo to the remote, i.e. to
+<strong>push</strong> your commits. The first time you push, you have to
+tell git that the remote is an <strong>upstream branch</strong> (more on
+that later).</li>
 </ul>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1"></a> <span class="fu">git</span> push --set-upstream origin main    <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">git</span> push <span class="at">--set-upstream</span> origin main    <span class="co"># This pushes and sets the remote as &quot;upstream&quot;</span></span></code></pre></div>
 <pre><code>Enumerating objects: 3, done.
 Counting objects: 100% (3/3), done.
 Writing objects: 100% (3/3), 263 bytes | 263.00 KiB/s, done.
@@ -511,67 +672,95 @@ Total 3 (delta 0), reused 0 (delta 0)
 To https://github.com/VLucet/gitWorkshop
  * [new branch]      main -&gt; main
 Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;origin&#39;.</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1"></a> <span class="fu">git</span> push   <span class="co"># If you try to push again, </span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>            <span class="co"># it will tell you that everything is up to date!</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">git</span> push   <span class="co"># If you try to push again, </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>            <span class="co"># it will tell you that everything is up to date!</span></span></code></pre></div>
 <pre><code>Everything up-to-date</code></pre>
-<p>There you go! you now have a copy of your repo on GitHub. Well done!</p>
+<p>There you go! you now have a copy of your repo on GitHub. Well
+done!</p>
 </div>
 <div id="in-rstudio-6" class="section level4">
 <h4>In RStudio</h4>
 <ul>
-<li>In Rstudio you have to click to the <strong>New Branch</strong> button in the git pane, in the top right corner of the pane:</li>
+<li>In Rstudio you have to click to the <strong>New Branch</strong>
+button in the git pane, in the top right corner of the pane:</li>
 </ul>
 <center>
 <img src="images/new_branch_icon.png" style="width:50.0%" />
 </center>
 <ul>
-<li>The dialogue window should open, click on <strong>add remote</strong></li>
+<li>The dialogue window should open, click on <strong>add
+remote</strong></li>
 </ul>
 <center>
 <img src="images/dialogue_1.png" style="width:50.0%" />
 </center>
 <ul>
-<li>Put <strong>origin</strong> as the remote name. Why <strong>origin</strong>? Because from the point of view of project development, you want this online repo to be the origin of all future work, and you want the online version to save all that matters! Put the also address of your repo (for instance for me it is <code>for instance https://github.com/VLucet/gitWorkshoptest</code>)</li>
+<li>Put <strong>origin</strong> as the remote name. Why
+<strong>origin</strong>? Because from the point of view of project
+development, you want this online repo to be the origin of all future
+work, and you want the online version to save all that matters! Put the
+also address of your repo (for instance for me it is
+<code>for instance https://github.com/VLucet/gitWorkshoptest</code>)</li>
 </ul>
 <center>
 <img src="images/dialogue_2.png" style="width:50.0%" />
 </center>
 <ul>
-<li>Back to the previous dialogue box, write <strong>main</strong> as the main branch and make sure to tick the box <strong>sync branch with remote</strong>.</li>
+<li>Back to the previous dialogue box, write <strong>main</strong> as
+the main branch and make sure to tick the box <strong>sync branch with
+remote</strong>.</li>
 </ul>
 <center>
 <img src="images/dialogue_3.png" style="width:50.0%" />
 </center>
 <ul>
-<li>You can now push your commits by clicking on the <strong>push</strong> button. You can go to to your repo to see the changes.</li>
+<li>You can now push your commits by clicking on the
+<strong>push</strong> button. You can go to to your repo to see the
+changes.</li>
 </ul>
 <center>
 <img src="images/push.png" style="width:50.0%" />
 </center>
-<p>There you go! you now have a copy of your repo on GitHub. Well done! From now on you can continue to <strong>add</strong>, <strong>commit</strong> and <strong>push</strong> your commits.</p>
+<p>There you go! you now have a copy of your repo on GitHub. Well done!
+From now on you can continue to <strong>add</strong>,
+<strong>commit</strong> and <strong>push</strong> your commits.</p>
 <!-- **Note:** it is also possible to start the repo on GitHub and download a **clone**. It is the opposite operation (see exercise 4). -->
 <hr />
 </div>
 </div>
-<div id="exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git" class="section level3">
-<h3>Exercise 3: Teamwork makes the dream work, or collabaring with git</h3>
-<p>Git is made for collaboration. In one image, this can be summarized like this:</p>
-<p><img src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" /></p>
-<p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this exercise. For this exercise and the next one, we will see the other way to start a repo, by starting it on Github and then <strong>cloning</strong> it onto your computer.</p>
+<div
+id="exercise-3-teamwork-makes-the-dream-work-or-collabaring-with-git"
+class="section level3">
+<h3>Exercise 3: Teamwork makes the dream work, or collabaring with
+git</h3>
+<p>Git is made for collaboration. In one image, this can be summarized
+like this:</p>
+<p><img
+src="https://www.nobledesktop.com/image/blog/git-branches-merge.png" /></p>
+<p>Form teams of 3 and designate a <strong>Repo Owner</strong> for this
+exercise. For this exercise and the next one, we will see the other way
+to start a repo, by starting it on Github and then
+<strong>cloning</strong> it onto your computer.</p>
 <ul>
-<li>Repo Owner <strong>only</strong>, head over to GitHub to create a new online repository</li>
+<li>Repo Owner <strong>only</strong>, head over to GitHub to create a
+new online repository</li>
 </ul>
 <center>
 <img src="images/green_github.png" />
 </center>
 <ul>
-<li>This time, make sure to initiate this repository with a <strong>ReadMe</strong> file. A <code>ReadMe</code> file is an important file for a repo, as it is there to describe the purpose of the repo and contains important metadata on that repo.</li>
+<li>This time, make sure to initiate this repository with a
+<strong>ReadMe</strong> file. A <code>ReadMe</code> file is an important
+file for a repo, as it is there to describe the purpose of the repo and
+contains important metadata on that repo.</li>
 </ul>
 <center>
 <img src="images/Add_readme.png" />
 </center>
 <ul>
-<li>Modify the ReadMe directly in GitHub by clicking on the small pencil in the corner. You can edit most files directly in GitHub.</li>
+<li>Modify the ReadMe directly in GitHub by clicking on the small pencil
+in the corner. You can edit most files directly in GitHub.</li>
 </ul>
 <center>
 <img src="images/edit_readme.png" />
@@ -590,31 +779,39 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 </center>
 <hr />
 <blockquote>
-<p><strong>Let’s now invite people to collaborate on your repo</strong></p>
+<p><strong>Let’s now invite people to collaborate on your
+repo</strong></p>
 </blockquote>
 <ul>
-<li>To do so, click on <strong>Settings</strong> then <strong>Manage access</strong> and <strong>Invite collaborators</strong></li>
+<li>To do so, click on <strong>Settings</strong> then <strong>Manage
+access</strong> and <strong>Invite collaborators</strong></li>
 </ul>
 <center>
 <img src="images/settings.png" />
 </center>
 <ul>
-<li>Use the username of your group members to invite them to collaborate</li>
+<li>Use the username of your group members to invite them to
+collaborate</li>
 </ul>
 <center>
 <img src="images/invite.png" />
 </center>
 <hr />
 <blockquote>
-<p><strong>We have the repo set up for collaboration, let’s now “clone” the repo</strong></p>
+<p><strong>We have the repo set up for collaboration, let’s now “clone”
+the repo</strong></p>
 </blockquote>
-<p>Cloning means “pulling” the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier.</p>
+<p>Cloning means “pulling” the repo from the remote, to make a copy on
+your computer. It is the mirror action of pushing the repo you created
+locally earlier.</p>
 <div id="at-the-terminal-7" class="section level4">
 <h4>At the terminal</h4>
 <p>Cloning from the command line is very simple:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1"></a><span class="bu">cd</span> ~            <span class="co"># Navigate to your home folder again </span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">git</span> clone *URL*     <span class="co"># The URL of the repo created by the repo owner</span></span></code></pre></div>
-<p>Well done, you have now set up a team and you are now technically working on the same repo.</p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> ~            <span class="co"># Navigate to your home folder again </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="pp">*</span>URL<span class="pp">*</span>     <span class="co"># The URL of the repo created by the repo owner</span></span></code></pre></div>
+<p>Well done, you have now set up a team and you are now technically
+working on the same repo.</p>
 </div>
 <div id="in-rstudio-7" class="section level4">
 <h4>In Rstudio</h4>
@@ -626,19 +823,27 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <img src="images/Step_1.png" />
 </center>
 <ul>
-<li>Select <strong>Version Control</strong>, which is is reserved for when you already created a repo on GitHub.</li>
+<li>Select <strong>Version Control</strong>, which is is reserved for
+when you already created a repo on GitHub.</li>
 </ul>
 <center>
 <img src="images/Step_2.png" style="width:50.0%" />
 </center>
 <ul>
-<li>Select <strong>Git</strong>. Subversion is listed here as another version control software supported by Rstudio.</li>
+<li>Select <strong>Git</strong>. Subversion is listed here as another
+version control software supported by Rstudio.</li>
 </ul>
 <center>
 <img src="images/select_git.png" style="width:50.0%" />
 </center>
 <ul>
-<li>Fill the different fields as such: for the “Repository URL”, paste the URL of the repo (of the type ‘<a href="https://GitHub.com/VLucet/GitWorkshop.git" class="uri">https://GitHub.com/VLucet/GitWorkshop.git</a>’), which should update the field “Project directory name”. Finally, select where on your computer you would like to clone the repo (the Home directory or your Documents directory for instance).</li>
+<li>Fill the different fields as such: for the “Repository URL”, paste
+the URL of the repo (of the type ‘<a
+href="https://GitHub.com/VLucet/GitWorkshop.git"
+class="uri">https://GitHub.com/VLucet/GitWorkshop.git</a>’), which
+should update the field “Project directory name”. Finally, select where
+on your computer you would like to clone the repo (the Home directory or
+your Documents directory for instance).</li>
 </ul>
 <center>
 <img src="images/new_repo_vc.png" style="width:50.0%" />
@@ -646,50 +851,67 @@ Branch &#39;main&#39; set up to track remote branch &#39;main&#39; from &#39;ori
 <hr />
 </div>
 </div>
-<div id="exercise-4-do-the-push-and-pull-or-the-git-workflow" class="section level3">
+<div id="exercise-4-do-the-push-and-pull-or-the-git-workflow"
+class="section level3">
 <h3>Exercise 4: (Do The) Push and Pull, or the git workflow</h3>
-<p>In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the GitHub repo with changes we make locally.</p>
+<p>In this next exercise, we are going to use the repo you cloned at the
+previous exercise. We are now going to do the exercise of pushing and
+pulling to update the GitHub repo with changes we make locally.</p>
 <div id="at-the-terminal-8" class="section level4">
 <h4>At the terminal</h4>
-<p>The first step is to make sure you are up to date with the version of the repo that is on GitHub. Navigate to the cloned repo an use the <code>fetch</code> command.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
+<p>The first step is to make sure you are up to date with the version of
+the repo that is on GitHub. Navigate to the cloned repo an use the
+<code>fetch</code> command.</p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch  <span class="co"># Fetch compares your local version with the remote version but does not apply the new changes (if there are any)</span></span></code></pre></div>
 <p>Everything should be up to date, so all good.</p>
 </div>
 <div id="in-rstudio-8" class="section level4">
 <h4>In RStudio</h4>
 <ul>
-<li>In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the Rstudio context To do so, navigate to the R box in the top right corner and click on “New Project”</li>
+<li>In Rstudio, the first step is to create an Rstudio project within
+the folder that you cloned from GitHub. As a reminder, this is the only
+way to use git in the Rstudio context To do so, navigate to the R box in
+the top right corner and click on “New Project”</li>
 </ul>
 <center>
 <img src="images/new_project.png" />
 </center>
 <ul>
-<li>Select “Existing directory”, we will choose the directory you cloned from GitHub.</li>
+<li>Select “Existing directory”, we will choose the directory you cloned
+from GitHub.</li>
 </ul>
 <center>
 <img src="images/existing_directory.png" />
 </center>
 <ul>
-<li>Browse for your directory (it should be in your home folder) and create the new project.</li>
+<li>Browse for your directory (it should be in your home folder) and
+create the new project.</li>
 </ul>
 <center>
 <img src="images/create_project.png" />
 </center>
 <hr />
 <blockquote>
-<p><strong>Let’s now learn how to makes changes in this repo and sync them with GitHub</strong></p>
+<p><strong>Let’s now learn how to makes changes in this repo and sync
+them with GitHub</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-9" class="section level4">
 <h4>At the terminal</h4>
-<p>The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the ReadMe file for instance.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
+<p>The next step is for one of the team members (other than the repo
+owner) to make a change. Make a change to the ReadMe file for
+instance.</p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> README.md  <span class="co"># Reminder: nano is the console editor</span></span></code></pre></div>
 <p>Then, add, commit and push those changes:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span>              <span class="co"># Once again, add all the changes</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;modified the README&quot;</span> <span class="co"># Always add a useful message</span></span></code></pre></div>
 <pre><code>[main 58c8cb7] modified the README
  1 file changed, 1 insertion(+), 1 deletion(-)</code></pre>
-<div class="sourceCode" id="cb28"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span></code></pre></div>
 <pre><code>Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
@@ -702,164 +924,245 @@ To github.com:VLucet/gitWorkshop.git
 <div id="in-rstudio-9" class="section level4">
 <h4>In Rstudio</h4>
 <ul>
-<li>Open the ReadMe in the editor and modify it. Save the changes. The git pane should look something like that:</li>
+<li>Open the ReadMe in the editor and modify it. Save the changes. The
+git pane should look something like that:</li>
 </ul>
 <center>
 <img src="images/new_changes.png" />
 </center>
 <ul>
-<li>As in the previous exercises, you can commit and push the new change. You have now pushed new changes to the repo, but the rest of your team is now behind.</li>
+<li>As in the previous exercises, you can commit and push the new
+change. You have now pushed new changes to the repo, but the rest of
+your team is now behind.</li>
 </ul>
 <hr />
 <blockquote>
-<p><strong>One group member has made changes to the repo, let’s make sure the rest of the time is up to date as well!</strong></p>
+<p><strong>One group member has made changes to the repo, let’s make
+sure the rest of the time is up to date as well!</strong></p>
 </blockquote>
 </div>
 <div id="at-the-terminal-10" class="section level4">
 <h4>At the terminal</h4>
-<p>Now, two of the team members are not in sync with the changes. These people can see it with a <code>fetch</code>. Below I cannot show the outputs but you should be a little more familiar with these by now.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">git</span> status  <span class="co"># Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </span></span></code></pre></div>
-<p>You are 1 commit behind! To remedy to this, it is as simple as <strong>pulling</strong> the changes in your local repo.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">git</span> pull origin main    <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
-<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+<p>Now, two of the team members are not in sync with the changes. These
+people can see it with a <code>fetch</code>. Below I cannot show the
+outputs but you should be a little more familiar with these by now.</p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch   <span class="co"># This will download the changes pushed by your team member</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status  <span class="co"># Always good to run status once in a while. Here it will tell you that you are 1 commit behind! </span></span></code></pre></div>
+<p>You are 1 commit behind! To remedy to this, it is as simple as
+<strong>pulling</strong> the changes in your local repo.</p>
+<div class="sourceCode" id="cb31"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull origin main    <span class="co"># Nice! Git will print a nice summary with green + and red -. How cute. </span></span></code></pre></div>
+<p>Well done! You now know how to <strong>push</strong> and
+<strong>pull</strong>, <strong>fetch</strong> and
+<strong>status</strong> your way around a shared repo. You’re the
+best.</p>
 </div>
 <div id="in-rstudio-10" class="section level4">
 <h4>In Rstudio</h4>
 <ul>
-<li>In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by clicking on the blue pull arrow in the git pane.</li>
+<li>In order to bring yourself back in sync with the changes pushed by
+your teammate, you just need to pull those changes by clicking on the
+blue pull arrow in the git pane.</li>
 </ul>
 <center>
 <img src="images/pull_arrow.png" />
 </center>
-<p>Well done! You now know how to <strong>push</strong> and <strong>pull</strong>, <strong>fetch</strong> and <strong>status</strong> your way around a shared repo. You’re the best.</p>
+<p>Well done! You now know how to <strong>push</strong> and
+<strong>pull</strong>, <strong>fetch</strong> and
+<strong>status</strong> your way around a shared repo. You’re the
+best.</p>
 <hr />
 <blockquote>
-<p><strong>What if two people commit changes at the same line one after the other? Its a conflict (see next exercise)</strong></p>
+<p><strong>What if two people commit changes at the same line one after
+the other? Its a conflict (see next exercise)</strong></p>
 </blockquote>
 <hr />
 </div>
 </div>
-<div id="exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them" class="section level3">
+<div id="exercise-5-git-of-war-or-conflicts-and-how-to-resolve-them"
+class="section level3">
 <h3>Exercise 5 Git of war, or conflicts and how to resolve them</h3>
-<p>Now, let’s do this again but a little differently. One person in the group to not have edited the <code>README</code> yet should do it now on their machine. Please add and commit but <strong>do not push your changes yet</strong> (see in the previous exercises.</p>
-<p>Now, repo owner will go on GitHub and change the file. There are many types of files that can be edited directly on GitHub, and the README file is one of them. For this exercise, please <strong>change the same line than the previous person</strong>. Commit this change to the repo.</p>
+<p>Now, let’s do this again but a little differently. One person in the
+group to not have edited the <code>README</code> yet should do it now on
+their machine. Please add and commit but <strong>do not push your
+changes yet</strong> (see in the previous exercises.</p>
+<p>Now, repo owner will go on GitHub and change the file. There are many
+types of files that can be edited directly on GitHub, and the README
+file is one of them. For this exercise, please <strong>change the same
+line than the previous person</strong>. Commit this change to the
+repo.</p>
 <hr />
 <blockquote>
-<p>Now, the person who changed the file on their machine will do the pulling procedure:</p>
+<p>Now, the person who changed the file on their machine will do the
+pulling procedure:</p>
 </blockquote>
 <div id="at-the-terminal-11" class="section level4">
 <h4>At the terminal</h4>
 <p>At the terminal, do the following:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
-<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> fetch   <span class="co"># This fetches the changes</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status  <span class="co"># WOW! Status says that the commits are different... this might cause a problem</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull    <span class="co"># There is now a &quot;conflict&quot; and you need to resolve it</span></span></code></pre></div>
 </div>
 <div id="in-rstudio-11" class="section level4">
 <h4>In Rstudio</h4>
-<p>In Rstudio, try to push your changes. You should get a message explaining that you cannot do so. Instead, pull your changes and you will receive a message stating that a conflict was created.</p>
+<p>In Rstudio, try to push your changes. You should get a message
+explaining that you cannot do so. Instead, pull your changes and you
+will receive a message stating that a conflict was created.</p>
 <hr />
 <blockquote>
 <p>How can one resolve a conflict?</p>
 </blockquote>
-<p>You’ve created a conflict. A conflict typically happens when you have committed a local change and are pulling a commit from remote that was made on that same line of code you just changed. See it illustrated below:</p>
+<p>You’ve created a conflict. A conflict typically happens when you have
+committed a local change and are pulling a commit from remote that was
+made on that same line of code you just changed. See it illustrated
+below:</p>
 <div class="figure">
-<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png" alt="" />
+<img
+src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-conflict.png"
+alt="" />
 <p class="caption">Git conflict illustrated</p>
 </div>
-<p>Git doesn’t know which changes to keep and which one to throw away. We need to make a choice: we call that doing a “commit merge”. As illustrated below, git will compare the two streams of information:</p>
+<p>Git doesn’t know which changes to keep and which one to throw away.
+We need to make a choice: we call that doing a “commit merge”. As
+illustrated below, git will compare the two streams of information:</p>
 <div class="figure">
-<img src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png" alt="" />
+<img
+src="https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png"
+alt="" />
 <p class="caption">Commit merge</p>
 </div>
 </div>
 <div id="at-the-terminal-12" class="section level4">
 <h4>At the terminal</h4>
-<p>You can use the <code>nano</code> editor to open the conflicted file.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">nano</span> *file* <span class="co"># Opens file in nano </span></span></code></pre></div>
+<p>You can use the <code>nano</code> editor to open the conflicted
+file.</p>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nano</span> <span class="pp">*</span>file<span class="pp">*</span> <span class="co"># Opens file in nano </span></span></code></pre></div>
 </div>
 <div id="in-rstudio-12" class="section level4">
 <h4>In Rstudio</h4>
 <p>Simply open the conflicted file in the editor.</p>
 <hr />
-<p>When you open the conflicted file you will see code that is enclosed within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code>. This corresponds to your local version of this line of code. Then between <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version corresponding to the commit (with the hash <code>3f74688ab...</code>) that you pulled from remote. You need to edit the file so that these various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer there. It will look like this:</p>
+<p>When you open the conflicted file you will see code that is enclosed
+within <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and
+<code>=======</code>. This corresponds to your local version of this
+line of code. Then between <code>=======</code> and
+<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> is the version
+corresponding to the commit (with the hash <code>3f74688ab...</code>)
+that you pulled from remote. You need to edit the file so that these
+various things, <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> and
+<code>=======</code> and
+<code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; 3f74688ab...</code> are no longer
+there. It will look like this:</p>
 <pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
 Fight Club is the best movie ever
 =======
 In fact, Back To The Future is the best movie ever
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code></pre>
-<p>You can choose to keep either of the changes or to keep both. all that matters is that the elements <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ; <code>=======</code> and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code> are now longer in the file.</p>
+<p>You can choose to keep either of the changes or to keep both. all
+that matters is that the elements
+<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> ; <code>=======</code>
+and <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; main</code> are now longer in the
+file.</p>
 <hr />
 <blockquote>
-<p>Once you have decided what to keep, it is time to commit your change, and merge it with the remote repo.</p>
+<p>Once you have decided what to keep, it is time to commit your change,
+and merge it with the remote repo.</p>
 </blockquote>
 </div>
 <div id="at-the-terminal-13" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb35"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">git</span> add -A              <span class="co"># Once again, add all the changes</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">git</span> commit -m <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a message indicating it!</span></span>
-<span id="cb35-3"><a href="#cb35-3"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="fu">git</span> status              <span class="co"># All is good!</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span>              <span class="co"># Once again, add all the changes</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">&quot;fixed the conflict&quot;</span>  <span class="co"># You fixed the conflict, better put a message indicating it!</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin main            <span class="co"># Push it!</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status              <span class="co"># All is good!</span></span></code></pre></div>
 </div>
 <div id="in-rstudio-13" class="section level4">
 <h4>In Rstudio</h4>
-<p>Simply add and commit the final version of the corrected file. You will see a message about a git merge.</p>
+<p>Simply add and commit the final version of the corrected file. You
+will see a message about a git merge.</p>
 <hr />
-<p>Well done! Now the other team members will need to pull down this new commit merge. You’ve learned how to deal with conflicts! It is sometimes easier to deal with conflict in a git client such as GitHub Desktop or Git Kraken. Even better is to avoid conflicts from even happening by <strong>branching</strong>.</p>
+<p>Well done! Now the other team members will need to pull down this new
+commit merge. You’ve learned how to deal with conflicts! It is sometimes
+easier to deal with conflict in a git client such as GitHub Desktop or
+Git Kraken. Even better is to avoid conflicts from even happening by
+<strong>branching</strong>.</p>
 <hr />
 </div>
 </div>
-<div id="exercise-6-the-tree-of-git-or-the-basics-of-branching" class="section level3">
+<div id="exercise-6-the-tree-of-git-or-the-basics-of-branching"
+class="section level3">
 <h3>Exercise 6: The tree of git, or the basics of branching</h3>
-<p>A great way to make conflicts avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by “branching out of the main branch”: this copies the current version of the repo and allows you to make changes on a separate “branch”.</p>
+<p>A great way to make conflicts avoidable is to use the magic of
+branching. Branches are like alternate timelines that allow you to work
+on a snapshot of the repo at a given time. You start by “branching out
+of the main branch”: this copies the current version of the repo and
+allows you to make changes on a separate “branch”.</p>
 <p>The first thing is to create the branch:</p>
 <div id="at-the-terminal-14" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb36"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch mynewbranch      <span class="co"># This simply creates the new branch</span></span></code></pre></div>
 </div>
 <div id="in-rstudio-14" class="section level4">
 <h4>In Rstudio</h4>
 <ol style="list-style-type: decimal">
-<li>Click on the new branch button in the top right corner of the git pane.</li>
+<li>Click on the new branch button in the top right corner of the git
+pane.</li>
 </ol>
 <center>
 <img src="images/new_branch.png" />
 </center>
 <ol start="2" style="list-style-type: decimal">
-<li>Name the branch and create it. Make sure the remote origin is checked.</li>
+<li>Name the branch and create it. Make sure the remote origin is
+checked.</li>
 </ol>
 <center>
 <img src="images/name_branch.png" />
 </center>
 <hr />
 <blockquote>
-<p>The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout’ the branch.</p>
+<p>The branch is created, but you are still on the main branch. To be
+able to switch to the new branch, we need to “checkout’ the branch.</p>
 </blockquote>
 </div>
 <div id="at-the-terminal-15" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb37"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout mynewbranch    <span class="co"># This makes you switch to the new branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;mynewbranch&#39;</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status          <span class="co"># You are now on the new branch</span></span></code></pre></div>
 <pre><code>On branch mynewbranch
 nothing to commit, working tree clean</code></pre>
-<p><strong><em>note</em></strong>: <em>there is a shortcut to do those 2 commands in one line: <code>git checkout -b mynewbranch</code></em></p>
+<p><strong><em>note</em></strong>: <em>there is a shortcut to do those 2
+commands in one line: <code>git checkout -b mynewbranch</code></em></p>
 </div>
 <div id="in-rstudio-15" class="section level4">
 <h4>In Rstudio</h4>
-<p>Rstudio <strong>automatically checks out the new branch, and publish it to the remote, when your create it</strong>. You can switch branches very easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).</p>
+<p>Rstudio <strong>automatically checks out the new branch, and publish
+it to the remote, when your create it</strong>. You can switch branches
+very easily by using the drop down menu in the git pane (find it by
+clicking on whatever branch name is shown in git pane).</p>
 <hr />
 <blockquote>
-<p>You are now on the new branch! This branch is only on your local machine for now (unless you use Github). Let’s add some changes and then commit and push so that you branch is saved on the remote!</p>
+<p>You are now on the new branch! This branch is only on your local
+machine for now (unless you use Github). Let’s add some changes and then
+commit and push so that you branch is saved on the remote!</p>
 </blockquote>
 </div>
 <div id="at-the-terminal-16" class="section level4">
 <h4>At the terminal</h4>
-<div class="sourceCode" id="cb41"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit history of your branch</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">git</span> commit -a -m <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shortcut to add and commit at the same time!</span></span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Do some changes in your repo! They will only be part of the commit history of your branch</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-a</span> <span class="at">-m</span> <span class="st">&#39;added some changes to the new branch&#39;</span>  <span class="co"># Another shortcut to add and commit at the same time!</span></span></code></pre></div>
 <pre><code>[mynewbranch 92b76fb] added some changes to the new branch
  1 file changed, 1 insertion(+)</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">git</span> push origin mynewbranch    <span class="co"># Pushing to the new branch - you can also just type in &quot;git push&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin mynewbranch    <span class="co"># Pushing to the new branch - you can also just type in &quot;git push&quot;</span></span></code></pre></div>
 <pre><code>Enumerating objects: 5, done.
 Counting objects: 100% (5/5), done.
 Delta compression using up to 12 threads
@@ -878,21 +1181,29 @@ To github.com:VLucet/gitWorkshop.git
 <p>Modify the ReadMe again and push the changes to the new branch.</p>
 <hr />
 <blockquote>
-<p>Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch.</p>
+<p>Now, while one of the team member is adding commits to their new
+branch, someone else should keep adding changes to the main branch. Once
+this is done, it is time to merge the new branch with the main
+branch.</p>
 </blockquote>
 </div>
 <div id="at-the-terminal-17" class="section level4">
 <h4>At the terminal</h4>
-<p>Merging means doing a “pull request”: you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then <em>pull</em> the new branch into the main.</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">git</span> checkout main   <span class="co"># You&#39;ve switched to the main branch</span></span></code></pre></div>
+<p>Merging means doing a “pull request”: you are pulling the new branch
+into the main branch. You therefore need to checkout the main branch and
+then <em>pull</em> the new branch into the main.</p>
+<div class="sourceCode" id="cb45"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout main   <span class="co"># You&#39;ve switched to the main branch</span></span></code></pre></div>
 <pre><code>Switched to branch &#39;main&#39;
 Your branch is up to date with &#39;origin/main&#39;.</code></pre>
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">git</span> merge mynewbranch   <span class="co"># this merges (opens a pull request and checks it against the main)</span></span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge mynewbranch   <span class="co"># this merges (opens a pull request and checks it against the main)</span></span></code></pre></div>
 <pre><code>Updating 58c8cb7..92b76fb
 Fast-forward
  script_1.R | 1 +
  1 file changed, 1 insertion(+)</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">git</span> push        <span class="co"># this pushes the merging of the two branches </span></span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push        <span class="co"># this pushes the merging of the two branches </span></span></code></pre></div>
 <pre><code>Total 0 (delta 0), reused 0 (delta 0)
 To github.com:VLucet/gitWorkshop.git
    58c8cb7..92b76fb  main -&gt; main
@@ -900,13 +1211,18 @@ To github.com:VLucet/gitWorkshop.git
 </div>
 <div id="in-rstudio-17" class="section level4">
 <h4>In Rstudio</h4>
-<p>You cannot do this in Rstudio, but you can do this on GitHub (<strong>DEMO</strong>).</p>
+<p>You cannot do this in Rstudio, but you can do this on GitHub
+(<strong>DEMO</strong>).</p>
 <hr />
 </div>
 </div>
 <div id="demo-gitkraken" class="section level3">
 <h3>DEMO: Gitkraken</h3>
-<p>DEMO of the git client GitKraken if time permits. Otherwise, see <a href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>. This video actually also covers more advanced topics, but you can use it to get a feel for where the interface to find the buttons for adding (staging), committing and pushing/pulling.</p>
+<p>DEMO of the git client GitKraken if time permits. Otherwise, see <a
+href="https://www.youtube.com/watch?v=ub9GfRziCtU">this video</a>. This
+video actually also covers more advanced topics, but you can use it to
+get a feel for where the interface to find the buttons for adding
+(staging), committing and pushing/pulling.</p>
 <hr />
 </div>
 </div>
@@ -921,7 +1237,7 @@ To github.com:VLucet/gitWorkshop.git
 
 			
  		
-		$('#content img').addClass("image-lb");
+		$('#content img:not(.no-lightbox)').addClass("image-lb");
 	$('#content').magnificPopup({
 	    type:'image',
 	    closeOnContentClick: false,

@@ -48,6 +48,7 @@ img.image-lb {
 .figure {
     margin: 5px 10px 30px 0px;
     display: table;
+    text-align: center;
 }
 
 .figure img {
@@ -55,7 +56,6 @@ img.image-lb {
 }
 
 .figure p.caption {
-    text-align: center;
     font-style: italic;
     font-size: 90%;
 }
@@ -157,14 +157,12 @@ body{
     font-weight:normal;
     margin:0;
     min-height:100%;
-    overflow-x:hidden;
 }
 
 #content{
     background:#fcfcfc;
     height:100%;
     margin-left:300px;
-    /* margin:auto; */
     max-width:900px;
     min-height:100%;
 }
@@ -175,9 +173,11 @@ p {
     margin:0px 0px 24px 0px;
 }
 
-#content ul {
+#content ul,
+#content ol {
   font-size: 16px;
 }
+
 
 #content p {
   margin-bottom: 16px;
@@ -192,7 +192,6 @@ blockquote{
     font-style:italic;
     line-height:24px;
     margin:0px 0px 24px 0px;
-    /* margin-left:24px; */
     padding: 6px 20px;
 }
 #content blockquote > p,
@@ -203,7 +202,6 @@ blockquote{
 ul,ol,dl{
     line-height:24px;
     list-style-image:none;
-    /* list-style:none; */
     margin:0px 0px 24px 0px;
     padding:0;
 }
@@ -431,7 +429,6 @@ dl dd{
 code{
     background:#fff;
     border:solid 1px #e1e4e5;
-    /* color:#000;  for clickable code */
     font-size:85%;
     max-width:100%;
     overflow-x:auto;
@@ -453,9 +450,7 @@ code{
 }
 
 #content pre {
-    /* background:#f3f6f6; */
     border:1px solid #e1e4e5;
-    /* color:#404040; */
     line-height: 1.5;
     margin-bottom:24px;
     overflow:auto;
@@ -466,7 +461,6 @@ code{
 }
 
 #content pre.sourceCode{
-    /* background-color: #FFF; */
     margin:1px 0px 12px 0px;
 }
 
@@ -493,7 +487,8 @@ code{
   margin-bottom: 20px;
 }
 
-table:not(.dataTable) td,table:not(.dataTable) th{
+#main table:not(.dataTable) td,
+#main table:not(.dataTable) th {
     font-size:90%;
     padding: 8px;
     margin:0;
@@ -505,6 +500,9 @@ table:not(.dataTable) td,table:not(.dataTable) th{
     font-weight:bold;
     border-top: 1px solid #ddd;
     border-bottom: 2px solid #ddd;
+}
+
+#main table:not(.dataTable) thead th {
     background-color:white;
 }
 
@@ -514,17 +512,22 @@ table caption{
     padding:1em 0;
 }
 
-table tr:nth-child(2n-1) {
+table:not(.dataTable) tr:nth-child(2n-1) {
     background-color:#f3f6f6;
 }
 
-table tr:nth-child(2n) {
+table:not(.dataTable) tr:nth-child(2n) {
     background-color:white;
 }
 
 .dataTables_wrapper {
   overflow-x: auto;
 }
+
+.dataTables_wrapper .table-wrapper {
+  margin-top: 3em;
+}
+
 
 #main .dataTables_wrapper a {
   background-image: none;
@@ -610,16 +613,12 @@ legend{
     padding:12px;
     line-height:24px;
     margin-bottom:24px;
-    /* background:#e7f2fa; */
 }
 
 .wy-alert-title,#content .admonition-title{
     color:#fff;
     font-weight:bold;
     display:block;
-    color:#fff;
-    /* background:#6ab0de; */
-    /* margin:-12px; */
     padding:6px 12px;
     margin-bottom:0px}
 
@@ -735,7 +734,6 @@ hr{
     display:inline-block;
     line-height:32px;
     padding:0 1.618em;
-    display:block;
     font-weight:bold;
     text-transform:uppercase;
     font-size:80%;
@@ -763,20 +761,14 @@ hr{
     background:#d6d6d6}
 
 #toc li a{
-    /* color:#404040; */
     padding:0.4045em 1.618em;
     position:relative;
-    /* background:#fcfcfc; */
-    border:none;
-    /* border-bottom:solid 1px #c9c9c9; */
-    /* border-top:solid 1px #c9c9c9; */
-    padding-left:1.618em -4px}
+    border:none;}
 
 #toc li.on a:hover,#toc li.current>a:hover{
     background:#fcfcfc}
 
 #toc li ul li a{
-    /* background:#c9c9c9; */
     padding:0.4045em 2.427em}
 
 #toc li ul li ul li a{
@@ -794,15 +786,20 @@ hr{
     font-weight:normal}
 
 #sidebar a{
-    display:inline-block;
+    display:block;
     line-height:18px;
     padding:0.4045em 1.618em;
-    display:block;
     position:relative;
     font-size:90%;
     color:#b3b3b3;
     direction: ltr;
     text-decoration: none;
+}
+
+#sidebar #postamble a {
+  display: inline;
+  padding: 0 2px;
+  font-size: 100%;
 }
 
 #sidebar a:hover{
@@ -896,14 +893,9 @@ hr{
     display: none !important;
 }
 
-/* ul.nav li ul li ul li { */
-/*     display: none !important; /\* as long as nav is on multiple levels of ul *\/ */
-/*     /\* display: none; /\* as long as nav is on multiple levels of ul *\\/ *\/ */
-/* } */
 
 #toc ul.nav li ul li ul li ul li {
     display: none !important; /* as long as nav is on multiple levels of ul */
-    /* display: none; /* as long as nav is on multiple levels of ul *\/ */
 }
 
 #toc ul.nav li.active > a {
@@ -960,7 +952,7 @@ footer p{
 
 #content img{
     max-width:100%;
-    height:auto !important}
+}
 
 #content div.figure{
     margin-bottom:24px}
@@ -1061,7 +1053,6 @@ h2.footnotes{
     padding-right: 16px;
     padding-top: 8px;
     line-height: 1.25em;
-    /* display: inline; */
 }
 
 /* Code folding buttons */
@@ -1075,12 +1066,17 @@ div.sourceCode .row div {
 
 /* Tabsets tabs */
 
-#main .nav-tabs a {
+#main .nav-tabs li a {
     padding: 10px 15px;
     background: none;
     transition: none;
     color: #888;
 }
+
+#main .nav-tabs li a:hover {
+    color: #333;
+}
+
 
 #main .nav-tabs li.active a {
     color: #333;
