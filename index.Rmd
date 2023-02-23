@@ -31,18 +31,24 @@ Last updated: `r format(Sys.time(), '%d %B, %Y')`.
 ***
 
 ### Preparation
-**(1) Complete section 1 of the happywithgithr workshop (“Installation”)**
+**(1) Complete section 1 of the happywithgithr workshop ("Installation")**
 
 1. [Register on GitHub](https://happygitwithr.com/github-acct.html)
 2. [Install or update Rstudio](https://happygitwithr.com/install-r-rstudio.html)
 3. [Install & Configure git](https://happygitwithr.com/install-git.html)
-4. (Optional) Install a git client: I recommend [**GitKraken**](https://www.gitkraken.com/)
-5. [Learn **5 key things** about Git is](https://speakerdeck.com/alicebartlett/git-for-humans) (thanks to Alice Bartlett from the Financial times for this great intro to Git)
+4. [Introduce yourself to git](https://happygitwithr.com/hello-git.html)
 
-**(2) Complete one step from section 2 of the happywithgithr workshop (“Connect Git, GitHub, RStudio”). Set up SSH keys** 
-
-https://happygitwithr.com/ssh-keys.html. This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
+**(3) Set up HTTPS or SSH protocols by completing part of section 2 of the happywithgithr workshop ("Connect Git, GitHub, RStudio")** 
 **If you are having issues with this step, please reach out to me a prior to the training so that I can help you.**
+
+This step is important because it allows you to securely connect you to GitHub every time you want to use it from your computer. 
+
+1. Read the [section's intro](https://happygitwithr.com/connect-intro.html)
+2. Read the [comparison between https and ssh](https://happygitwithr.com/https-pat.html#https-vs-ssh)
+4. Set up [https](https://happygitwithr.com/https-pat.html) OR [ssh](https://happygitwithr.com/ssh-keys.html)
+
+**(3) [Learn **5 key things** about Git](https://speakerdeck.com/alicebartlett/git-for-humans)** 
+Thanks to Alice Bartlett from the Financial times for this great intro to Git.
 
 **Note: This tutorial gives you the choice to either complete it at the terminal or in RStudio.**
 
