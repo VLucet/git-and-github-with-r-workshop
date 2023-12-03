@@ -99,7 +99,7 @@ To use git in Rstudio, you need to create a new [Project](https://support.rstudi
   ![](images/Step_3.png){width=50%}
 </center>
 
-  - Choose a new for your repo and a location. **Make sure that _create a git repository_ is checked**
+  - Choose a name for your repo and a location. **Make sure that _create a git repository_ is checked**
 
 <center>
   ![](images/Step_4.png){width=50%}
