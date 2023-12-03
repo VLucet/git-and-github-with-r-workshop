@@ -18,8 +18,6 @@ output:
 By Valentin Lucet ([Website](https://vlucet.github.io/), [GitHub](https://github.com/vlucet)).<br />
 Last updated: `r format(Sys.time(), '%d %B, %Y')`.
 
-***
-
 *The following workshop is inspired from the following resources:*
 
 - https://happygitwithr.com/  
@@ -57,10 +55,15 @@ There is value in being able to do all of this in the command line, because it a
 
 ***
 
-### Exercise 1: Once upon a commit...
+## Exercise 1: Once upon a commit...
+
 Let's start by creating a new directory, this will be our project directory. Open the terminal on your computer if you are on Mac or Linux (or the git console if you are on Windows) and use the `mkdir` command like below (stands for "make directory"). The `cd` command, for "change directory", allows us to move into this new directory.
 
-#### At the terminal
+### A note on Project-oriented workflows
+
+Git is an example of a tool that requires a project oriented workflow. Git needs to know that files to watch for, and it cannot watch your whole computer (well, in a way, it could, but we're not kernel maintainers). So git needs to be contained to a folder at a time (a project at a time). This suggests working in such a way that all you need for your project be placed and organized in a project folder. The good news is that RStudio is designed to work like this. To read more about project-oriented workflows, I highly recommend this [little post](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/) by Jenny Bryan on the tidyverse blog.
+
+### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 cd ~    # Go to your home directory
@@ -77,7 +80,7 @@ git init    # This initialize git in your directory
 Initialized empty Git repository in /home/vlucet/gitWorkshop/.git/
 ```
 
-#### In RStudio
+### In RStudio
 
 To use git in Rstudio, you need to create a new [Project](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects). Let's start by creating our project directory. 
 
@@ -118,7 +121,7 @@ To use git in Rstudio, you need to create a new [Project](https://support.rstudi
 
 > **Let's now create a new file, the first file we want to keep track of in this project**
 
-#### At the terminal
+### At the terminal
 
 We create a file using the `touch` command:
 
@@ -126,7 +129,7 @@ We create a file using the `touch` command:
 touch script_1.R    # Creates the file
 ```
 
-#### In RStudio
+### In Rstudio
 
 Create a new file: go to the menu *File => New file => R Script*. Make sure to save it with the name *script_1.R*.
 
@@ -134,7 +137,7 @@ Create a new file: go to the menu *File => New file => R Script*. Make sure to s
 
 > **The repo is created and you have created a file, can git see the new file?**
 
-#### At the terminal
+### At the terminal
 
 With the `ls` command, which lists everything in your directory, you can see the file you have created. By editing the empty file and saving it, we created a change in this file. 
 
@@ -157,7 +160,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-#### In RStudio
+### In Rstudio
 
 No need for the `status` command in RStudio, the *Git* tab shows you in real time the status of your files: 
 
@@ -171,7 +174,7 @@ No need for the `status` command in RStudio, the *Git* tab shows you in real tim
 
 > **By default, Git does not track anything. We need to tell it to do so. Let's do that now!** 
 
-#### At the terminal
+### At the terminal
 
 From the terminal, we can use the `git add` command. This tells git which file you care about and want to start tracking. This is called **Staging the file**.
 
@@ -190,7 +193,7 @@ Changes to be committed:
         new file:   script_1.R
 ```
 
-#### In RStudio
+### In Rstudio
 
 In RStudio, this is as simple as "checking off" the file in the Git tab. This is called **Staging the file**.
 
@@ -204,7 +207,7 @@ While you are at it, make sure to also check the `.gitignore file.` **What is a 
 
 > **Let's now make sure this new file is registered by git: this is called a _commit_** 
 
-#### At the terminal
+### At the terminal
 
 We have staged the file. Let's now take a snapshot of this file with the `git commit` command. It is important to add a useful message to your commit, a bit like a journal entry, so that you can remember what you committed. 
 
@@ -230,7 +233,7 @@ Date:   Wed Apr 8 18:19:53 2020 -0400
     First commit - adding script1
 ```
 
-#### In RStudio
+### In Rstudio
 
 In Rstudio, committing is a few clicks away.
 
@@ -252,7 +255,7 @@ In Rstudio, committing is a few clicks away.
 
 > **Let's now make some changes to this file and commit them** 
 
-#### At the terminal
+### At the terminal
 
 The code below opens the **nano** editor. [`Nano`](https://www.nano-editor.org/) is a simple command line file editor. Once the file is opened, you will see the (empty) content of the file.
 
@@ -291,7 +294,7 @@ git commit -m "First commit - adding script1"	# the -m flag adds a message to a 
 ```
 
 
-#### In RStudio
+### In Rstudio
 
 - Open your file in the editor, and add some modifications. Make sure to save it. When you open the git tab, you should see the following:
 
@@ -325,7 +328,7 @@ This image summarizes what we have learned so far. Each change in the repository
 
 ------
 
-### Exercise 2: All roads lead to GitHub, how to add a remote
+## Exercise 2: All roads lead to GitHub, how to add a remote
 
 After having created a repo on your local machine (and provided that you have configured git on your computer), you will be able to link your repo to GitHub, an online hub for repositories. 
 
@@ -355,7 +358,7 @@ The next thing is to tell your local git that you have created a new remote. You
 
 > **Let's now link your local repo with the GitHub "remote"**
 
-#### At the terminal
+### At the terminal
 
 - Tell git the address of your remote
 
@@ -387,7 +390,7 @@ Everything up-to-date
 ```
 There you go! you now have a copy of your repo on GitHub. Well done!
 
-#### In RStudio
+### In Rstudio
 
   - In Rstudio you have to click to the **New Branch** button in the git pane, in the top right corner of the pane: 
 
@@ -425,7 +428,7 @@ There you go! you now have a copy of your repo on GitHub. Well done! From now on
 
 ------
 
-### Exercise 3: Teamwork makes the dream work, or collabaring with git
+## Exercise 3: Teamwork makes the dream work, or collabaring with git
 
 Git is made for collaboration. In one image, this can be summarized like this:
 
@@ -486,7 +489,7 @@ Form teams of 3 and designate a **Repo Owner** for this exercise. For this exerc
 
 Cloning means "pulling" the repo from the remote, to make a copy on your computer. It is the mirror action of pushing the repo you created locally earlier. 
 
-#### At the terminal
+### At the terminal
 
 Cloning from the command line is very simple:
 
@@ -496,7 +499,7 @@ git clone *URL* 	# The URL of the repo created by the repo owner
 ```
 Well done, you have now set up a team and you are now technically working on the same repo.
 
-#### In Rstudio
+### In Rstudio
 
 You can clone a GitHub repo from Rstudio:
 
@@ -526,11 +529,11 @@ You can clone a GitHub repo from Rstudio:
 
 ------
 
-### Exercise 4: (Do The) Push and Pull, or the git workflow
+## Exercise 4: (Do The) Push and Pull, or the git workflow
 
 In this next exercise, we are going to use the repo you cloned at the previous exercise. We are now going to do the exercise of pushing and pulling to update the GitHub repo with changes we make locally.
 
-#### At the terminal
+### At the terminal
 
 The first step is to make sure you are up to date with the version of the repo that is on GitHub. Navigate to the cloned repo an use the `fetch` command. 
 
@@ -540,7 +543,7 @@ git fetch  # Fetch compares your local version with the remote version but does 
 
 Everything should be up to date, so all good.
 
-#### In RStudio
+### In Rstudio
 
 - In Rstudio, the first step is to create an Rstudio project within the folder that you cloned from GitHub. As a reminder, this is the only way to use git in the Rstudio context To do so, navigate to the R box in the top right corner and click on "New Project"
 
@@ -564,7 +567,7 @@ Everything should be up to date, so all good.
 
 > **Let's now learn how to makes changes in this repo and sync them with GitHub**
 
-#### At the terminal
+### At the terminal
 
 The next step is for one of the team members (other than the repo owner) to make a change. Make a change to the ReadMe file for instance.
 
@@ -599,7 +602,7 @@ To github.com:VLucet/gitWorkshop.git
    a992c9a..58c8cb7  main -> main
 ```
 
-#### In Rstudio
+### In Rstudio
 
  - Open the ReadMe in the editor and modify it. Save the changes. The git pane should look something like that:
  
@@ -613,7 +616,7 @@ To github.com:VLucet/gitWorkshop.git
 
 > **One group member has made changes to the repo, let's make sure the rest of the time is up to date as well!**
 
-#### At the terminal
+### At the terminal
 
 Now, two of the team members are not in sync with the changes. These people can see it with a `fetch`. Below I cannot show the outputs but you should be a little more familiar with these by now.
 
@@ -630,7 +633,7 @@ git pull origin main	# Nice! Git will print a nice summary with green + and red 
 
 Well done! You now know how to **push** and **pull**, **fetch** and **status** your way around a shared repo. You're the best.
 
-#### In Rstudio
+### In Rstudio
 
  - In order to bring yourself back in sync with the changes pushed by your teammate, you just need to pull those changes by clicking on the blue pull arrow in the git pane.
 
@@ -646,7 +649,7 @@ Well done! You now know how to **push** and **pull**, **fetch** and **status** y
 
 ------
 
-### Exercise 5 Git of war, or conflicts and how to resolve them
+## Exercise 5 Git of war, or conflicts and how to resolve them
 
 Now, let's do this again but a little differently. One person in the group to not have edited the `README` yet should do it now on their machine. Please add and commit but **do not push your changes yet** (see in the previous exercises.
 
@@ -656,7 +659,7 @@ Now, repo owner will go on GitHub and change the file. There are many types of f
 
 > Now, the person who changed the file on their machine will do the pulling procedure:
 
-#### At the terminal
+### At the terminal
 
 At the terminal, do the following:
 
@@ -666,7 +669,7 @@ git status 	# WOW! Status says that the commits are different... this might caus
 git pull 	# There is now a "conflict" and you need to resolve it
 ```
 
-#### In Rstudio
+### In Rstudio
 
 In Rstudio, try to push your changes. You should get a message explaining that you cannot do so. Instead, pull your changes and you will receive a message stating that a conflict was created.
 
@@ -682,7 +685,7 @@ Git doesn't know which changes to keep and which one to throw away. We need to m
 
 ![Commit merge](https://blog.developer.atlassian.com/wp-content/uploads/dac-import/merge-result.png)
 
-#### At the terminal
+### At the terminal
 
 You can use the `nano` editor to open the conflicted file. 
 
@@ -690,7 +693,7 @@ You can use the `nano` editor to open the conflicted file.
 nano *file*	# Opens file in nano 
 ```
 
-#### In Rstudio
+### In Rstudio
 
 Simply open the conflicted file in the editor.
 
@@ -712,7 +715,7 @@ You can choose to keep either of the changes or to keep both. all that matters i
 
 > Once you have decided what to keep, it is time to commit your change, and merge it with the remote repo. 
 
-#### At the terminal
+### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 git add -A 				# Once again, add all the changes
@@ -721,7 +724,7 @@ git push origin main			# Push it!
 git status				# All is good!
 ```
 
-#### In Rstudio
+### In Rstudio
 
 Simply add and commit the final version of the corrected file. You will see a message about a git merge.
 
@@ -731,19 +734,19 @@ Well done! Now the other team members will need to pull down this new commit mer
 
 ------
 
-### Exercise 6: The tree of git, or the basics of branching
+## Exercise 6: The tree of git, or the basics of branching
 
 A great way to make conflicts avoidable is to use the magic of branching. Branches are like alternate timelines that allow you to work on a snapshot of the repo at a given time. You start by "branching out of the main branch": this copies the current version of the repo and allows you to make changes on a separate "branch". 
 
 The first thing is to create the branch:
 
-#### At the terminal
+### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 git branch mynewbranch		# This simply creates the new branch
 ```
 
-#### In Rstudio
+### In Rstudio
 
 1. Click on the new branch button in the top right corner of the git pane.
 
@@ -760,7 +763,7 @@ git branch mynewbranch		# This simply creates the new branch
 ***
 > The branch is created, but you are still on the main branch. To be able to switch to the new branch, we need to "checkout' the branch.
 
-#### At the terminal
+### At the terminal
 
 ```{bash eval=FALSE, include=TRUE} 
 git checkout mynewbranch	# This makes you switch to the new branch
@@ -781,7 +784,7 @@ nothing to commit, working tree clean
 
 ***note***: *there is a shortcut to do those 2 commands in one line: `git checkout -b mynewbranch`*
 
-#### In Rstudio
+### In Rstudio
 
 Rstudio **automatically checks out the new branch, and publish it to the remote, when your create it**. You can switch branches very easily by using the drop down menu in the git pane (find it by clicking on whatever branch name is shown in git pane).
 
@@ -789,7 +792,7 @@ Rstudio **automatically checks out the new branch, and publish it to the remote,
 
 > You are now on the new branch! This branch is only on your local machine for now (unless you use Github). Let's add some changes and then commit and push so that you branch is saved on the remote!
 
-#### At the terminal
+### At the terminal
 
 ```{bash eval=FALSE, include=TRUE}
 # Do some changes in your repo! They will only be part of the commit history of your branch
@@ -820,7 +823,7 @@ To github.com:VLucet/gitWorkshop.git
  * [new branch]      mynewbranch -> mynewbranch
 ```
 
-#### In Rstudio
+### In Rstudio
 
 Modify the ReadMe again and push the changes to the new branch. 
 
@@ -828,7 +831,7 @@ Modify the ReadMe again and push the changes to the new branch.
 
 > Now, while one of the team member is adding commits to their new branch, someone else should keep adding changes to the main branch. Once this is done, it is time to merge the new branch with the main branch. 
 
-#### At the terminal
+### At the terminal
 
 Merging means doing a "pull request": you are pulling the new branch into the main branch. You therefore need to checkout the main branch and then *pull* the new branch into the main.
 
@@ -862,7 +865,7 @@ To github.com:VLucet/gitWorkshop.git
    
 ```
 
-#### In Rstudio
+### In Rstudio
 
 You cannot do this in Rstudio, but you can do this on GitHub (**DEMO**). 
 
