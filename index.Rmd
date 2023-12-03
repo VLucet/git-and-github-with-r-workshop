@@ -2,7 +2,7 @@
 title: "Git and GitHub from the Terminal & RStudio: An Introduction"
 author: Valentin Lucet
 output:
-  rmdformats::readthedown:
+  rmdformats::downcute:
     code_folding: show
     self_contained: no
     thumbnails: false
